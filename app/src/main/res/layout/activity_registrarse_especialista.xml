@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_loginbg1"
+    tools:context=".registrarse_especialista">
+
+
+    <LinearLayout
+        android:layout_width="306dp"
+        android:layout_height="626dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageLogoOne"
+            android:layout_width="125dp"
+            android:layout_height="107dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="63dp"
+            android:layout_marginEnd="63dp"
+            android:background="@drawable/img_logo1"
+            android:scaleType="fitXY"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/img_logo1" />
+
+        <TextView
+            android:id="@+id/txtnombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="7.32dp"
+            android:layout_marginEnd="48.07dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Nombre" />
+
+        <EditText
+            android:id="@+id/EditText_nombre"
+            android:layout_width="280dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/style_edit_text" />
+
+        <TextView
+            android:id="@+id/txtapellidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="7.32dp"
+            android:layout_marginEnd="48.07dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Apellidos" />
+
+        <EditText
+            android:id="@+id/EditText_apellidos"
+            android:layout_width="280dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/style_edit_text" />
+
+        <TextView
+            android:id="@+id/txtcorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="7.32dp"
+            android:layout_marginEnd="48.07dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Correo electronico" />
+
+        <EditText
+            android:id="@+id/EditText_correo_e"
+            android:layout_width="280dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/style_edit_text"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:id="@+id/txtpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="7.32dp"
+            android:layout_marginEnd="48.07dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Contraseña" />
+
+        <EditText
+            android:id="@+id/EditText_contrasena"
+            android:layout_width="280dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/style_edit_text"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/txtcedulaP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="7.32dp"
+            android:layout_marginEnd="48.07dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Cedula Profesional" />
+
+        <EditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="280dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/style_edit_text"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/button_Registro_bd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48.07dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="48.07dp"
+            android:background="@color/cyan_200"
+            android:paddingStart="27.47dp"
+            android:paddingTop="11.9dp"
+            android:paddingEnd="28.61dp"
+            android:paddingBottom="11.9dp"
+            android:singleLine="true"
+            android:text="Registrar"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
