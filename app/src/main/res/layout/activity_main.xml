@@ -9,57 +9,63 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="410dp"
-        android:layout_height="524dp"
+        android:layout_width="411dp"
+        android:layout_height="249dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="1dp">
+        app:layout_constraintVertical_bias="0.409">
 
         <ImageView
             android:id="@+id/imageDPAOne"
             android:layout_width="match_parent"
-            android:layout_height="324dp"
+            android:layout_height="227dp"
             android:background="@drawable/img_dpa1"
-            android:gravity="start"
+            android:gravity="center|end"
             android:scaleType="fitXY"
             tools:ignore="ContentDescription" />
 
-        <Button
-            android:id="@+id/button_Paciente"
-            android:background="@color/light_green_301"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="115dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="115dp"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:paddingStart="30dp"
-            android:paddingTop="13dp"
-            android:paddingEnd="30dp"
-            android:paddingBottom="13dp"
-            android:singleLine="true"
-            android:text="Paciente"
-            android:textAllCaps="false" />
-        <Button
-            android:id="@+id/button_Especialista"
-            android:background="@color/cyan_200"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="115dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="115dp"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:paddingStart="30dp"
-            android:paddingTop="13dp"
-            android:paddingEnd="30dp"
-            android:paddingBottom="13dp"
-            android:singleLine="true"
-            android:text="Especialista"
-            android:textAllCaps="false"
-            />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button_Especialista"
+        android:layout_width="221dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="92dp"
+        android:background="@drawable/btnazul"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingStart="30dp"
+        android:paddingTop="13dp"
+        android:paddingEnd="30dp"
+        android:paddingBottom="13dp"
+        android:singleLine="true"
+        android:text="Especialista"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="536dp" />
+
+    <Button
+        android:id="@+id/button_Paciente"
+        android:layout_width="216dp"
+        android:layout_height="51dp"
+        android:background="@drawable/btnverde"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingStart="30dp"
+        android:paddingTop="13dp"
+        android:paddingEnd="30dp"
+        android:paddingBottom="13dp"
+        android:singleLine="true"
+        android:text="Paciente"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="468dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

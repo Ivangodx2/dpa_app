@@ -2,98 +2,109 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TextEspeEmailAddress"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img_loginbg1"
+    android:background="@drawable/img_loginpacientebg"
     tools:context=".iniciar_sesion_especialista">
 
     <LinearLayout
-        android:layout_width="310dp"
-        android:layout_height="539dp"
+        android:layout_width="309dp"
+        android:layout_height="344dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.33">
 
-        <ImageView android:id="@+id/imageLogoOne"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="147dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginStart="48dp"
+        <ImageView
+            android:id="@+id/imageLogoOne"
             android:layout_width="167dp"
-            android:scaleType="fitXY"
-            tools:ignore="ContentDescription" tools:src="@drawable/img_logo1"/>
-        <TextView android:ellipsize="end"
-            android:id="@+id/txtCorreoElectron"
+            android:layout_height="147dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="40dp"
+            android:scaleType="fitXY"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/img_logo1" />
+
+        <TextView
+            android:id="@+id/txtCorreoElectron"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="48.07dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginStart="48dp"
             android:layout_marginTop="7.32dp"
-            android:layout_width="wrap_content"
+            android:layout_marginEnd="48.07dp"
+            android:ellipsize="end"
             android:singleLine="true"
-            android:text="Correo Electronico"
-            />
+            android:text="Correo Electronico" />
 
         <EditText
-            android:id="@+id/TextEspeEmailAddress"
-            android:layout_width="280dp"
-            android:layout_height="43dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/style_edit_text"
-            android:inputType="textEmailAddress" />
-        <TextView android:ellipsize="end"
-            android:id="@+id/EdittxtContrasena"
-            android:layout_gravity="center_horizontal"
+            android:id="@+id/editTextTextEmailAddress2"
+            android:layout_width="278dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="48.07dp"
+            android:layout_gravity="center"
+            android:background="@drawable/style_edit_text"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:id="@+id/EdittxtContrasena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginStart="48dp"
             android:layout_marginTop="7.32dp"
-            android:layout_width="wrap_content"
+            android:layout_marginEnd="48.07dp"
+            android:ellipsize="end"
             android:singleLine="true"
-            android:text="Contraseña"
-            />
+            android:text="Contraseña" />
+
         <EditText
             android:id="@+id/EdittextEsepePassword"
-            android:layout_width="280dp"
-            android:layout_height="43dp"
+            android:layout_width="277dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
             android:background="@drawable/style_edit_text"
-            android:inputType="textPassword" />
+            android:ems="10"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/button_Iniciar_S"
-            android:background="@color/light_green_300"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48.07dp"
-            android:layout_marginStart="48.07dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:paddingBottom="11.9dp"
-            android:paddingEnd="28.61dp"
-            android:paddingStart="27.47dp"
-            android:paddingTop="11.9dp"
-            android:singleLine="true"
-            android:text="Iniciar"
-            android:textAllCaps="false" />
-        <Button
-            android:ellipsize="end" android:gravity="center"
-            android:id="@+id/btnRegistrarse"
-            android:background="@color/cyan_200"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48.07dp"
-            android:layout_marginStart="48.07dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:paddingBottom="11.9dp"
-            android:paddingEnd="28.61dp"
-            android:paddingStart="27.47dp"
-            android:paddingTop="11.9dp"
-            android:singleLine="true"
-            android:text="Registrarse"
-            android:textAllCaps="false" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button_Iniciar_S"
+        android:layout_width="257dp"
+        android:layout_height="55dp"
+        android:background="@drawable/btnazul"
+        android:paddingStart="27.47dp"
+        android:paddingTop="11.9dp"
+        android:paddingEnd="28.61dp"
+        android:paddingBottom="11.9dp"
+        android:singleLine="true"
+        android:text="Iniciar"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="479dp" />
+
+    <Button
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="@drawable/btnazul"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingStart="27.47dp"
+        android:paddingTop="11.9dp"
+        android:paddingEnd="28.61dp"
+        android:paddingBottom="11.9dp"
+        android:singleLine="true"
+        android:text="Registrarse"
+        android:textAllCaps="false"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="744dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
