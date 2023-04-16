@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img_loginpacientebg"
+    android:background="@drawable/img_loginbg1"
     tools:context=".registrarse_especialista">
 
 
@@ -31,6 +31,7 @@
 
         <TextView
             android:id="@+id/txtnombre"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -43,6 +44,7 @@
 
         <EditText
             android:id="@+id/EditText_nombre"
+            android:textColor="@color/black"
             android:layout_width="280dp"
             android:layout_height="43dp"
             android:layout_gravity="center"
@@ -51,6 +53,7 @@
 
         <TextView
             android:id="@+id/txtapellidos"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -63,6 +66,7 @@
 
         <EditText
             android:id="@+id/EditText_apellidos"
+            android:textColor="@color/black"
             android:layout_width="280dp"
             android:layout_height="43dp"
             android:layout_gravity="center"
@@ -71,6 +75,7 @@
 
         <TextView
             android:id="@+id/txtcorreo"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -83,15 +88,17 @@
 
         <EditText
             android:id="@+id/EditText_correo_e"
-            android:layout_width="284dp"
-            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_width="280dp"
+            android:layout_height="43dp"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:background="@drawable/style_edit_text"
-            android:ems="10"
             android:inputType="textEmailAddress" />
 
         <TextView
             android:id="@+id/txtpassword"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -104,15 +111,17 @@
 
         <EditText
             android:id="@+id/EditText_contrasena"
-            android:layout_width="285dp"
-            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_width="280dp"
+            android:layout_height="43dp"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:background="@drawable/style_edit_text"
-            android:ems="10"
             android:inputType="textPassword" />
 
         <TextView
             android:id="@+id/txtcedulaP"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -124,7 +133,8 @@
             android:text="Cedula Profesional" />
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/editTextCedula"
+            android:textColor="@color/black"
             android:layout_width="280dp"
             android:layout_height="43dp"
             android:layout_gravity="center"
@@ -134,23 +144,21 @@
 
         <Button
             android:id="@+id/button_Registro_bd"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
-            android:layout_height="53dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="48.07dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="48.07dp"
-            android:background="@drawable/btnazul"
+            android:background="@color/cyan_200"
+            android:onClick="insertar"
             android:paddingStart="27.47dp"
             android:paddingTop="11.9dp"
             android:paddingEnd="28.61dp"
             android:paddingBottom="11.9dp"
             android:singleLine="true"
-            android:text="REGISTRAR"
-            android:textAllCaps="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_Registro_bd" />
-
+            android:text="Registrar"
+            android:textAllCaps="false" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
