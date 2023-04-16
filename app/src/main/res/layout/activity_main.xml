@@ -10,12 +10,13 @@
     <LinearLayout
         android:id="@+id/linearLayout"
 
-        android:layout_width="410dp"
-        android:layout_height="524dp"
+        android:layout_width="450dp"
+        android:layout_height="527dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="1dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageDPAOne"
@@ -28,13 +29,12 @@
 
         <Button
             android:id="@+id/button_Paciente"
-            android:textColor="@color/black"
-            android:background="@color/light_green_301"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="219dp"
+            android:layout_height="51dp"
             android:layout_marginStart="115dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="115dp"
+            android:background="@drawable/btnverde"
             android:ellipsize="end"
             android:gravity="center"
             android:paddingStart="30dp"
@@ -43,17 +43,17 @@
             android:paddingBottom="13dp"
             android:singleLine="true"
             android:text="Paciente"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/button_Especialista"
-            android:textColor="@color/black"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginStart="115dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="115dp"
-            android:background="@drawable/btn_style"
+            android:background="@drawable/btnazul"
             android:ellipsize="end"
             android:gravity="center"
             android:onClick="ir_inicio_S_espe"
@@ -64,7 +64,7 @@
             android:singleLine="true"
             android:text="Especialista"
             android:textAllCaps="false"
-            />
+            android:textColor="@color/black" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
