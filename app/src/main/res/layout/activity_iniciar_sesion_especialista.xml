@@ -4,111 +4,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_v1"
+    android:background="@drawable/img_loginpacientebg"
     tools:context=".iniciar_sesion_especialista">
 
     <LinearLayout
-        android:layout_width="310dp"
-        android:layout_height="539dp"
+        android:layout_width="282dp"
+        android:layout_height="314dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.216">
 
-        <ImageView android:id="@+id/imageLogoOne"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="147dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginStart="48dp"
-            android:layout_width="167dp"
-            android:scaleType="fitXY"
-            android:background="@drawable/img_logo1"
-            tools:ignore="ContentDescription" tools:src="@drawable/img_logo1"/>
-        <TextView android:ellipsize="end"
-            android:id="@+id/txtCorreoElectron"
-            android:textColor="@color/black"
-            android:layout_gravity="center_horizontal"
+        <ImageView
+            android:id="@+id/imageLogoOne"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="48.07dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/img_logo1"
+            android:scaleType="fitXY"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/img_logo1" />
+
+        <TextView
+            android:id="@+id/txtCorreoElectron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginStart="48dp"
             android:layout_marginTop="7.32dp"
-            android:layout_width="wrap_content"
+            android:layout_marginEnd="48.07dp"
+            android:ellipsize="end"
             android:singleLine="true"
             android:text="Correo Electronico"
-            />
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/TextEspeEmailAddress"
             android:layout_width="280dp"
             android:layout_height="43dp"
-            android:textColor="@color/black"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/style_edit_text"
-            android:inputType="textEmailAddress" />
-        <TextView android:ellipsize="end"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black" />
+
+        <TextView
             android:id="@+id/EdittxtContrasena"
-            android:textColor="@color/black"
-            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="48.07dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginStart="48dp"
             android:layout_marginTop="7.32dp"
-            android:layout_width="wrap_content"
+            android:layout_marginEnd="48.07dp"
+            android:ellipsize="end"
             android:singleLine="true"
             android:text="Contraseña"
-            />
+            android:textColor="@color/black" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true">
-        <EditText
-            android:id="@+id/EdittextEsepePassword"
-            android:textColor="@color/black"
-            android:layout_width="280dp"
-            android:layout_height="43dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/style_edit_text"
-            android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <Button
-            android:id="@+id/button_Iniciar_S"
-            android:textColor="@color/black"
-            android:background="@color/cyan_200"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48.07dp"
-            android:layout_marginStart="48.07dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:paddingBottom="11.9dp"
-            android:paddingEnd="28.61dp"
-            android:paddingStart="27.47dp"
-            android:paddingTop="11.9dp"
-            android:singleLine="true"
-            android:text="Iniciar"
-            android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/btnRegistrarse"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48.07dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="48.07dp"
-            android:background="@color/cyan_200"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:onClick="ir_registro_especialista"
-            android:paddingStart="27.47dp"
-            android:paddingTop="11.9dp"
-            android:paddingEnd="28.61dp"
-            android:paddingBottom="11.9dp"
-            android:singleLine="true"
-            android:text="Registrarse Especialista"
-            android:textAllCaps="false" />
+            <EditText
+                android:id="@+id/EdittextEsepePassword"
+                android:layout_width="280dp"
+                android:layout_height="43dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/style_edit_text"
+                android:inputType="textPassword"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="210dp"
+        android:layout_height="46dp"
+        android:background="@drawable/btnazul"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:onClick="ir_registro_especialista"
+        android:paddingStart="27.47dp"
+        android:paddingTop="11.9dp"
+        android:paddingEnd="28.61dp"
+        android:paddingBottom="11.9dp"
+        android:singleLine="true"
+        android:text="Registrarse Especialista"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="521dp" />
+
+    <Button
+        android:id="@+id/button_Iniciar_S"
+        android:layout_width="210dp"
+        android:layout_height="44dp"
+        android:background="@drawable/btnazul"
+        android:paddingStart="27.47dp"
+        android:paddingTop="11.9dp"
+        android:paddingEnd="28.61dp"
+        android:paddingBottom="11.9dp"
+        android:singleLine="true"
+        android:text="Iniciar"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="444dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
