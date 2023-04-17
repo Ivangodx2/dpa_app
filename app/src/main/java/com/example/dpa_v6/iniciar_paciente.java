@@ -1,6 +1,5 @@
 package com.example.dpa_v6;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -21,28 +20,29 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-public class iniciar_sesion_especialista extends AppCompatActivity {
+public class iniciar_paciente extends AppCompatActivity {
 
-    EditText edtCorreo,edtContra;
-    Button BtnEntrar;
+    EditText edtCorreo_p;
+
+    Button BtnInicio_p;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_iniciar_sesion_especialista);
-        edtCorreo=findViewById(R.id.TextEspeEmailAddress);
-        edtContra=findViewById(R.id.EdittextEsepePassword);
-        BtnEntrar=findViewById(R.id.button_Iniciar_S);
+        setContentView(R.layout.activity_iniciar_paciente);
+        edtCorreo_p=findViewById(R.id.TextEspeEmailAddress_p);
 
-        BtnEntrar.setOnClickListener(new View.OnClickListener() {
+        BtnInicio_p=findViewById(R.id.button_Iniciar_S_p);
+
+        BtnInicio_p.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validarUser("http://192.168.1.73/Base_DAtos_DPA/validacion_usuarios.php");
+                validarUser_p("http://192.168.1.73/Base_DAtos_DPA/validacion_usuario_p.php");
             }
         });
-
     }
 
-    private void validarUser(String URL){
+    private void validarUser_p(String URL){
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -50,21 +50,21 @@ public class iniciar_sesion_especialista extends AppCompatActivity {
                     Intent intent=new Intent(getApplicationContext(),home_especialista.class);
                     startActivity(intent);
                 }else {
-                    Toast.makeText(iniciar_sesion_especialista.this, "Correo o contraseña incorrecto", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(iniciar_paciente.this, "Correo incorrecto", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(iniciar_sesion_especialista.this, error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(iniciar_paciente.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> parametros= new HashMap<String,String>();
-                parametros.put("email",edtCorreo.getText().toString());
-                parametros.put("contrasena",edtContra.getText().toString());
-                return parametros;
+                Map<String,String> parametro= new HashMap<String,String>();
+                parametro.put("email",edtCorreo_p.getText().toString());
+
+                return parametro;
             }
         };
 
@@ -73,8 +73,8 @@ public class iniciar_sesion_especialista extends AppCompatActivity {
 
     }
 
-    public void ir_registro_especialista(View view){
-        Intent ir_registro_especialista = new Intent( this, registrarse_especialista.class);
-        startActivity(ir_registro_especialista);
+    public void ir_registro_pac(View view){
+        Intent registro_pac = new Intent( this, registrarse_paciente.class);
+        startActivity(registro_pac);
     }
 }

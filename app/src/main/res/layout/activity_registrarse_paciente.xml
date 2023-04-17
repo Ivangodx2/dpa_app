@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_v1"
-    tools:context=".registrarse_especialista">
-
+    tools:context=".registrarse_paciente">
 
     <LinearLayout
         android:layout_width="306dp"
@@ -43,7 +42,7 @@
             android:text="Nombre" />
 
         <EditText
-            android:id="@+id/EditText_nombre"
+            android:id="@+id/EditText_nombre_p"
             android:textColor="@color/black"
             android:layout_width="280dp"
             android:layout_height="43dp"
@@ -52,7 +51,7 @@
             android:background="@drawable/style_edit_text" />
 
         <TextView
-            android:id="@+id/txtapellidos"
+            android:id="@+id/txtapellidos_p"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,7 +64,7 @@
             android:text="Apellidos" />
 
         <EditText
-            android:id="@+id/EditText_apellidos"
+            android:id="@+id/EditText_apellidos_p"
             android:textColor="@color/black"
             android:layout_width="280dp"
             android:layout_height="43dp"
@@ -87,7 +86,7 @@
             android:text="Correo electronico" />
 
         <EditText
-            android:id="@+id/EditText_correo_e"
+            android:id="@+id/EditText_correo_e_p"
             android:textColor="@color/black"
             android:layout_width="280dp"
             android:layout_height="43dp"
@@ -97,7 +96,7 @@
             android:inputType="textEmailAddress" />
 
         <TextView
-            android:id="@+id/txtpassword"
+            android:id="@+id/txtnum_tele"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -107,26 +106,24 @@
             android:layout_marginEnd="48.07dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="Contraseña" />
+            android:text="Número teléfonico" />
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true">
         <EditText
-            android:id="@+id/EditText_contrasena"
+            android:id="@+id/editTextTelefono_p"
             android:textColor="@color/black"
             android:layout_width="280dp"
             android:layout_height="43dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/style_edit_text"
-            android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:ems="10"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/txtcedulaP"
+            android:id="@+id/txtedad"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -136,38 +133,42 @@
             android:layout_marginEnd="48.07dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="Cedula Profesional" />
+            android:text="Edad" />
 
 
         <EditText
-            android:id="@+id/editTextCedula"
-            android:textColor="@color/black"
-            android:layout_width="280dp"
+            android:id="@+id/editTextEdad_p"
+            android:layout_width="150dp"
             android:layout_height="43dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="0dp"
             android:background="@drawable/style_edit_text"
-            android:inputType="number" />
+            android:ems="10"
+            android:inputType="number"
+            android:maxLength="3"
+            android:paddingLeft="65dp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/button_Registro_bd"
-            android:textColor="@color/black"
+            android:id="@+id/button_Registro_bd_pac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="48.07dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="48.07dp"
-            android:background="@color/cyan_200"
-            android:onClick="insertar"
+            android:background="@color/light_green_300"
+            android:onClick="insertar_p"
             android:paddingStart="27.47dp"
             android:paddingTop="11.9dp"
             android:paddingEnd="28.61dp"
             android:paddingBottom="11.9dp"
             android:singleLine="true"
             android:text="Registrar"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
 
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

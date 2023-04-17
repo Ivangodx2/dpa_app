@@ -14,6 +14,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void ir_inicio_pac(View view){
+        Intent inicios_s_pac = new Intent( this, iniciar_paciente.class);
+        startActivity(inicios_s_pac);
+    }
     public void ir_inicio_S_espe(View view){
         Intent inicios_s_es = new Intent( this, iniciar_sesion_especialista.class);
         startActivity(inicios_s_es);
