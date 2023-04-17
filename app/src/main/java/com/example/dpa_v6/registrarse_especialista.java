@@ -17,8 +17,8 @@ import android.widget.Toast;
 import org.json.*;
 
 public class registrarse_especialista extends AppCompatActivity {
-EditText e1,e2,e3,e4,e5,e6,e7,e8;
-Button b,mostrar,buscar;
+EditText e1,e2,e3,e4,e5;
+Button b;
 
 RequestQueue requestQueue;
     @Override
