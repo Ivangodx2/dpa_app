@@ -7,6 +7,7 @@
     android:background="@drawable/img_loginbg1">
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="308dp"
         android:layout_height="282dp"
         android:orientation="vertical"
@@ -56,11 +57,13 @@
         android:id="@+id/button2"
         android:layout_width="229dp"
         android:layout_height="55dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/btnnaranja"
         android:text="Aceptar"
         android:textColor="#000000"
         android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="395dp" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
