@@ -77,4 +77,9 @@ public class iniciar_sesion_especialista extends AppCompatActivity {
         Intent ir_registro_especialista = new Intent( this, registrarse_especialista.class);
         startActivity(ir_registro_especialista);
     }
+
+    public void ir_rec_contra_espe(View view){
+        Intent ir_rec_contra = new Intent( this, recuperar_codigo.class);
+        startActivity(ir_rec_contra);
+    }
 }

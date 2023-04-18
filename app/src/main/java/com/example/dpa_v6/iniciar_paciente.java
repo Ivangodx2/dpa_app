@@ -77,4 +77,6 @@ public class iniciar_paciente extends AppCompatActivity {
         Intent registro_pac = new Intent( this, registrarse_paciente.class);
         startActivity(registro_pac);
     }
+
+
 }
