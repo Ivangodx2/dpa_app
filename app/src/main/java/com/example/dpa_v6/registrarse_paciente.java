@@ -41,7 +41,7 @@ public class registrarse_paciente extends AppCompatActivity {
         final String num_telef=p4.getText().toString();
         final String edad=p5.getText().toString();
 
-        String url="http://192.168.1.73/Base_DAtos_DPA/ingresar_dtos_paciente.php?nombre="+nombre+"&apellidos="+apellidos+"&email="+correo_e+"&num_telef="+num_telef+"&edad="+edad;
+        String url="http://192.168.0.198/Base_DAtos_DPA/ingresar_dtos_paciente.php?nombre="+nombre+"&apellidos="+apellidos+"&email="+correo_e+"&num_telef="+num_telef+"&edad="+edad;
         RequestQueue servicio= Volley.newRequestQueue(this);
         StringRequest respuesta=new StringRequest(
                 Request.Method.GET, url,(response) -> {

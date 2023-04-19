@@ -36,7 +36,7 @@ public class iniciar_sesion_especialista extends AppCompatActivity {
         BtnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validarUser("http://192.168.1.73/Base_DAtos_DPA/validacion_usuarios.php");
+                validarUser("http://192.168.0.198/Base_DAtos_DPA/validacion_usuarios.php");
             }
         });
 

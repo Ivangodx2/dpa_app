@@ -148,6 +148,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/style_edit_text"
             android:inputType="number"
+            android:onClick="registrarEspecialista"
             android:textColor="@color/black" />
 
         <Button
@@ -158,7 +159,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="48.07dp"
             android:background="@drawable/btnazul"
-            android:onClick="insertar"
+            android:onClick="registrarEspecialista"
             android:paddingStart="27.47dp"
             android:paddingTop="11.9dp"
             android:paddingEnd="28.61dp"

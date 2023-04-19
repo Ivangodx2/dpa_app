@@ -37,7 +37,7 @@ public class iniciar_paciente extends AppCompatActivity {
         BtnInicio_p.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validarUser_p("http://192.168.1.73/Base_DAtos_DPA/validacion_usuario_p.php");
+                validarUser_p("http://192.168.0.198/Base_DAtos_DPA/validacion_usuario_p.php");
             }
         });
     }

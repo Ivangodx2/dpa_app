@@ -53,8 +53,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="291dp"
-        android:layout_height="265dp"
+        android:layout_width="298dp"
+        android:layout_height="308dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,6 +95,16 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/style_edit_text"
             android:inputType="textEmailAddress"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/EdittextContra_Pas"
+            android:layout_width="280dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/style_edit_text"
+            android:inputType="textPassword"
             android:textColor="@color/black" />
 
 
