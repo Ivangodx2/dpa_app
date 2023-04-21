@@ -4,39 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_v1"
+    android:background="@drawable/img_loginpacientebg"
     tools:context=".home_especialista">
 
 
+    <TextView
+        android:id="@+id/txtHometit"
+        android:layout_width="241dp"
+        android:layout_height="66dp"
+        android:background="@drawable/Hme"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:singleLine="true"
+        app:layout_constraintBottom_toTopOf="@+id/linearColumnhometit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.647" />
+
     <LinearLayout
         android:id="@+id/linearColumnhometit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="405dp"
+        android:layout_height="313dp"
         android:layout_gravity="bottom|center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/txtHometit"
-            android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:layout_marginStart="13.7dp"
-            android:layout_marginEnd="13.7dp"
-            android:ellipsize="end"
-            android:gravity="center_horizontal"
-            android:singleLine="true"
-            android:text="HOME" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.481">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnPacientes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/btnSintomas"
+            android:layout_width="345dp"
+            android:layout_height="86dp"
             android:layout_marginStart="7dp"
             android:layout_marginTop="28.37dp"
             android:layout_marginEnd="8.01dp"
+            android:background="@drawable/btnpacien"
             android:ellipsize="end"
             android:gravity="center"
             android:paddingStart="34.33dp"
@@ -44,33 +49,16 @@
             android:paddingEnd="34.33dp"
             android:paddingBottom="9dp"
             android:singleLine="true"
-            android:text="PACIENTES"
             android:textAllCaps="false" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnResultados"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="25.6dp"
-            android:layout_marginEnd="8.1dp"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:paddingStart="34.33dp"
-            android:paddingTop="9.15dp"
-            android:paddingEnd="33.19dp"
-            android:paddingBottom="9.15dp"
-            android:singleLine="true"
-            android:text="RESULTADOS"
-            android:textAllCaps="false" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnComprobacin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/btnEscucha"
+            android:layout_width="346dp"
+            android:layout_height="89dp"
             android:layout_marginStart="7dp"
             android:layout_marginTop="38.43dp"
             android:layout_marginEnd="8.1dp"
+            android:background="@drawable/btncompro"
             android:ellipsize="end"
             android:gravity="center"
             android:paddingStart="16dp"
@@ -78,99 +66,19 @@
             android:paddingEnd="16dp"
             android:paddingBottom="12dp"
             android:singleLine="true"
-            android:text="COMPROBACIÓN"
             android:textAllCaps="false" />
 
-        <LinearLayout
-            android:id="@+id/linearRowpolygonone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="140dp"
-            android:orientation="horizontal">
-
-            <FrameLayout
-                android:id="@+id/frameStackpolygonone"
-                android:layout_width="66.38dp"
-                android:layout_height="51.2dp"
-                android:layout_marginStart="18.3dp"
-                android:layout_marginTop="2.75dp"
-                android:layout_marginBottom="3.6dp">
-
-                <ImageView
-                    android:id="@+id/imagePolygonOne"
-                    android:layout_width="66.38dp"
-                    android:layout_height="64.09dp"
-                    android:layout_gravity="start"
-                    android:scaleType="fitXY"
-
-                    tools:ignore="ContentDescription" />
-
-                <ImageView
-                    android:id="@+id/imageNotification"
-                    android:layout_width="40.06dp"
-                    android:layout_height="45.7dp"
-                    android:layout_gravity="bottom|center"
-                    android:layout_marginStart="12.59dp"
-                    android:layout_marginTop="9.15dp"
-                    android:layout_marginEnd="12.58dp"
-                    android:layout_marginBottom="4.58dp"
-                    android:scaleType="fitXY"
-
-                    tools:ignore="ContentDescription" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/frameStackpolygontwo"
-                android:layout_width="66.38dp"
-                android:layout_height="51.24dp"
-                android:layout_marginStart="103dp"
-                android:layout_marginTop="2.75dp"
-                android:layout_marginEnd="10.03dp"
-                android:layout_marginBottom="3.66dp">
-
-                <ImageView
-                    android:id="@+id/imagePolygonTwo"
-                    android:layout_width="66.38dp"
-                    android:layout_height="64.09dp"
-                    android:layout_gravity="start"
-                    android:scaleType="fitXY"
-
-                    tools:ignore="ContentDescription" />
-
-                <FrameLayout
-                    android:id="@+id/frameStacklock"
-                    android:layout_width="50.36dp"
-                    android:layout_height="35.69dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="8.01dp"
-                    android:layout_marginTop="7.32dp"
-                    android:layout_marginEnd="8.01dp"
-                    android:layout_marginBottom="8.24dp">
-
-                    <ImageView
-                        android:id="@+id/imageLock"
-                        android:layout_width="24.03dp"
-                        android:layout_height="41.2dp"
-                        android:layout_gravity="top|end"
-                        android:layout_marginStart="11.4dp"
-                        android:layout_marginBottom="9.15dp"
-                        android:scaleType="fitXY"
-
-                        tools:ignore="ContentDescription" />
-
-                    <ImageView
-                        android:id="@+id/imageUser"
-                        android:layout_width="34.33dp"
-                        android:layout_height="41.2dp"
-                        android:layout_gravity="bottom|start"
-                        android:layout_marginTop="9.15dp"
-                        android:layout_marginEnd="11.44dp"
-                        android:scaleType="fitXY"
-
-                        tools:ignore="ContentDescription" />
-                </FrameLayout>
-            </FrameLayout>
-        </LinearLayout>
     </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="469dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearColumnhometit"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
