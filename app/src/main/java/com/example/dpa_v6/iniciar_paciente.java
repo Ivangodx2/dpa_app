@@ -78,5 +78,10 @@ public class iniciar_paciente extends AppCompatActivity {
         startActivity(registro_pac);
     }
 
+    public void ir_rec_contra_p(View view){
+        Intent rec_contra = new Intent( this, recuperar_contrasena.class);
+        startActivity(rec_contra);
+    }
+
 
 }

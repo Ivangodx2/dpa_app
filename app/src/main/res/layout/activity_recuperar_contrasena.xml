@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img_loginbg1"
-    tools:context=".recuperar_codigo">
+    tools:context=".recuperar_contrasena">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -41,11 +41,11 @@
             android:layout_marginEnd="48.07dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="Código recibido de su correo"
+            android:text="Escribe tu correo"
             android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/textView"
+        <EditText
+            android:id="@+id/EdittextCorreo_RC"
             android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -55,17 +55,19 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_recuperarcontra"
         android:layout_width="229dp"
         android:layout_height="55dp"
         android:layout_marginTop="36dp"
         android:background="@drawable/btnnaranja"
-        android:text="Aceptar"
+        android:text="Enviar"
         android:textColor="#000000"
         android:textIsSelectable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintHorizontal_bias="0.554"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.713" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

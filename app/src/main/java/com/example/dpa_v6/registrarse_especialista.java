@@ -3,10 +3,7 @@ package com.example.dpa_v6;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -70,10 +67,14 @@ public class registrarse_especialista extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Ingresar datos faltantes", Toast.LENGTH_SHORT).show();
 
                 }else{
+                    //guardar datos
                     postdtos(nombre_e,apellidos_e,cedula_p_e);
+                    //registro mediante firebase
                     registrarEspecialista(v);
                     Toast.makeText(getApplicationContext(), "REGISTO HECHO", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), iniciar_sesion_especialista.class);
+                    startActivity(i);
+                    finish();
                 }
             }
         });
@@ -90,7 +91,6 @@ public class registrarse_especialista extends AppCompatActivity {
         datos_especialista.collection("reg_especialista").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
-
 
             }
             }).addOnFailureListener(new OnFailureListener() {

@@ -93,7 +93,7 @@
         android:background="@drawable/btnazul"
         android:ellipsize="end"
         android:gravity="center"
-        android:onClick="ir_registro_especialista"
+        android:onClick="ir_reg_especialista"
         android:paddingStart="27.47dp"
         android:paddingTop="11.9dp"
         android:paddingEnd="28.61dp"
@@ -111,8 +111,9 @@
         android:id="@+id/button_Iniciar_S"
         android:layout_width="210dp"
         android:layout_height="44dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="76dp"
         android:background="@drawable/btnazul"
+        android:onClick="iniciarSesion_espe"
         android:paddingStart="27.47dp"
         android:paddingTop="11.9dp"
         android:paddingEnd="28.61dp"
@@ -124,5 +125,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+        app:layout_constraintTop_toBottomOf="@+id/olvide_contra_e" />
+
+    <Button
+        android:id="@+id/olvide_contra_e"
+        android:layout_width="284dp"
+        android:layout_height="44dp"
+        android:background="@drawable/btn_style"
+        android:onClick="ir_rec_contra_e"
+        android:text="¿Olvidaste tu contraseña?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,4 +13,10 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    
+    <style name="Butomnav">
+        <item name="android:background">#57333333</item>
+        <item name="itemIconTint">#0040FF</item>
+        <item name="itemTextColor">#FFFFFF</item>
+    </style>
 </resources>

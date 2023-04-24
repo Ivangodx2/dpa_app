@@ -35,7 +35,6 @@
         android:id="@+id/button_Iniciar_S_p"
         android:layout_width="199dp"
         android:layout_height="51dp"
-        android:layout_marginTop="120dp"
         android:background="@drawable/btnverde"
         android:paddingStart="27.47dp"
         android:paddingTop="11.9dp"
@@ -48,8 +47,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/olvide_contrasena_p"
+        app:layout_constraintVertical_bias="0.356" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -97,6 +96,19 @@
             android:inputType="textEmailAddress"
             android:textColor="@color/black" />
 
+        <TextView
+            android:id="@+id/EdittxtContrasena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="7.32dp"
+            android:layout_marginEnd="48.07dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Contraseña"
+            android:textColor="@color/black" />
+
         <EditText
             android:id="@+id/EdittextContra_Pas"
             android:layout_width="280dp"
@@ -109,4 +121,18 @@
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/olvide_contrasena_p"
+        android:layout_width="284dp"
+        android:layout_height="44dp"
+        android:background="@drawable/btn_style"
+        android:onClick="ir_rec_contra_p"
+        android:text="¿Olvidaste tu contraseña?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.073" />
 </androidx.constraintlayout.widget.ConstraintLayout>

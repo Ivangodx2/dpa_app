@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_fragment_esp"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="Home"/>
+    <item
+        android:id="@+id/pacientes_fragment_es"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:title="Pacientes"/>
+    <item
+        android:id="@+id/salirsesion_e"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="Comprobar"/>
+</menu>
