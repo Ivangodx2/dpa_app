@@ -9,15 +9,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout5"
-        android:layout_width="304dp"
-        android:layout_height="534dp"
+        android:layout_width="313dp"
+        android:layout_height="675dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.324">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageLogoOne"
@@ -49,7 +47,8 @@
             android:layout_width="280dp"
             android:layout_height="43dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/style_edit_text"
             android:textColor="@color/black" />
 
@@ -71,7 +70,7 @@
             android:layout_width="280dp"
             android:layout_height="43dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/style_edit_text"
             android:textColor="@color/black" />
 
@@ -93,10 +92,40 @@
             android:layout_width="280dp"
             android:layout_height="43dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/style_edit_text"
             android:inputType="textEmailAddress"
             android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtpassw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="7.32dp"
+            android:layout_marginEnd="48.07dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Contraseña"
+            android:textColor="@color/black" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/EditText_contrasena_p"
+                android:layout_width="280dp"
+                android:layout_height="43dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/style_edit_text"
+                android:inputType="textPassword"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <TextView
             android:id="@+id/txtnum_tele"
@@ -117,7 +146,8 @@
             android:layout_width="280dp"
             android:layout_height="43dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/style_edit_text"
             android:ems="10"
             android:inputType="phone"
@@ -131,7 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="48dp"
-            android:layout_marginTop="7.32dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="48.07dp"
             android:ellipsize="end"
             android:singleLine="true"
@@ -154,25 +184,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <Button
+            android:id="@+id/button_Registro_bd_pac"
+            android:layout_width="195dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btnverde"
+            android:onClick="insertar_p"
+            android:paddingStart="27.47dp"
+            android:paddingTop="11.9dp"
+            android:paddingEnd="28.61dp"
+            android:paddingBottom="11.9dp"
+            android:singleLine="true"
+            android:layout_gravity="center"
+            android:text="Registrar"
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
+
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button_Registro_bd_pac"
-        android:layout_width="195dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/btnverde"
-        android:onClick="insertar_p"
-        android:paddingStart="27.47dp"
-        android:paddingTop="11.9dp"
-        android:paddingEnd="28.61dp"
-        android:paddingBottom="11.9dp"
-        android:singleLine="true"
-        android:text="Registrar"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

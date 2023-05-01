@@ -1,9 +1,13 @@
 package com.example.dpa_v6;
 
+import static android.content.ContentValues.TAG;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,72 +20,68 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class iniciar_paciente extends AppCompatActivity {
 
-    EditText edtCorreo_p;
-
-    Button BtnInicio_p;
+    private FirebaseAuth mAuth;
+    EditText edtCorreo_p,edtContra_p;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iniciar_paciente);
         edtCorreo_p=findViewById(R.id.TextEspeEmailAddress_p);
+        edtContra_p=findViewById(R.id.EdittextContra_Pas);
 
-        BtnInicio_p=findViewById(R.id.button_Iniciar_S_p);
-
-        BtnInicio_p.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validarUser_p("http://192.168.0.198/Base_DAtos_DPA/validacion_usuario_p.php");
-            }
-        });
-    }
-
-    private void validarUser_p(String URL){
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                if(!response.isEmpty()){
-                    Intent intent=new Intent(getApplicationContext(),home_especialista.class);
-                    startActivity(intent);
-                }else {
-                    Toast.makeText(iniciar_paciente.this, "Correo incorrecto", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(iniciar_paciente.this, error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> parametro= new HashMap<String,String>();
-                parametro.put("email",edtCorreo_p.getText().toString());
-
-                return parametro;
-            }
-        };
-
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        mAuth = FirebaseAuth.getInstance();
 
     }
 
-    public void ir_registro_pac(View view){
-        Intent registro_pac = new Intent( this, registrarse_paciente.class);
-        startActivity(registro_pac);
+    public void iniciarSesion_pac (View view){
+
+        mAuth.signInWithEmailAndPassword(edtCorreo_p.getText().toString(),edtContra_p.getText().toString())
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Intent intent= new Intent(getApplicationContext(), Home_pacientes.class);
+                            startActivity(intent);
+                            Toast.makeText(getApplicationContext(), "Sesion iniciada", Toast.LENGTH_SHORT).show();
+                            //updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "Datos incorrectos", task.getException());
+                            Toast.makeText(getApplicationContext(), "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            //updateUI(null);
+                        }
+                    }
+                });
+    }
+
+    public void ir_reg_paciente(View view){
+        Intent reg_paciente = new Intent( this, registrarse_paciente.class);
+        startActivity(reg_paciente);
     }
 
     public void ir_rec_contra_p(View view){
         Intent rec_contra = new Intent( this, recuperar_contrasena.class);
         startActivity(rec_contra);
     }
+
+
 
 
 }

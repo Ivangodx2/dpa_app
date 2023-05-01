@@ -33,11 +33,11 @@ public class registrarse_especialista extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore datos_especialista;
-     EditText enombre1;
-     EditText eapelli2;
-     EditText ecorreo3;
-     EditText econtra4;
-     EditText ecedula5;
+    EditText enombre1;
+    EditText eapelli2;
+    EditText ecorreo3;
+    EditText econtra4;
+    EditText ecedula5;
     Button btn_dtos_espe;
 
 
@@ -49,32 +49,29 @@ public class registrarse_especialista extends AppCompatActivity {
 
 
         datos_especialista = FirebaseFirestore.getInstance();
-        enombre1= findViewById(R.id.EditText_nombre);
-        eapelli2= findViewById(R.id.EditText_apellidos);
-        ecorreo3= findViewById(R.id.EditText_correo_e);
-        econtra4= findViewById(R.id.EditText_contrasena);
-        ecedula5= findViewById(R.id.editTextCedula);
-        btn_dtos_espe= findViewById(R.id.button_Registro_bd);
+        enombre1 = findViewById(R.id.EditText_nombre);
+        eapelli2 = findViewById(R.id.EditText_apellidos);
+        ecorreo3 = findViewById(R.id.EditText_correo_e);
+        econtra4 = findViewById(R.id.EditText_contrasena);
+        ecedula5 = findViewById(R.id.editTextCedula);
+        btn_dtos_espe = findViewById(R.id.button_Registro_bd);
 
         btn_dtos_espe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nombre_e = enombre1.getText().toString();
                 String apellidos_e = eapelli2.getText().toString();
+                String correo_e = ecorreo3.getText().toString().trim();
                 String cedula_p_e = ecedula5.getText().toString().trim();
+                String contrasena_e = econtra4.getText().toString();
 
-                if (nombre_e.isEmpty() && apellidos_e.isEmpty() && cedula_p_e.isEmpty() ){
+
+                if (nombre_e.isEmpty() && apellidos_e.isEmpty() && cedula_p_e.isEmpty() && correo_e.isEmpty() && contrasena_e.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Ingresar datos faltantes", Toast.LENGTH_SHORT).show();
 
-                }else{
+                } else {
                     //guardar datos
-                    postdtos(nombre_e,apellidos_e,cedula_p_e);
-                    //registro mediante firebase
-                    registrarEspecialista(v);
-                    Toast.makeText(getApplicationContext(), "REGISTO HECHO", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(getApplicationContext(), iniciar_sesion_especialista.class);
-                    startActivity(i);
-                    finish();
+                    registrarEspecialista(nombre_e, apellidos_e, correo_e, cedula_p_e, contrasena_e);
                 }
             }
         });
@@ -82,56 +79,38 @@ public class registrarse_especialista extends AppCompatActivity {
 
     }
 
-    private void postdtos(String nombre_e, String apellidos_e, String cedula_p_e) {
-        Map<String, Object> map = new HashMap<>();
-        map.put("nombre", nombre_e);
-        map.put("apellidos", apellidos_e);
-        map.put("cedula_pro", cedula_p_e);
-
-        datos_especialista.collection("reg_especialista").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+    private void registrarEspecialista(String nombre_e, String apellidos_e, String correo_e, String cedula_p_e, String contrasena_e) {
+        mAuth.createUserWithEmailAndPassword(correo_e, contrasena_e).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
-            public void onSuccess(DocumentReference documentReference) {
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                String id = mAuth.getCurrentUser().getUid();
+                Map<String, Object> map = new HashMap<>();
+                map.put("id", id);
+                map.put("nombre", nombre_e);
+                map.put("apellidos", apellidos_e);
+                map.put("correo_e_e", correo_e);
+                map.put("cedula_p", cedula_p_e);
+                map.put("contra_e", contrasena_e);
+                datos_especialista.collection("reg_especialista").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        startActivity(new Intent(registrarse_especialista.this, iniciar_sesion_especialista.class));
+                        Toast.makeText(getApplicationContext(), "REGISTO HECHO", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(), "Error al guardar", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
             }
-            }).addOnFailureListener(new OnFailureListener() {
+        }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(getApplicationContext(), "No se guardaron los datos", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
 
     }
-
-    public void registrarEspecialista(View view){
-
-        mAuth.createUserWithEmailAndPassword(ecorreo3.getText().toString(), econtra4.getText().toString())
-
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                            //updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-
-                            Toast.makeText(getApplicationContext(), "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-
-                            //updateUI(null);
-                        }
-                    }
-                });}
-
 }
