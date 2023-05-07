@@ -15,6 +15,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".sintomas_oprime"
+            android:exported="false" />
+        <activity
+            android:name=".FullScreenImg"
+            android:exported="false" />
+        <activity
             android:name=".sintomas_visualiza"
             android:exported="false" />
         <activity

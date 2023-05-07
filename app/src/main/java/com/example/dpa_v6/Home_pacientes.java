@@ -7,7 +7,9 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -22,6 +24,8 @@ public class Home_pacientes extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseFirestore db;
     private String idPaciente;
+
+    Button CerrarS;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +36,20 @@ public class Home_pacientes extends AppCompatActivity {
         nombre_paciente = findViewById(R.id.textNombrePaciente);
         db = FirebaseFirestore.getInstance();
         idPaciente = mAuth.getCurrentUser().getUid();
+        CerrarS = findViewById(R.id.Cerrar_S);
+
+        //Cerrar sesion
+        CerrarS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CerrarSesion_p();
+            }
+        });
 
 
+
+
+        //Leer nombre del usuario
         DocumentReference documentReference = db.collection("reg_paciente").document(idPaciente);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
@@ -59,4 +75,12 @@ public class Home_pacientes extends AppCompatActivity {
         Intent visualiza_s = new Intent( this, sintomas_visualiza.class);
         startActivity(visualiza_s);
     }
+
+    private void CerrarSesion_p(){
+        mAuth.signOut();
+        startActivity(new Intent(Home_pacientes.this,iniciar_paciente.class));
+        Toast.makeText(this, "Se ha cerrado sesión", Toast.LENGTH_SHORT).show();
+    }
+
+
 }

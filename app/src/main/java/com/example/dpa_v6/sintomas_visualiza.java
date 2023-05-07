@@ -2,14 +2,20 @@ package com.example.dpa_v6;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.dpa_v6.Grid_imgs_adapter.Imagenes_visualizar;
 
 public class sintomas_visualiza extends AppCompatActivity {
 
@@ -22,7 +28,6 @@ public class sintomas_visualiza extends AppCompatActivity {
 
     int resultado_encu=0;
     int Ntitulo_f=1;
-    boolean isImageFitToScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +36,6 @@ public class sintomas_visualiza extends AppCompatActivity {
         img1 = (ImageView) findViewById(R.id.imageViewF1);
         img2 = (ImageView) findViewById(R.id.imageViewF2);
         img3 = (ImageView) findViewById(R.id.imageViewF3);
-
-
-
 
         opc1f = (RadioButton) findViewById(R.id.radioButton);
         opc2f = (RadioButton) findViewById(R.id.radioButton2);
@@ -45,6 +47,7 @@ public class sintomas_visualiza extends AppCompatActivity {
 
         siguiente_f=(Button) findViewById(R.id.siguiente_fobia);
         btnsalir_f=(Button) findViewById(R.id.salir_fobia);
+
 
     }
 

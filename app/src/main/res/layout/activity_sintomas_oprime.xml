@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_loginpaciente"
+    tools:context=".sintomas_oprime">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/Mipuntuacion"
+            android:text="Mi Puntuacion:"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_logohv"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/huevo_logo"/>
+
+        <TextView
+            android:id="@+id/puntaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="25dp"/>
+
+        <TextView
+            android:id="@+id/menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MENÚ"
+            android:textSize="25dp"/>
+
+        <Button
+            android:id="@+id/jugar_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jugar" />
+
+        <Button
+            android:id="@+id/button_Puntaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Puntaje" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>
