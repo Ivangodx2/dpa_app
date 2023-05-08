@@ -63,6 +63,7 @@
         android:layout_height="59dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/btnoprime"
+        android:onClick="ir_reg_presiona"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,6 +74,7 @@
         android:layout_width="302dp"
         android:layout_height="59dp"
         android:layout_marginTop="12dp"
+
         android:background="@drawable/btnidenti"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
@@ -93,12 +95,16 @@
 
     <TextView
         android:id="@+id/textNombrePaciente"
-        android:layout_width="174dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         android:hint="usuario"
+        android:background="#fff"
+
+        android:textColor="@color/black"
         android:textSize="20sp"
+        android:paddingLeft="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -106,10 +112,11 @@
         android:id="@+id/Cerrar_S"
         android:layout_width="159dp"
         android:layout_height="46dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_style_inicio"
         android:text="Cerrar sesión"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_diagnostico" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

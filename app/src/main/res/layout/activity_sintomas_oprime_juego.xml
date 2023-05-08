@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/costal_bg"
+    tools:context=".sintomas_oprime_juego">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--Informacion del juego-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:src="@drawable/mazo_game"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+            <TextView
+                android:id="@+id/P_contador"
+                android:text="0"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:layout_marginStart="30dp"
+                />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="15dp"
+                app:lottie_imageAssetsFolder="assets"
+                app:lottie_fileName="tiempo.json"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true"/>
+
+            <TextView
+                android:id="@+id/P_tiempo"
+                android:text="0S"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--Juego-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/P_huevo"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:src="@drawable/huevo_game_sf"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>

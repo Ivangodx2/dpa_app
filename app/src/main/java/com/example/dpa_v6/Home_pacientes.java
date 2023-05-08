@@ -25,6 +25,8 @@ public class Home_pacientes extends AppCompatActivity {
     FirebaseFirestore db;
     private String idPaciente;
 
+    String puntuacion_J,Idpaciente;
+
     Button CerrarS;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,9 @@ public class Home_pacientes extends AppCompatActivity {
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                Idpaciente = documentSnapshot.getString("id");
                 nombre_paciente.setText(documentSnapshot.getString("nombre"));
+                puntuacion_J = documentSnapshot.getString("puntuacion_J");
             }
         });
 
@@ -65,16 +69,28 @@ public class Home_pacientes extends AppCompatActivity {
         startActivity(cuestionario_s);
     }
 
-    public void ir_reg_presiona(View view){
-        Intent presiona_s = new Intent(this, sintomas_visualiza.class);
-    }
-
 
 
     public void ir_reg_visualiza(View view){
         Intent visualiza_s = new Intent( this, sintomas_visualiza.class);
         startActivity(visualiza_s);
     }
+
+    public void ir_reg_presiona(View view){
+        Intent presiona_s = new Intent( this, sintomas_oprime.class);
+        String idpaciente = Idpaciente;
+        String nombreP = nombre_paciente.getText().toString();
+        String puntuacionJ = puntuacion_J;
+
+        //Se envian los datos del usuario
+        presiona_s.putExtra("IDPaciente",idpaciente);
+        presiona_s.putExtra("Nombre_paciente",nombreP);
+        presiona_s.putExtra("puntuacion_J",puntuacionJ);
+        startActivity(presiona_s);
+
+
+    }
+
 
     private void CerrarSesion_p(){
         mAuth.signOut();

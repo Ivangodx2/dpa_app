@@ -15,7 +15,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.dpa_v6.Grid_imgs_adapter.Imagenes_visualizar;
 
 public class sintomas_visualiza extends AppCompatActivity {
 
