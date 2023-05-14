@@ -15,6 +15,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Popup_cuestionario"
+            android:theme="@style/appTheme.S_Popup"/>
+        <activity
             android:name=".sintomas_escucha"
             android:exported="false" />
         <activity
@@ -22,9 +25,6 @@
             android:exported="false" />
         <activity
             android:name=".sintomas_oprime"
-            android:exported="false" />
-        <activity
-            android:name=".FullScreenImg"
             android:exported="false" />
         <activity
             android:name=".sintomas_visualiza"

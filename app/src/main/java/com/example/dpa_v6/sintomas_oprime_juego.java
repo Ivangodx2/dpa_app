@@ -108,7 +108,7 @@ public class sintomas_oprime_juego extends AppCompatActivity {
         int min = 0;
         //Movimiento de imagen
         int maxiX  = APantalla - P_huevo.getWidth();
-        int maxiY  = LPantalla - P_huevo.getHeight();
+        int maxiY  = LPantalla - P_huevo.getHeight()-20;
 
         int randomX = mvAleatorio.nextInt(((maxiX-min)+1)+min);
         int randomY = mvAleatorio.nextInt(((maxiY-min)+1)+min);

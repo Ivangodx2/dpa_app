@@ -26,11 +26,12 @@
         android:id="@+id/linearLayout6"
         android:layout_width="370dp"
         android:layout_height="371dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/cuest_style"
+
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
@@ -39,14 +40,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pregunta 1"
-            android:textSize="40dp"/>
+            android:gravity="center"
+            android:textSize="40dp" />
 
         <TextView
             android:id="@+id/pregunta_sintomas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:text="¿Te sientes acalorado?" />
+            android:text="¿Te sientes acalorado?"
+            android:textColor="#DA000000"
+            android:textSize="25dp" />
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -56,49 +59,93 @@
                 android:id="@+id/radioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No" />
+                android:text="No"
+                android:textSize="18dp" />
 
             <RadioButton
                 android:id="@+id/radioButton2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Leve" />
+                android:text="Leve"
+                android:textSize="18dp" />
 
             <RadioButton
                 android:id="@+id/radioButton3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Moderado" />
+                android:text="Moderado"
+                android:textSize="18dp" />
 
             <RadioButton
                 android:id="@+id/radioButton4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bastante" />
+                android:text="Bastante"
+                android:textSize="18dp" />
         </RadioGroup>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/siguiente_preg"
-        android:layout_width="164dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="64dp"
-        android:onClick="siguientes"
-        android:text="Siguiente"
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="383dp"
+        android:layout_height="63dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="35dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="150dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_style_inicio"
+            android:text="Anterior" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/siguiente_preg"
+            android:layout_width="150dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/btn_style_inicio"
+            android:onClick="siguientes"
+            android:text="Siguiente" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/salir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/btn_style_inicio"
         android:onClick="Exite"
         android:text="salir"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/siguiente_preg" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/icn_cuestionario"
+        android:layout_width="48dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_info" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
