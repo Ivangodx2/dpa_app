@@ -7,28 +7,29 @@
     android:background="@drawable/img_loginpaciente"
     tools:context=".sintomas_cuestionario_paciente">
 
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="180dp"
         android:layout_height="43dp"
-        android:gravity="center"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="60dp"
         android:background="@color/light_green_300"
+        android:gravity="center"
         android:text="SINTOMAS"
         android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="370dp"
-        android:layout_height="371dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/cuest_style"
+        android:layout_height="370dp"
 
+        android:layout_marginTop="30dp"
+        android:background="@drawable/cuest_style"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
@@ -39,8 +40,8 @@
             android:id="@+id/Npregunta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pregunta 1"
             android:gravity="center"
+            android:text="Pregunta 1"
             android:textSize="40dp" />
 
         <TextView
@@ -137,12 +138,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
+    <Button
         android:id="@+id/icn_cuestionario"
-        android:layout_width="48dp"
+        android:layout_width="39dp"
         android:layout_height="39dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/icon_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon_info" />

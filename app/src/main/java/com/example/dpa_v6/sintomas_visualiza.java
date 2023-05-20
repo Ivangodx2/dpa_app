@@ -160,7 +160,7 @@ public class sintomas_visualiza extends AppCompatActivity {
                     img2.setVisibility(View.GONE);
                     img3.setVisibility(View.GONE);
                     txttitulo_f.setText("Nota obtenida "+resultado_encu);
-                    ntitulo_f.setText(View.GONE);
+                    //ntitulo_f.setText(View.GONE);
                     siguiente_f.setVisibility(View.GONE);
                     opc1f.setVisibility(View.GONE);
                     opc2f.setVisibility(View.GONE);

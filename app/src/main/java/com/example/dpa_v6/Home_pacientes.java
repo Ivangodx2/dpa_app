@@ -76,6 +76,12 @@ public class Home_pacientes extends AppCompatActivity {
         startActivity(visualiza_s);
     }
 
+
+    public void ir_reg_escucha(View view){
+        Intent escucha_s = new Intent( this, sintomas_escucha.class);
+        startActivity(escucha_s);
+    }
+
     public void ir_reg_presiona(View view){
         Intent presiona_s = new Intent( this, sintomas_oprime.class);
         String idpaciente = Idpaciente;
@@ -96,7 +102,7 @@ public class Home_pacientes extends AppCompatActivity {
         mAuth.signOut();
         startActivity(new Intent(Home_pacientes.this,iniciar_paciente.class));
         Toast.makeText(this, "Se ha cerrado sesión", Toast.LENGTH_SHORT).show();
-        finish();
+        finishAndRemoveTask();
     }
 
 

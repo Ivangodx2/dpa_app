@@ -18,7 +18,7 @@ public class sintomas_cuestionario_paciente extends AppCompatActivity {
     TextView npregunta, txtpregunta;
     Button siguiente, btnsalir;
 
-    ImageView info_cuest;
+    Button info_cuest;
 
     int resultado_encu= 0;
     int Npregunta_p=1;
