@@ -37,7 +37,6 @@
         android:layout_height="51dp"
         android:layout_marginTop="60dp"
         android:background="@drawable/btn_style_inicio"
-        android:onClick="iniciarSesion_pac"
         android:paddingStart="27.47dp"
         android:paddingTop="11.9dp"
         android:paddingEnd="28.61dp"

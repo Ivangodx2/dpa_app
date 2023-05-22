@@ -58,6 +58,8 @@ public class sintomas_oprime extends AppCompatActivity {
         puntuacion.setText(puntuacionJ);
         nombre.setText(Nombre_paciente);
 
+
+        //Inicar juego
         jugar_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +68,7 @@ public class sintomas_oprime extends AppCompatActivity {
                 intent.putExtra("puntuacion_J",puntuacionJ);
                 intent.putExtra("IDPaciente",IDPaciente);
                 startActivity(intent);
+                finish();
             }
         });
 

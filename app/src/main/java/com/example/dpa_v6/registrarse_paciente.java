@@ -71,6 +71,7 @@ public class registrarse_paciente extends AppCompatActivity {
                 }else{
                     //registro
                     registrarPasientes(nombre_p,apellidos_p,correo_p,num_telef,edad_p,contrasena_p);
+                    finish();
                 }
             }
         });

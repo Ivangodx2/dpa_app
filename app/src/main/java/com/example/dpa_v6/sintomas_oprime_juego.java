@@ -167,7 +167,9 @@ public class sintomas_oprime_juego extends AppCompatActivity {
         Volver_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 startActivity(new Intent(sintomas_oprime_juego.this,Home_pacientes.class));
+
             }
         });
         aviso.show();
@@ -175,7 +177,7 @@ public class sintomas_oprime_juego extends AppCompatActivity {
     }
 
 
-    //CON ERRORES
+    //No se guarda el puntaje mas alto-corregir
     private void GuardarDatosBD(){
         //Actualizar base de datos
         String puntuacionPaciente= P_contador.getText().toString();

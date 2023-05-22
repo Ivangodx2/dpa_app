@@ -140,6 +140,7 @@ public class sintomas_escucha extends AppCompatActivity {
     public void enviar_dts_escucha(View view){
         Intent regresar_home_paciente = new Intent( this, Home_pacientes.class);
         vectormp[posicion].stop();
+        finish();
         startActivity(regresar_home_paciente);
 
     }
