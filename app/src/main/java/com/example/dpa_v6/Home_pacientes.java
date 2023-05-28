@@ -25,7 +25,7 @@ public class Home_pacientes extends AppCompatActivity {
     FirebaseFirestore db;
     private String idPaciente;
 
-    String puntuacion_J,Idpaciente;
+    String puntuacion_J,Idpaciente, pntj_cuesti, pntj_visuali, pntj_escha;
 
     Button CerrarS;
     @Override
@@ -36,7 +36,6 @@ public class Home_pacientes extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         nombre_paciente = findViewById(R.id.textNombrePaciente);
-        db = FirebaseFirestore.getInstance();
         idPaciente = mAuth.getCurrentUser().getUid();
         CerrarS = findViewById(R.id.Cerrar_S);
 
@@ -59,6 +58,9 @@ public class Home_pacientes extends AppCompatActivity {
                 Idpaciente = documentSnapshot.getString("id");
                 nombre_paciente.setText(documentSnapshot.getString("nombre"));
                 puntuacion_J = documentSnapshot.getString("puntuacion_J");
+                pntj_cuesti = documentSnapshot.getString("puntaje_cuesti");
+                pntj_visuali = documentSnapshot.getString("puntaje_vsual");
+                pntj_escha = documentSnapshot.getString("puntaje_escuch");
             }
         });
 
@@ -66,6 +68,13 @@ public class Home_pacientes extends AppCompatActivity {
 
     public void ir_reg_cuestioneario(View view){
         Intent cuestionario_s = new Intent( this, sintomas_cuestionario_paciente.class);
+        String idpaciente = Idpaciente;
+        String nombreP = nombre_paciente.getText().toString();
+        String pntj_cuest = pntj_cuesti;
+
+        //Se envian los datos del usuario
+        cuestionario_s.putExtra("IDPaciente",idpaciente);
+        cuestionario_s.putExtra("puntaje_cuesti",pntj_cuest);
         startActivity(cuestionario_s);
     }
 
@@ -73,12 +82,24 @@ public class Home_pacientes extends AppCompatActivity {
 
     public void ir_reg_visualiza(View view){
         Intent visualiza_s = new Intent( this, sintomas_visualiza.class);
+        String idpaciente = Idpaciente;
+        String pntj_visul = pntj_visuali;
+
+        //Se envian los datos del usuario
+        visualiza_s.putExtra("IDPaciente",idpaciente);
+        visualiza_s.putExtra("puntaje_vsual",pntj_visul);
         startActivity(visualiza_s);
     }
 
 
     public void ir_reg_escucha(View view){
         Intent escucha_s = new Intent( this, sintomas_escucha.class);
+        String idpaciente = Idpaciente;
+        String pntj_escucha = pntj_escha;
+
+        //Se envian los datos del usuario
+        escucha_s.putExtra("IDPaciente",idpaciente);
+        escucha_s.putExtra("puntaje_vsual",pntj_escucha);
         startActivity(escucha_s);
     }
 

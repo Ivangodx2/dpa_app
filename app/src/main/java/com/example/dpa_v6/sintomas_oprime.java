@@ -72,7 +72,7 @@ public class sintomas_oprime extends AppCompatActivity {
             }
         });
 
-
+        //Quitar
         puntaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -92,6 +92,10 @@ public class registrarse_paciente extends AppCompatActivity {
                 map.put("edad", edad_p);
                 map.put("contra_p",contrasena_p);
                 map.put("puntuacion_J","0");
+                map.put("puntaje_cuesti","0");
+                map.put("puntaje_vsual","0");
+                map.put("puntaje_escuch","0");
+
                 datos_paciente.collection("reg_paciente").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

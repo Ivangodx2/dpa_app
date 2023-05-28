@@ -49,7 +49,7 @@ public class iniciar_paciente extends AppCompatActivity {
         iniciar_sesion_paciente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String edtCorreo_p_p = edtContra_p.getText().toString();
+                String edtCorreo_p_p = edtCorreo_p.getText().toString();
                 String edtContra_p_p = edtContra_p.getText().toString();
 
                 if (edtCorreo_p_p.isEmpty() && edtContra_p_p.isEmpty()){
