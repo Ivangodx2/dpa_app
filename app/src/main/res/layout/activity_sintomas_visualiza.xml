@@ -36,18 +36,20 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2titulo">
 
         <TextView
-            android:id="@+id/titulo"
+            android:id="@+id/tituloF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:text="FOBIAS"
-            android:textSize="40dp" />
+            android:textSize="40dp"
+            android:textColor="@color/black"
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/sintoma_titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Acrofobia"
+            android:textColor="@color/black"
             android:textSize="25dp" />
 
         <ScrollView

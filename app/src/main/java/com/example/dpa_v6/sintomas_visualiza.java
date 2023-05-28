@@ -15,6 +15,11 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class sintomas_visualiza extends AppCompatActivity {
 
@@ -25,8 +30,10 @@ public class sintomas_visualiza extends AppCompatActivity {
     TextView ntitulo_f, txttitulo_f;
     Button siguiente_f, btnsalir_f, info_visualiza;
 
-    int resultado_encu=0;
+    int resultado_visualiza=0;
     int Ntitulo_f=1;
+    String IDPacietne;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +48,17 @@ public class sintomas_visualiza extends AppCompatActivity {
         opc3f = (RadioButton) findViewById(R.id.radioButton3);
         opc4f = (RadioButton) findViewById(R.id.radioButton4);
 
-        ntitulo_f = (TextView) findViewById(R.id.titulo);
+        ntitulo_f = (TextView) findViewById(R.id.tituloF);
         txttitulo_f=(TextView) findViewById(R.id.sintoma_titulo);
 
         siguiente_f=(Button) findViewById(R.id.siguiente_fobia);
         btnsalir_f=(Button) findViewById(R.id.salir_fobia);
         info_visualiza= findViewById(R.id.Btn_info_visualiza);
+
+        //Recibir datos
+        db = FirebaseFirestore.getInstance();
+        Bundle intent = getIntent().getExtras();
+        IDPacietne = getIntent().getStringExtra("IDPaciente");
 
         info_visualiza.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,26 +74,22 @@ public class sintomas_visualiza extends AppCompatActivity {
         if (opc1f.isChecked() == false && opc2f.isChecked() == false && opc3f.isChecked() == false && opc4f.isChecked() == false){
             Toast.makeText(getApplicationContext(), "Elija una opcion", Toast.LENGTH_SHORT).show();
         }else if(Ntitulo_f == 1){
+
             if (opc1f.isChecked()){
-                resultado_encu= resultado_encu+1;
+                resultado_visualiza= resultado_visualiza+1;
             }
             if (opc2f.isChecked()){
-                resultado_encu= resultado_encu+2;
+                resultado_visualiza= resultado_visualiza+2;
             }
             if (opc3f.isChecked()){
-                resultado_encu= resultado_encu+3;
+                resultado_visualiza= resultado_visualiza+3;
             }
             if (opc4f.isChecked()){
-                resultado_encu= resultado_encu+4;
+                resultado_visualiza= resultado_visualiza+4;
             }
-            opc1f.setChecked(false);
-            opc2f.setChecked(false);
-            opc3f.setChecked(false);
-            opc4f.setChecked(false);
 
             Ntitulo_f = 1 + Ntitulo_f;
             //Reinicio de prguntas
-            ntitulo_f.setText("Prgunta 2");
             txttitulo_f.setText("Agorafobia");
 
             img1.setImageResource(R.drawable.agorafobia);
@@ -89,29 +97,25 @@ public class sintomas_visualiza extends AppCompatActivity {
             img3.setImageResource(R.drawable.agorafobia2);
 
 
+
             //Se reinician las opciones
         }else if(Ntitulo_f == 2){
 
                 if (opc1f.isChecked()){
-                    resultado_encu= resultado_encu+1;
+                    resultado_visualiza= resultado_visualiza+1;
                 }
                 if (opc2f.isChecked()){
-                    resultado_encu= resultado_encu+2;
+                    resultado_visualiza= resultado_visualiza+2;
                 }
                 if (opc3f.isChecked()){
-                    resultado_encu= resultado_encu+3;
+                    resultado_visualiza= resultado_visualiza+3;
                 }
                 if (opc4f.isChecked()){
-                    resultado_encu= resultado_encu+4;
+                    resultado_visualiza= resultado_visualiza+4;
                 }
-                opc1f.setChecked(false);
-                opc2f.setChecked(false);
-                opc3f.setChecked(false);
-                opc4f.setChecked(false);
 
                 Ntitulo_f = 1 + Ntitulo_f;
                 //Reinicio de prguntas
-                ntitulo_f.setText("Prgunta 3");
                 txttitulo_f.setText("Claustrofobia");
 
                 img1.setImageResource(R.drawable.claustrofobia1);
@@ -123,28 +127,23 @@ public class sintomas_visualiza extends AppCompatActivity {
             }else if(Ntitulo_f == 3){
 
                     if (opc1f.isChecked()){
-                        resultado_encu= resultado_encu+1;
+                        resultado_visualiza= resultado_visualiza+1;
                     }
                     if (opc2f.isChecked()){
-                        resultado_encu= resultado_encu+2;
+                        resultado_visualiza= resultado_visualiza+2;
                     }
                     if (opc3f.isChecked()){
-                        resultado_encu= resultado_encu+3;
+                        resultado_visualiza= resultado_visualiza+3;
                     }
                     if (opc4f.isChecked()){
-                        resultado_encu= resultado_encu+4;
+                        resultado_visualiza= resultado_visualiza+4;
                     }
-                    opc1f.setChecked(false);
-                    opc2f.setChecked(false);
-                    opc3f.setChecked(false);
-                    opc4f.setChecked(false);
 
                     Ntitulo_f = 1 + Ntitulo_f;
                     //Reinicio de prguntas
-                    ntitulo_f.setText("Prgunta 4");
                     txttitulo_f.setText("Fobia social");
 
-                    img1.setImageResource(R.drawable.fobia_social);
+                    img1.setImageResource(R.drawable.fobia_social3);
                     img2.setImageResource(R.drawable.fobia_social2);
                     img3.setImageResource(R.drawable.fobiasocial3);
 
@@ -152,23 +151,23 @@ public class sintomas_visualiza extends AppCompatActivity {
                     //Se reinician las opciones
                 }else if(Ntitulo_f == 4){
                     if (opc1f.isChecked()){
-                        resultado_encu= resultado_encu+1;
+                        resultado_visualiza= resultado_visualiza+1;
                     }
                     if (opc2f.isChecked()){
-                        resultado_encu= resultado_encu+2;
+                        resultado_visualiza= resultado_visualiza+2;
                     }
                     if (opc3f.isChecked()){
-                        resultado_encu= resultado_encu+3;
+                        resultado_visualiza= resultado_visualiza+3;
                     }
                     if (opc4f.isChecked()){
-                        resultado_encu= resultado_encu+4;
+                        resultado_visualiza= resultado_visualiza+4;
                     }
 
+                    GuardarDatosBD();
                     img1.setVisibility(View.GONE);
                     img2.setVisibility(View.GONE);
                     img3.setVisibility(View.GONE);
-                    txttitulo_f.setText("Nota obtenida "+resultado_encu);
-                    //ntitulo_f.setText(View.GONE);
+                    txttitulo_f.setText("Se ha finalizado el cuestionario.");
                     siguiente_f.setVisibility(View.GONE);
                     opc1f.setVisibility(View.GONE);
                     opc2f.setVisibility(View.GONE);
@@ -179,6 +178,16 @@ public class sintomas_visualiza extends AppCompatActivity {
 
     public void salir_v(View view){
         finish();
+    }
+
+
+    private void GuardarDatosBD(){
+        //Actualizar base de datos
+        String puntuacionPaciente_visualiza = Integer.toString(resultado_visualiza);
+
+        Map<String,Object> map = new HashMap<>();
+        map.put("puntaje_vsual",puntuacionPaciente_visualiza);
+        db.collection("reg_paciente").document(IDPacietne).update(map);
     }
 }
 
