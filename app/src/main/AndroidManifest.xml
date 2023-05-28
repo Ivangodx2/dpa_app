@@ -15,8 +15,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".popup_escucha"
+            android:theme="@style/appTheme.S_Popup" />
+        <activity
+            android:name=".popup_visualiza"
+            android:theme="@style/appTheme.S_Popup" />
+        <activity
             android:name=".Popup_cuestionario"
-            android:theme="@style/appTheme.S_Popup"/>
+            android:theme="@style/appTheme.S_Popup" />
         <activity
             android:name=".sintomas_escucha"
             android:exported="false" />

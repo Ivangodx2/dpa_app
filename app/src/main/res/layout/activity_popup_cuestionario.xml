@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_green_300"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp"
+    android:paddingStart="10dp"
+    android:background="@drawable/lineas_punteadas_fndo"
 
     tools:context=".Popup_cuestionario">
 
@@ -12,7 +16,6 @@
     <LinearLayout
         android:layout_width="359dp"
         android:layout_height="315dp"
-        android:background="@drawable/lineas_punteadas_fndo"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,21 +40,31 @@
             android:layout_height="4dp"
             android:background="@drawable/lineas_punteadas_fndo" />
 
-        <TextView
-            android:id="@+id/textView5"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Instrucciones:"
-            android:textColor="@color/black"
-            android:textSize="23dp" />
+            android:layout_height="match_parent"
+            android:paddingStart="15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="10dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="match_parent"
-            android:layout_height="126dp"
-            android:textSize="20dp"
-            android:text="Contesta las preguntas, en base a como te sientas, espera tus resultados al final." />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Instrucciones:"
+                android:textColor="@color/black"
+                android:textSize="23dp" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="126dp"
+                android:text="Contesta las preguntas, en base a como te sientas, espera tus resultados al final."
+                android:textSize="20dp" />
+        </LinearLayout>
 
 
     </LinearLayout>

@@ -23,7 +23,7 @@ public class sintomas_visualiza extends AppCompatActivity {
     private ImageView img3;
     RadioButton opc1f, opc2f, opc3f, opc4f;
     TextView ntitulo_f, txttitulo_f;
-    Button siguiente_f, btnsalir_f;
+    Button siguiente_f, btnsalir_f, info_visualiza;
 
     int resultado_encu=0;
     int Ntitulo_f=1;
@@ -46,6 +46,14 @@ public class sintomas_visualiza extends AppCompatActivity {
 
         siguiente_f=(Button) findViewById(R.id.siguiente_fobia);
         btnsalir_f=(Button) findViewById(R.id.salir_fobia);
+        info_visualiza= findViewById(R.id.Btn_info_visualiza);
+
+        info_visualiza.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(sintomas_visualiza.this, popup_visualiza.class));
+            }
+        });
 
 
     }

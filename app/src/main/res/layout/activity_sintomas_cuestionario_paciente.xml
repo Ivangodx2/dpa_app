@@ -579,7 +579,7 @@
             android:layout_height="46dp"
             android:background="@drawable/btn_style_inicio"
             android:onClick="enviar"
-            android:text="Subir" />
+            android:text="Enviar" />
 
 
         <TextView

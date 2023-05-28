@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/icn_escucha"
+        android:id="@+id/info_escucha"
         android:layout_width="39dp"
         android:layout_height="39dp"
         android:layout_marginTop="16dp"
@@ -142,37 +142,38 @@
                         android:id="@+id/Pregunta1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="¿Que sientes al eschuchar la cancion No. 1?"
+                        android:text="Audio No. 1"
                         android:textSize="25dp"
+                        android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <RadioButton
-                        android:id="@+id/radioButton"
+                        android:id="@+id/rAP1_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="No"
+                        android:text="1"
                         android:textSize="18dp" />
 
                     <RadioButton
-                        android:id="@+id/radioButton2"
+                        android:id="@+id/rAP1_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Leve"
+                        android:text="2"
                         android:textSize="18dp" />
 
                     <RadioButton
-                        android:id="@+id/radioButton3"
+                        android:id="@+id/rAP1_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Moderado"
+                        android:text="3"
                         android:textSize="18dp" />
 
                     <RadioButton
-                        android:id="@+id/radioButton4"
+                        android:id="@+id/rAP1_4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Bastante"
+                        android:text="4"
                         android:textSize="18dp" />
                 </RadioGroup>
 
@@ -186,37 +187,170 @@
                         android:id="@+id/Pregunta2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="¿Que sientes al eschuchar la cancion No. 2?"
+                        android:text="Audio No. 2"
+                        android:textColor="@color/black"
                         android:textSize="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <RadioButton
-                        android:id="@+id/radioButtonA"
+                        android:id="@+id/rAP2_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="No"
+                        android:text="1"
                         android:textSize="18dp" />
 
                     <RadioButton
-                        android:id="@+id/radioButtonB"
+                        android:id="@+id/rAP2_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Leve"
+                        android:text="2"
                         android:textSize="18dp" />
 
                     <RadioButton
-                        android:id="@+id/radioButtonC"
+                        android:id="@+id/rAP2_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Moderado"
+                        android:text="3"
                         android:textSize="18dp" />
 
                     <RadioButton
-                        android:id="@+id/radioButtonD"
+                        android:id="@+id/rAP2_4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Bastante"
+                        android:text="4"
+                        android:textSize="18dp" />
+                </RadioGroup>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/Pregunta3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Audio No. 3"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RadioButton
+                        android:id="@+id/rAP3_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textSize="18dp" />
+
+                    <RadioButton
+                        android:id="@+id/rAP3_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textSize="18dp" />
+
+                    <RadioButton
+                        android:id="@+id/rAP3_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textSize="18dp" />
+
+                    <RadioButton
+                        android:id="@+id/rAP3_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textSize="18dp" />
+                </RadioGroup>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/Pregunta4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Audio No. 4"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RadioButton
+                        android:id="@+id/rAP4_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textSize="18dp" />
+
+                    <RadioButton
+                        android:id="@+id/rAP4_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textSize="18dp" />
+
+                    <RadioButton
+                        android:id="@+id/rAP4_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textSize="18dp" />
+
+                    <RadioButton
+                        android:id="@+id/rAP4_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textSize="18dp" />
+                </RadioGroup>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/Pregunta5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Audio No. 5"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RadioButton
+                        android:id="@+id/rAP5_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textSize="18dp" />
+
+                    <RadioButton
+                        android:id="@+id/rAP5_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textSize="18dp" />
+
+                    <RadioButton
+                        android:id="@+id/rAP5_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textSize="18dp" />
+
+                    <RadioButton
+                        android:id="@+id/rAP5_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4"
                         android:textSize="18dp" />
                 </RadioGroup>
             </LinearLayout>
@@ -228,8 +362,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="360dp"
+        android:layout_height="63dp"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="35dp"
@@ -247,8 +381,8 @@
             android:layout_marginTop="0dp"
             android:layout_weight="1"
             android:background="@drawable/btn_style_inicio"
-            android:onClick="salir_p"
-            android:text="Salir" />
+            android:onClick="enviar_dts_escucha"
+            android:text="Enviar" />
 
         <TextView
             android:id="@+id/textView"
@@ -264,8 +398,8 @@
             android:layout_marginTop="0dp"
             android:background="@drawable/btn_style_inicio"
 
-            android:onClick="enviar_dts_escucha"
-            android:text="Enviar" />
+            android:onClick="salir_p"
+            android:text="Salir" />
 
     </LinearLayout>
 

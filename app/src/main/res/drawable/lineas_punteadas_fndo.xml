@@ -12,6 +12,7 @@
         android:dashWidth="25dp"
         android:dashGap="10dp"
         android:width="2dp"/>
+    <solid android:color="@color/light_green_300"></solid>
 
 
 

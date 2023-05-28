@@ -99,7 +99,7 @@ public class Home_pacientes extends AppCompatActivity {
 
         //Se envian los datos del usuario
         escucha_s.putExtra("IDPaciente",idpaciente);
-        escucha_s.putExtra("puntaje_vsual",pntj_escucha);
+        escucha_s.putExtra("puntaje_escuch",pntj_escucha);
         startActivity(escucha_s);
     }
 
