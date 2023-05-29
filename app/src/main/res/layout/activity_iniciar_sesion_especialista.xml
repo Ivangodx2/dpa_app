@@ -41,7 +41,7 @@
             android:layout_marginEnd="48.07dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="Correo Electronico"
+            android:text="Correo Electrónico"
             android:textColor="@color/black" />
 
         <EditText

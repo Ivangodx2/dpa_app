@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Identifica tus padecimientos"
+            android:text="Identifica tus padecimientos."
             android:textColor="#DA000000"
             android:textSize="25dp" />
 
@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
-            android:text="De los siguientes padecimientos ¿cuales tienes?"
+            android:text="De los siguientes padecimientos, ¿cuáles tienes?"
             android:textColor="#DA000000"
             android:textSize="19dp"/>
 
@@ -69,21 +69,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:text="Problemas para deglutir" />
+            android:text="Problemas para deglutir." />
 
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:text="Sequedad Bucal" />
+            android:text="Sequedad Bucal." />
 
         <CheckBox
             android:id="@+id/checkBox3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:text="Sensiblidad dental" />
+            android:text="Sensibilidad dental." />
 
         <CheckBox
             android:id="@+id/checkBox4"
@@ -97,28 +97,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:text="Úlceras bucales" />
+            android:text="Úlceras bucales." />
 
         <CheckBox
             android:id="@+id/checkBox6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:text="Problemas al dormir" />
+            android:text="Problemas al dormir." />
 
         <CheckBox
             android:id="@+id/checkBox7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:text="Malestar estomacal" />
+            android:text="Malestar estomacal." />
 
         <CheckBox
             android:id="@+id/checkBox8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:text="Sudoración excesiva" />
+            android:text="Sudoración excesiva." />
     </LinearLayout>
 
     <LinearLayout

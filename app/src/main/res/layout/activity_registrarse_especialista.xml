@@ -41,7 +41,7 @@
             android:layout_marginEnd="48.07dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="Nombre"
+            android:text="Nombre:"
             android:textColor="@color/black" />
 
         <EditText
@@ -63,7 +63,7 @@
             android:layout_marginEnd="48.07dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="Apellidos"
+            android:text="Apellidos:"
             android:textColor="@color/black" />
 
         <EditText
@@ -85,7 +85,7 @@
             android:layout_marginEnd="48.07dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="Correo electronico"
+            android:text="Correo electrónico:"
             android:textColor="@color/black" />
 
         <EditText
@@ -108,7 +108,7 @@
             android:layout_marginEnd="48.07dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="Contraseña"
+            android:text="Contraseña:"
             android:textColor="@color/black" />
 
 
@@ -138,7 +138,7 @@
             android:layout_marginEnd="48.07dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="Cedula Profesional"
+            android:text="Cédula profesional:"
             android:textColor="@color/black" />
 
 

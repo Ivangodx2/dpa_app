@@ -64,7 +64,7 @@
                         android:id="@+id/pregunta_sintomas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Me siento más nervioso(a) y ansioso(a) de lo normal"
+                        android:text="Me siento más nervioso(a) y ansioso(a) de lo normal:"
                         android:textColor="#DA000000"
                         android:textSize="25dp" />
 
@@ -79,7 +79,7 @@
                         android:id="@+id/rBP1_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Alunas veces"
+                        android:text="Algunas veces"
                         android:textSize="18dp" />
 
                     <RadioButton
@@ -115,7 +115,7 @@
                         android:id="@+id/pregunta_sintomas2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Me siento asustado sin ninguna razón"
+                        android:text="Me siento asustado sin ninguna razón:"
                         android:textColor="#DA000000"
                         android:textSize="25dp" />
 
@@ -130,7 +130,7 @@
                         android:id="@+id/rBP2_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Alunas veces"
+                        android:text="Algunas veces"
                         android:textSize="18dp" />
 
                     <RadioButton
@@ -166,7 +166,7 @@
                         android:id="@+id/pregunta_sintomas3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Se ha irritado fácilmente o ha tenído pánico"
+                        android:text="Se ha irritado fácilmente o ha tenído pánico:"
                         android:textColor="#DA000000"
                         android:textSize="25dp" />
 
@@ -181,7 +181,7 @@
                         android:id="@+id/rBP3_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Alunas veces"
+                        android:text="Algunas veces"
                         android:textSize="18dp" />
 
                     <RadioButton
@@ -217,7 +217,7 @@
                         android:id="@+id/pregunta_sintomas4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Me siento destrozado y me parece que estoy por derrumbarme"
+                        android:text="Me siento destrozado y me parece que estoy por derrumbarme:"
                         android:textColor="#DA000000"
                         android:textSize="25dp" />
 
@@ -232,7 +232,7 @@
                         android:id="@+id/rBP4_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Alunas veces"
+                        android:text="Algunas veces"
                         android:textSize="18dp" />
 
                     <RadioButton
@@ -268,7 +268,7 @@
                         android:id="@+id/pregunta_sintomas5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Me parece que va todo bien y que no me pasará nada malo"
+                        android:text="Me parece que va todo bien y que no me pasará nada malo:"
                         android:textColor="#DA000000"
                         android:textSize="25dp" />
 
@@ -283,7 +283,7 @@
                         android:id="@+id/rBP5_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Alunas veces"
+                        android:text="Algunas veces"
                         android:textSize="18dp" />
 
                     <RadioButton
@@ -319,7 +319,7 @@
                         android:id="@+id/pregunta_sintomas6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Se ha sentido tembloroso"
+                        android:text="Se ha sentido tembloroso:"
                         android:textColor="#DA000000"
                         android:textSize="25dp" />
 
@@ -334,7 +334,7 @@
                         android:id="@+id/rBP6_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Alunas veces"
+                        android:text="Algunas veces"
                         android:textSize="18dp" />
 
                     <RadioButton
@@ -370,7 +370,7 @@
                         android:id="@+id/pregunta_sintomas7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Le ha dolido el cuello, la espalda o la cabeza"
+                        android:text="Le ha dolido el cuello, la espalda o la cabeza:"
                         android:textColor="#DA000000"
                         android:textSize="25dp" />
 
@@ -385,7 +385,7 @@
                         android:id="@+id/rBP7_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Alunas veces"
+                        android:text="Algunas veces"
                         android:textSize="18dp" />
 
                     <RadioButton
@@ -421,7 +421,7 @@
                         android:id="@+id/pregunta_sintomas8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Se ha sentido débil y se cansa facilmente"
+                        android:text="Se ha sentido débil y se cansa facilmente:"
                         android:textColor="#DA000000"
                         android:textSize="25dp" />
 
@@ -436,7 +436,7 @@
                         android:id="@+id/rBP8_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Alunas veces"
+                        android:text="Algunas veces"
                         android:textSize="18dp" />
 
                     <RadioButton
@@ -472,7 +472,7 @@
                         android:id="@+id/pregunta_sintomas9"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Se ha sentido calmado y puede mantenerse quieto"
+                        android:text="Se ha sentido calmado y puede mantenerse quieto:"
                         android:textColor="#DA000000"
                         android:textSize="25dp" />
 
@@ -487,7 +487,7 @@
                         android:id="@+id/rBP9_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Alunas veces"
+                        android:text="Algunas veces"
                         android:textSize="18dp" />
 
                     <RadioButton
@@ -523,7 +523,7 @@
                         android:id="@+id/pregunta_sintomas10"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Ha sentido palpitaciones, taquicardia, últimamente"
+                        android:text="Ha sentido palpitaciones, taquicardia, últimamente:"
                         android:textColor="#DA000000"
                         android:textSize="25dp" />
 
@@ -538,7 +538,7 @@
                         android:id="@+id/rBP10_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Alunas veces"
+                        android:text="Algunas veces"
                         android:textSize="18dp" />
 
                     <RadioButton
@@ -595,7 +595,7 @@
             android:layout_height="50dp"
             android:background="@drawable/btn_style_inicio"
             android:onClick="Exite"
-            android:text="salir" />
+            android:text="Salir" />
 
     </LinearLayout>
 
