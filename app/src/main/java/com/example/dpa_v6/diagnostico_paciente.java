@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ import java.util.Arrays;
 
 public class diagnostico_paciente extends AppCompatActivity {
 
+    Button info_diag;
     private XYPlot myplot;
     FirebaseFirestore db;
     private TextView nombre_paciente1;
@@ -46,6 +48,7 @@ public class diagnostico_paciente extends AppCompatActivity {
         DVisualiza = findViewById(R.id.Diag_Visualiza);
         DOprime = findViewById(R.id.Diag_Oprime);
         DIdentifica = findViewById(R.id.Diag_Identifica);
+        info_diag = findViewById(R.id.info_diagnostico);
 
         //Recibir datos
         db = FirebaseFirestore.getInstance();
@@ -58,6 +61,13 @@ public class diagnostico_paciente extends AppCompatActivity {
         R_identifica = intent.getString("puntaje_identifica");
         NombrePaciente2= intent.getString("nombre");
         nombre_paciente1.setText(NombrePaciente2);
+
+        info_diag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(diagnostico_paciente.this, popup_diagnostico.class));
+            }
+        });
 
 
         Integer numeroCuest = Integer.valueOf(R_cuestionario);

@@ -4,13 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingStart="10dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingBottom="10dp"
     android:background="@drawable/lineas_punteadas_fndo"
-    tools:context=".popup_escucha">
-
+    tools:context=".popup_diagnostico">
 
     <LinearLayout
         android:layout_width="359dp"
@@ -20,6 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         tools:layout_editor_absoluteX="15dp">
 
 
@@ -28,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:gravity="center"
-            android:text="ESCUCHA"
+            android:text="DIAGNÓSTICO"
             android:textColor="@color/black"
             android:textSize="40dp"
             android:textStyle="bold" />
@@ -62,7 +58,7 @@
                 android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="126dp"
-                android:text="Selecciona el nivel de ansiedad que te causa al escuchar cada uno de los audios."
+                android:text="Estos resultados no son certeros, puede variar en cuanto a las respuestas dadas, por lo que no es un diagnóstico certero."
                 android:textSize="20dp" />
         </LinearLayout>
 
