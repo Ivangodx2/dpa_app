@@ -25,9 +25,9 @@ public class Home_pacientes extends AppCompatActivity {
     FirebaseFirestore db;
     private String idPaciente;
 
-    String puntuacion_J,Idpaciente, pntj_cuesti, pntj_visuali, pntj_escha;
+    String puntuacion_J,Idpaciente, pntj_cuesti, pntj_visuali, pntj_escha,pntj_ident;
 
-    Button CerrarS;
+    Button CerrarS,btn_diagnostico;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +38,8 @@ public class Home_pacientes extends AppCompatActivity {
         nombre_paciente = findViewById(R.id.textNombrePaciente);
         idPaciente = mAuth.getCurrentUser().getUid();
         CerrarS = findViewById(R.id.Cerrar_S);
+        btn_diagnostico = findViewById(R.id.button_diagnostico);
+
 
         //Cerrar sesion
         CerrarS.setOnClickListener(new View.OnClickListener() {
@@ -46,9 +48,6 @@ public class Home_pacientes extends AppCompatActivity {
                 CerrarSesion_p();
             }
         });
-
-
-
 
         //Leer nombre del usuario
         DocumentReference documentReference = db.collection("reg_paciente").document(idPaciente);
@@ -63,6 +62,8 @@ public class Home_pacientes extends AppCompatActivity {
                 pntj_escha = documentSnapshot.getString("puntaje_escuch");
             }
         });
+
+        btn_diagnostico.setEnabled(false);
 
     }
 
@@ -118,6 +119,18 @@ public class Home_pacientes extends AppCompatActivity {
 
     }
 
+    public void ir_reg_identifica(View view){
+        Intent identifica_s = new Intent( this, sintomas_identifica.class);
+        String idpaciente = Idpaciente;
+        String pntj_escucha = pntj_ident;
+
+        //Se envian los datos del usuario
+        identifica_s.putExtra("IDPaciente",idpaciente);
+        identifica_s.putExtra("puntaje_identifica",pntj_escucha);
+        startActivity(identifica_s);
+
+    }
+
 
     private void CerrarSesion_p(){
         mAuth.signOut();
@@ -125,6 +138,8 @@ public class Home_pacientes extends AppCompatActivity {
         startActivity(new Intent(Home_pacientes.this,iniciar_paciente.class));
         Toast.makeText(this, "Se ha cerrado sesión", Toast.LENGTH_SHORT).show();
     }
+
+
 
 
 }

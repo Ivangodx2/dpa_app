@@ -15,6 +15,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".sintomas_identifica"
+            android:exported="false" />
+        <activity
+            android:name=".diagnostico_paciente"
+            android:exported="false" />
+        <activity
             android:name=".popup_escucha"
             android:theme="@style/appTheme.S_Popup" />
         <activity
