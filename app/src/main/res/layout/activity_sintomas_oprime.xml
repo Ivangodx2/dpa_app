@@ -53,16 +53,20 @@
         <Button
             android:id="@+id/jugar_btn"
             android:layout_width="match_parent"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
             android:layout_height="65dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/btn_style_game"
+            android:background="@drawable/btn_style_inicio"
             android:text="Jugar" />
 
         <Button
             android:id="@+id/button_Puntaje"
             android:layout_width="match_parent"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
             android:layout_height="65dp"
-            android:background="@drawable/btn_style_game"
+            android:background="@drawable/btn_style_inicio"
             android:layout_marginTop="10dp"
             android:text="Puntaje" />
 

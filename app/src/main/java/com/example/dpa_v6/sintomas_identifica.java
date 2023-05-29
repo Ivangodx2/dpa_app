@@ -17,7 +17,7 @@ public class sintomas_identifica extends AppCompatActivity {
 
     CheckBox res1, res2, res3,res4,res5,res6,res7,res8;
 
-    String IDPacietne;
+    String IDPacietne, result_identifica;
     FirebaseFirestore db;
     int resultado_ident;
     @Override
@@ -36,6 +36,7 @@ public class sintomas_identifica extends AppCompatActivity {
         //Recibir datos
         db = FirebaseFirestore.getInstance();
         Bundle intent = getIntent().getExtras();
+        result_identifica = intent.getString("puntaje_identifica");
         IDPacietne = getIntent().getStringExtra("IDPaciente");
 
     }
@@ -85,10 +86,10 @@ public class sintomas_identifica extends AppCompatActivity {
 
     private void GuardarDatosBD(){
         //Actualizar base de datos
-        String puntuacionPaciente_visualiza = Integer.toString(resultado_ident);
+        String puntuacionPaciente_identif = Integer.toString(resultado_ident);
 
         Map<String,Object> map = new HashMap<>();
-        map.put("puntaje_identifica",puntuacionPaciente_visualiza);
+        map.put("puntaje_identifica",puntuacionPaciente_identif);
         db.collection("reg_paciente").document(IDPacietne).update(map);
     }
 

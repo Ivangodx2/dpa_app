@@ -25,7 +25,7 @@ public class Home_pacientes extends AppCompatActivity {
     FirebaseFirestore db;
     private String idPaciente;
 
-    String puntuacion_J,Idpaciente, pntj_cuesti, pntj_visuali, pntj_escha,pntj_ident;
+    String puntuacion_J,Idpaciente, pntj_cuesti, pntj_visuali, pntj_escha,pntj_ident,nombrePaciente_Dig;
 
     Button CerrarS,btn_diagnostico;
     @Override
@@ -56,14 +56,15 @@ public class Home_pacientes extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 Idpaciente = documentSnapshot.getString("id");
                 nombre_paciente.setText(documentSnapshot.getString("nombre"));
+                nombrePaciente_Dig = documentSnapshot.getString("nombre");
                 puntuacion_J = documentSnapshot.getString("puntuacion_J");
                 pntj_cuesti = documentSnapshot.getString("puntaje_cuesti");
                 pntj_visuali = documentSnapshot.getString("puntaje_vsual");
                 pntj_escha = documentSnapshot.getString("puntaje_escuch");
+                pntj_ident = documentSnapshot.getString("puntaje_identifica");
             }
         });
 
-        btn_diagnostico.setEnabled(false);
 
     }
 
@@ -122,13 +123,34 @@ public class Home_pacientes extends AppCompatActivity {
     public void ir_reg_identifica(View view){
         Intent identifica_s = new Intent( this, sintomas_identifica.class);
         String idpaciente = Idpaciente;
-        String pntj_escucha = pntj_ident;
+        String pntj_identifi = pntj_ident;
 
         //Se envian los datos del usuario
         identifica_s.putExtra("IDPaciente",idpaciente);
-        identifica_s.putExtra("puntaje_identifica",pntj_escucha);
+        identifica_s.putExtra("puntaje_identifica",pntj_identifi);
         startActivity(identifica_s);
 
+    }
+
+    public void ir_reg_diagnostico(View view){
+        Intent diagnostico_s = new Intent(this, diagnostico_paciente.class);
+        String idpaciente = Idpaciente;
+        String nombrePaciente = nombrePaciente_Dig;
+        String pntj_cuest_R = pntj_cuesti;
+        String pntj_visul_R = pntj_visuali;
+        String pntj_escucha_R = pntj_escha;
+        String puntuacionJ_R = puntuacion_J;
+        String pntj_identifi_R = pntj_ident;
+
+        //Se envian los datos del usuario
+        diagnostico_s.putExtra("IDPaciente",idpaciente);
+        diagnostico_s.putExtra("nombre",nombrePaciente);
+        diagnostico_s.putExtra("puntaje_cuesti",pntj_cuest_R);
+        diagnostico_s.putExtra("puntaje_vsual",pntj_visul_R);
+        diagnostico_s.putExtra("puntaje_escuch",pntj_escucha_R);
+        diagnostico_s.putExtra("puntuacion_J",puntuacionJ_R);
+        diagnostico_s.putExtra("puntaje_identifica",pntj_identifi_R);
+        startActivity(diagnostico_s);
     }
 
 
