@@ -18,6 +18,6 @@ public class popup_diagnostico extends AppCompatActivity {
         int Ancho = medidasVentana.widthPixels;
         int Alto = medidasVentana.heightPixels;
 
-        getWindow().setLayout((int)(Ancho*0.87), (int)(Alto*0.46));
+        getWindow().setLayout((int)(Ancho*0.98), (int)(Alto*0.46));
     }
 }

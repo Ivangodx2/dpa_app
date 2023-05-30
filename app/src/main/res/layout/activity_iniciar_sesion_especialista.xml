@@ -87,7 +87,7 @@
 
     <Button
         android:id="@+id/btnRegistrarse"
-        android:layout_width="210dp"
+        android:layout_width="232dp"
         android:layout_height="46dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/btn_style_especialist"
@@ -109,7 +109,7 @@
 
     <Button
         android:id="@+id/button_Iniciar_S"
-        android:layout_width="210dp"
+        android:layout_width="232dp"
         android:layout_height="44dp"
         android:layout_marginTop="60dp"
         android:background="@drawable/btn_style_especialist"

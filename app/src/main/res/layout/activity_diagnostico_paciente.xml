@@ -11,8 +11,8 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="180dp"
-        android:layout_height="43dp"
+        android:layout_width="211dp"
+        android:layout_height="42dp"
         android:layout_marginTop="16dp"
         android:background="@color/light_green_300"
         android:gravity="center"
@@ -53,49 +53,77 @@
         app:layout_constraintVertical_bias="0.14"
         tools:ignore="MissingConstraints">
 
-        <LinearLayout
-            android:layout_width="346dp"
-            android:layout_height="98dp"
-            android:layout_below="@+id/textNombre_paciente"
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="104dp"
             android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:orientation="vertical">
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="14dp">
 
-
-            <TextView
-                android:id="@+id/Diag_Cuestionario"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cuestionario" />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/Diag_Escucha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Escucha" />
+                <TextView
+                    android:id="@+id/textNombre_paciente"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="16dp"
+                    android:background="#DDDDDD"
+                    android:hint="usuario"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/Diag_Visualiza"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Visualiza" />
+                <TextView
+                    android:id="@+id/Diag_Cuestionario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/black"
+                    android:text="Cuestionario" />
 
-            <TextView
-                android:id="@+id/Diag_Oprime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Oprime" />
+                <TextView
+                    android:id="@+id/Diag_Escucha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/black"
+                    android:text="Escucha" />
 
-            <TextView
-                android:id="@+id/Diag_Identifica"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Identifica" />
+                <TextView
+                    android:id="@+id/Diag_Visualiza"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/black"
+                    android:text="Visualiza" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/Diag_Oprime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/black"
+                    android:text="Oprime" />
+
+                <TextView
+                    android:id="@+id/Diag_Identifica"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/black"
+                    android:text="Identifica" />
+            </LinearLayout>
+        </ScrollView>
 
         <com.androidplot.xy.XYPlot
             android:id="@+id/xyzplot"
@@ -103,29 +131,14 @@
             android:layout_width="wrap_content"
             android:layout_height="354dp"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="180dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="36dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="22dp"
             ap:rangeTitle="Range Title"
             app:title="Ansiedad" />
-
-        <TextView
-            android:id="@+id/textNombre_paciente"
-            android:layout_width="180dp"
-            android:layout_height="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="16dp"
-            android:background="#DDDDDD"
-            android:hint="usuario"
-            android:paddingLeft="10dp"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
 
 
     </RelativeLayout>

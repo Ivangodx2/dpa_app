@@ -43,15 +43,15 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="17dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:paddingBottom="10dp"
+            android:paddingStart="25dp"
+            android:layout_gravity="center"
+            android:paddingEnd="25dp"
+            android:paddingBottom="15dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView5"
-                android:layout_width="match_parent"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Instrucciones:"
@@ -60,7 +60,7 @@
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="match_parent"
+                android:layout_width="265dp"
                 android:layout_height="126dp"
                 android:text="Selecciona el nivel de ansiedad que te causa al escuchar cada uno de los audios."
                 android:textSize="20dp" />

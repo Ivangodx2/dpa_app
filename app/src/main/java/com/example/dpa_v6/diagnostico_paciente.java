@@ -161,19 +161,19 @@ public class diagnostico_paciente extends AppCompatActivity {
 
         if(Numbr_Oprime>10){
             DOprime.setText("Resultados de test oprime: Ansiedad baja");
-            MyBarFormatter barFormatter4 = new MyBarFormatter(Color.RED, Color.LTGRAY);
+            MyBarFormatter barFormatter4 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
             myplot.addSeries(series4,barFormatter4);
         } else if (Numbr_Oprime>=7) {
             DOprime.setText("Resultados de test oprime: Ansiedad media");
-            MyBarFormatter barFormatter4 = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
+            MyBarFormatter barFormatter4 = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
             myplot.addSeries(series4,barFormatter4);
         } else if (Numbr_Oprime>=3) {
             DOprime.setText("Resultados de test oprime: Ansiedad media alta");
-            MyBarFormatter barFormatter4 = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
+            MyBarFormatter barFormatter4 = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
             myplot.addSeries(series4,barFormatter4);
         } else if (Numbr_Oprime>=1) {
             DOprime.setText("Resultados de test oprime: Ansiedad alta");
-            MyBarFormatter barFormatter4 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
+            MyBarFormatter barFormatter4 = new MyBarFormatter(Color.RED, Color.LTGRAY);
             myplot.addSeries(series4,barFormatter4);
         }
 
@@ -195,13 +195,11 @@ public class diagnostico_paciente extends AppCompatActivity {
             myplot.addSeries(series5,barFormatter5);
         }
 
-
-
         myplot.centerOnDomainOrigin(0);
         PanZoom.attach(myplot);
 
-        myplot.setDomainBoundaries(0,3, BoundaryMode.FIXED);
-        myplot.setRangeBoundaries(0,2000, BoundaryMode.FIXED);
+        myplot.setDomainBoundaries(0,1, BoundaryMode.FIXED);
+        myplot.setRangeBoundaries(0,40, BoundaryMode.FIXED);
 
         MyBarRenderer renderer = (MyBarRenderer)myplot.getRenderer(MyBarRenderer.class);
         renderer.setBarOrientation(BarRenderer.BarOrientation.SIDE_BY_SIDE);
