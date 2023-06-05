@@ -18,15 +18,18 @@
 
         <TextView
             android:id="@+id/Mipuntuacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:gravity="center"
             android:text="Mi Puntuacion:"
             android:textSize="25dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/puntuacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="-"
             android:textSize="25dp"/>
 
@@ -34,14 +37,15 @@
         
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_logohv"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:src="@drawable/huevo_logo2r"/>
 
         <TextView
             android:id="@+id/nombre_p"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="-"
             android:textSize="25dp"/>
 
@@ -49,6 +53,7 @@
             android:id="@+id/menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="MENÚ"
             android:textSize="25dp"/>
 
@@ -63,7 +68,7 @@
             android:text="Jugar" />
 
         <Button
-            android:id="@+id/button_Puntaje"
+            android:id="@+id/button_info"
             android:layout_width="match_parent"
             android:layout_marginEnd="25dp"
             android:layout_marginStart="25dp"
@@ -72,6 +77,17 @@
             android:layout_marginTop="10dp"
             android:text="Información"
             />
+
+        <Button
+            android:id="@+id/btn_salir"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/btn_style_inicio"
+            android:onClick="salir_p"
+            android:text="Salir" />
 
 
 

@@ -156,7 +156,9 @@ public class Home_pacientes extends AppCompatActivity {
 
     private void CerrarSesion_p(){
         mAuth.signOut();
-        this.finish();
+        Intent cerrarsesion = new Intent( this, iniciar_paciente.class);
+        startActivity(cerrarsesion);
+        finish();
         Toast.makeText(this, "Se ha cerrado sesión", Toast.LENGTH_SHORT).show();
     }
 

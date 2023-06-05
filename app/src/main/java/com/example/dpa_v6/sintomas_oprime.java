@@ -29,7 +29,7 @@ public class sintomas_oprime extends AppCompatActivity {
 
 
     TextView Mipuntuacion, nombre,puntuacion;
-    Button jugar_btn, puntaje;
+    Button jugar_btn, puntaje,salir_btn, info_oprime;;
     private String idPaciente;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +45,9 @@ public class sintomas_oprime extends AppCompatActivity {
         puntuacion = findViewById(R.id.puntuacion);
 
         jugar_btn = findViewById(R.id.jugar_btn);
-        puntaje = findViewById(R.id.button_Puntaje);
         idPaciente = auth.getCurrentUser().getUid();
+        salir_btn = findViewById(R.id.btn_salir);
+        info_oprime = findViewById(R.id.button_info);
 
         //Recibir datos de usuario a esta pantalla
         Bundle presiona_s = getIntent().getExtras();
@@ -72,14 +73,20 @@ public class sintomas_oprime extends AppCompatActivity {
             }
         });
 
-        //Quitar
-        puntaje.setOnClickListener(new View.OnClickListener() {
+
+        info_oprime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Iniciando juego", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(sintomas_oprime.this, popup_oprime.class));
             }
         });
 
+    }
+
+    public void salir_p(View view){
+        Intent salir_a_home_paciente = new Intent( this, Home_pacientes.class);
+        startActivity(salir_a_home_paciente);
+        finish();
     }
 
 

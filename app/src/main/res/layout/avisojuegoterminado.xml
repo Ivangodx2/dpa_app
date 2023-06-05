@@ -46,7 +46,7 @@
 
     <Button
         android:id="@+id/Jugar_otv"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="Jugar otra vez"
         android:layout_marginTop="20dp"
@@ -54,7 +54,7 @@
 
     <Button
         android:id="@+id/Volver_menu"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Volver al menú"
