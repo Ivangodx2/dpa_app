@@ -15,6 +15,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".popup_identifica"
+            android:theme="@style/appTheme.S_Popup" />
+        <activity
             android:name=".popup_diagnostico"
             android:theme="@style/appTheme.S_Popup" />
         <activity

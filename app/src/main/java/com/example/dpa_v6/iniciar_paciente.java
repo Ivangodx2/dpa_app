@@ -25,6 +25,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
@@ -33,7 +38,7 @@ import java.util.Map;
 
 public class iniciar_paciente extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
     EditText edtCorreo_p,edtContra_p;
     Button iniciar_sesion_paciente;
 
@@ -46,6 +51,7 @@ public class iniciar_paciente extends AppCompatActivity {
         iniciar_sesion_paciente=findViewById(R.id.button_Iniciar_S_p);
         mAuth = FirebaseAuth.getInstance();
 
+
         iniciar_sesion_paciente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +61,7 @@ public class iniciar_paciente extends AppCompatActivity {
                 if (edtCorreo_p_p.isEmpty() && edtContra_p_p.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Ingresar datos", Toast.LENGTH_SHORT).show();
 
-                }else{
+                }else {
                     //Inicio de sesion
                     iniciarSesion_pac(edtCorreo_p_p,edtContra_p_p);
                 }
@@ -76,6 +82,7 @@ public class iniciar_paciente extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
+
                             Intent intent= new Intent(getApplicationContext(), Home_pacientes.class);
                             startActivity(intent);
                             Toast.makeText(getApplicationContext(), "Sesion iniciada", Toast.LENGTH_SHORT).show();

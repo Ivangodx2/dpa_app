@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.androidplot.ui.SeriesRenderer;
@@ -24,17 +25,20 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.sql.SQLOutput;
 import java.util.Arrays;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class diagnostico_paciente extends AppCompatActivity {
 
     Button info_diag;
+    ProgressBar PBNansiedad;
     private XYPlot myplot;
     FirebaseFirestore db;
     private TextView nombre_paciente1;
     TextView DCuestionario,DEscucha,DVisualiza,DOprime,DIdentifica;
     String IDPacietne,R_cuestionario,R_escucha,R_identifica,R_oprime,R_visualiza,NombrePaciente2;
-    int Numbr_Cuest,Numbr_Escucha,Numbr_Visuali,Numbr_Oprime,Numbr_Ident;
+    int Numbr_Cuest,Numbr_Escucha,Numbr_Visuali,Numbr_Oprime,Numbr_Ident,count_PB,ResPB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,7 @@ public class diagnostico_paciente extends AppCompatActivity {
         DOprime = findViewById(R.id.Diag_Oprime);
         DIdentifica = findViewById(R.id.Diag_Identifica);
         info_diag = findViewById(R.id.info_diagnostico);
+        PBNansiedad = findViewById(R.id.progressBar_ansiedad);
 
         //Recibir datos
         db = FirebaseFirestore.getInstance();
@@ -97,113 +102,131 @@ public class diagnostico_paciente extends AppCompatActivity {
         Number[] values5 = {Numbr_Ident};
 
 
-        XYSeries series1 = new SimpleXYSeries(Arrays.asList(values1),SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Sintomas");
-        XYSeries series2 = new SimpleXYSeries(Arrays.asList(values2),SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Escucha");
-        XYSeries series3 = new SimpleXYSeries(Arrays.asList(values3),SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Visualiza");
-        XYSeries series4 = new SimpleXYSeries(Arrays.asList(values4),SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Oprime");
-        XYSeries series5 = new SimpleXYSeries(Arrays.asList(values5),SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Identifica");
+        XYSeries series1 = new SimpleXYSeries(Arrays.asList(values1),SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "S");
+        XYSeries series2 = new SimpleXYSeries(Arrays.asList(values2),SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "E");
+        XYSeries series3 = new SimpleXYSeries(Arrays.asList(values3),SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "V");
+        XYSeries series4 = new SimpleXYSeries(Arrays.asList(values4),SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "O");
+        XYSeries series5 = new SimpleXYSeries(Arrays.asList(values5),SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "I");
 
         myplot.getRangeTitle().getLabelPaint().setTextSize(50f);
 
-        if(Numbr_Cuest>30){
-            DCuestionario.setText("Resultados de Test Sintomas: Ansiedad alta");
+        if(Numbr_Cuest>=30){
+            DCuestionario.setText("-Resultados de Test Sintomas: Ansiedad alta");
             MyBarFormatter barFormatter = new MyBarFormatter(Color.RED, Color.LTGRAY);
             myplot.addSeries(series1,barFormatter);
+            ResPB = ResPB+Numbr_Cuest;
         } else if (Numbr_Cuest>=20) {
-            DCuestionario.setText("Resultados de Test Sintomas: Ansiedad media alta");
+            DCuestionario.setText("-Resultados de Test Sintomas: Ansiedad media alta");
             MyBarFormatter barFormatter = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
             myplot.addSeries(series1,barFormatter);
+            ResPB = ResPB+Numbr_Cuest;
         } else if (Numbr_Cuest>=17) {
-            DCuestionario.setText("Resultados de Test Sintomas: Ansiedad media");
+            DCuestionario.setText("-Resultados de Test Sintomas: Ansiedad media");
             MyBarFormatter barFormatter = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
             myplot.addSeries(series1,barFormatter);
-        } else if (Numbr_Cuest>=1) {
-            DCuestionario.setText("Resultados de Test Sintomas: Ansiedad baja");
+            ResPB = ResPB+Numbr_Cuest;
+        } else if (Numbr_Cuest>=0) {
+            DCuestionario.setText("-Resultados de Test Sintomas: Ansiedad baja");
             MyBarFormatter barFormatter = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
             myplot.addSeries(series1,barFormatter);
+            ResPB = ResPB+Numbr_Cuest;
         }
 
-        if(Numbr_Escucha>30){
-            DEscucha.setText("Resultados de test escucha: Ansiedad alta");
+        if(Numbr_Escucha>=30){
+            DEscucha.setText("-Resultados de test escucha: Ansiedad alta");
             MyBarFormatter barFormatter2 = new MyBarFormatter(Color.RED, Color.LTGRAY);
             myplot.addSeries(series2,barFormatter2);
+            ResPB = ResPB+Numbr_Escucha;
         } else if (Numbr_Escucha>=20) {
-            DEscucha.setText("Resultados de test escucha: Ansiedad media alta");
+            DEscucha.setText("-Resultados de test escucha: Ansiedad media alta");
             MyBarFormatter barFormatter2 = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
             myplot.addSeries(series2,barFormatter2);
+            ResPB = ResPB+Numbr_Escucha;
         } else if (Numbr_Escucha>=10) {
-            DEscucha.setText("Resultados de test escucha: Ansiedad media");
+            DEscucha.setText("-Resultados de test escucha: Ansiedad media");
             MyBarFormatter barFormatter2 = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
             myplot.addSeries(series2,barFormatter2);
-        } else if (Numbr_Escucha>=1) {
-            DEscucha.setText("Resultados de test escucha: Ansiedad baja");
+            ResPB = ResPB+Numbr_Escucha;
+        } else if (Numbr_Escucha>=0) {
+            DEscucha.setText("-Resultados de test escucha: Ansiedad baja");
             MyBarFormatter barFormatter2 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
             myplot.addSeries(series2,barFormatter2);
+            ResPB = ResPB+Numbr_Escucha;
         }
 
-        if(Numbr_Visuali>27){
-            DVisualiza.setText("Resultados de test visualiza: Ansiedad alta");
+        if(Numbr_Visuali>=27){
+            DVisualiza.setText("-Resultados de test visualiza: Ansiedad alta");
             MyBarFormatter barFormatter3 = new MyBarFormatter(Color.RED, Color.LTGRAY);
             myplot.addSeries(series3,barFormatter3);
+            ResPB = ResPB+Numbr_Visuali;
         } else if (Numbr_Visuali>=16) {
-            DVisualiza.setText("Resultados de test visualiza: Ansiedad media alta");
+            DVisualiza.setText("-Resultados de test visualiza: Ansiedad media alta");
             MyBarFormatter barFormatter3 = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
             myplot.addSeries(series3,barFormatter3);
+            ResPB = ResPB+Numbr_Visuali;
         } else if (Numbr_Visuali>=8) {
-            DVisualiza.setText("Resultados de test visualiza: Ansiedad media");
+            DVisualiza.setText("-Resultados de test visualiza: Ansiedad media");
             MyBarFormatter barFormatter3 = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
             myplot.addSeries(series3,barFormatter3);
-        } else if (Numbr_Visuali>=1) {
-            DVisualiza.setText("Resultados de test visualiza: Ansiedad baja");
+            ResPB = ResPB+Numbr_Visuali;
+        } else if (Numbr_Visuali>=0) {
+            DVisualiza.setText("-Resultados de test visualiza: Ansiedad baja");
             MyBarFormatter barFormatter3 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
             myplot.addSeries(series3,barFormatter3);
+            ResPB = ResPB+Numbr_Visuali;
         }
 
         if(Numbr_Oprime>10){
-            DOprime.setText("Resultados de test oprime: Ansiedad baja");
+            DOprime.setText("-Resultados de test oprime: Ansiedad baja");
             MyBarFormatter barFormatter4 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
             myplot.addSeries(series4,barFormatter4);
         } else if (Numbr_Oprime>=7) {
-            DOprime.setText("Resultados de test oprime: Ansiedad media");
+            DOprime.setText("-Resultados de test oprime: Ansiedad media");
             MyBarFormatter barFormatter4 = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
             myplot.addSeries(series4,barFormatter4);
-        } else if (Numbr_Oprime>=3) {
-            DOprime.setText("Resultados de test oprime: Ansiedad media alta");
+        } else if (Numbr_Oprime>=5) {
+            DOprime.setText("-Resultados de test oprime: Ansiedad media alta");
             MyBarFormatter barFormatter4 = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
             myplot.addSeries(series4,barFormatter4);
-        } else if (Numbr_Oprime>=1) {
-            DOprime.setText("Resultados de test oprime: Ansiedad alta");
+        } else if (Numbr_Oprime>=2) {
+            DOprime.setText("-Resultados de test oprime: Ansiedad alta");
             MyBarFormatter barFormatter4 = new MyBarFormatter(Color.RED, Color.LTGRAY);
             myplot.addSeries(series4,barFormatter4);
         }
 
         if(Numbr_Ident>=35){
-            DIdentifica.setText("Resultados de test escucha: Ansiedad alta");
+            DIdentifica.setText("-Resultados de test identifica: Ansiedad alta");
             MyBarFormatter barFormatter5 = new MyBarFormatter(Color.RED, Color.LTGRAY);
             myplot.addSeries(series5,barFormatter5);
+            ResPB = ResPB+Numbr_Ident;
         } else if (Numbr_Ident>=30) {
-            DIdentifica.setText("Resultados de test escucha: Ansiedad media alta");
+            DIdentifica.setText("-Resultados de test identifica: Ansiedad media alta");
             MyBarFormatter barFormatter5 = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
             myplot.addSeries(series5,barFormatter5);
-        } else if (Numbr_Ident>=25) {
-            DIdentifica.setText("Resultados de test escucha: Ansiedad media");
+            ResPB = ResPB+Numbr_Ident;
+        } else if (Numbr_Ident>=20) {
+            DIdentifica.setText("-Resultados de test identifica: Ansiedad media");
             MyBarFormatter barFormatter5 = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
             myplot.addSeries(series5,barFormatter5);
-        } else if (Numbr_Ident>=5) {
-            DIdentifica.setText("Resultados de test escucha: Ansiedad baja");
+            ResPB = ResPB+Numbr_Ident;
+        } else if (Numbr_Ident>=0) {
+            DIdentifica.setText("-Resultados de test identifica: Ansiedad baja");
             MyBarFormatter barFormatter5 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
             myplot.addSeries(series5,barFormatter5);
+            ResPB = ResPB+Numbr_Ident;
         }
 
         myplot.centerOnDomainOrigin(0);
         PanZoom.attach(myplot);
 
-        myplot.setDomainBoundaries(0,1, BoundaryMode.FIXED);
+        myplot.setDomainBoundaries(-0.9,1, BoundaryMode.FIXED);
         myplot.setRangeBoundaries(0,40, BoundaryMode.FIXED);
 
         MyBarRenderer renderer = (MyBarRenderer)myplot.getRenderer(MyBarRenderer.class);
         renderer.setBarOrientation(BarRenderer.BarOrientation.SIDE_BY_SIDE);
         renderer.setBarGroupWidth(BarRenderer.BarGroupWidthMode.FIXED_GAP, 100);
+
+        Pbar_ansiedad();
 
 
 
@@ -229,6 +252,24 @@ public class diagnostico_paciente extends AppCompatActivity {
         public MyBarRenderer(XYPlot plot){
             super(plot);
         }
+    }
+
+    public void Pbar_ansiedad(){
+        ResPB = ((ResPB*100)/152);
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                count_PB++;
+                PBNansiedad.setProgress(count_PB);
+
+                if (count_PB == ResPB){
+                    timer.cancel();
+                }
+
+            }
+        };
+        timer.schedule(timerTask,0,100);
     }
 
 

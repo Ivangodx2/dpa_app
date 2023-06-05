@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ public class sintomas_identifica extends AppCompatActivity {
     String IDPacietne, result_identifica;
     FirebaseFirestore db;
     int resultado_ident;
+    Button info_identifica;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +34,20 @@ public class sintomas_identifica extends AppCompatActivity {
         res6= findViewById(R.id.checkBox6);
         res7= findViewById(R.id.checkBox7);
         res8= findViewById(R.id.checkBox8);
+        info_identifica= findViewById(R.id.icn_identifica);
 
         //Recibir datos
         db = FirebaseFirestore.getInstance();
         Bundle intent = getIntent().getExtras();
         result_identifica = intent.getString("puntaje_identifica");
         IDPacietne = getIntent().getStringExtra("IDPaciente");
+
+        info_identifica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(sintomas_identifica.this, popup_identifica.class));
+            }
+        });
 
     }
 
