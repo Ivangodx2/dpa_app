@@ -15,6 +15,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".especialista_pacientes"
+            android:exported="false" />
+        <activity
             android:name=".popup_oprime"
             android:theme="@style/appTheme.S_Popup" />
         <activity

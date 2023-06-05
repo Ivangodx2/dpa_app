@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_loginpacientebg"
+    tools:context=".especialista_pacientes">
+
+
+
+
+    <LinearLayout
+        android:layout_width="344dp"
+        android:layout_height="523dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="87dp">
+
+
+        <TextView
+            android:id="@+id/P_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre" />
+
+        <TextView
+            android:id="@+id/P_edad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edad" />
+
+        <TextView
+            android:id="@+id/P_notelefonico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No. telefonico" />
+    </LinearLayout>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/buttom_navi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/style_navbar"
+        android:elevation="2dp"
+        app:itemIconSize="25dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/button_nav" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

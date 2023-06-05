@@ -1,48 +1,37 @@
 package com.example.dpa_v6;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarItemView;
-import com.google.android.material.navigation.NavigationBarView;
 
-public class home_especialista extends AppCompatActivity {
-
-
-    BottomNavigationView NavBar;
+public class especialista_pacientes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_especialista);
+        setContentView(R.layout.activity_especialista_pacientes);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.buttom_navi);
-        bottomNavigationView.setSelectedItemId(R.id.home_esp);
+        bottomNavigationView.setSelectedItemId(R.id.pacientes_es);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.home_esp:
-                    return true;
-
-                case R.id.pacientes_es:
-                    Intent intent = new Intent(getApplicationContext(), especialista_pacientes.class);
+                    Intent intent = new Intent(getApplicationContext(), home_especialista.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivityForResult(intent, 0);
                     overridePendingTransition(0,0);
                     finish();
                     return true;
+
+                case R.id.pacientes_es:
+
+                    return true;
             }
             return false;
         });
     }
-
-
 }

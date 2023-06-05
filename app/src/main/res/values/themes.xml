@@ -16,7 +16,7 @@
     
     <style name="Butomnav">
         <item name="android:background">#57333333</item>
-        <item name="itemIconTint">#0040FF</item>
+        <item name="itemIconTint">#68CFFF</item>
         <item name="itemTextColor">#FFFFFF</item>
     </style>
 
