@@ -4,45 +4,50 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class especialista_pacientes extends AppCompatActivity {
+public class especialista_comprobar extends AppCompatActivity {
 
 
-    RecyclerView RecycleV_listpacient;
-    e_tabla_p_adapter list_pac_adapter;
+
+    RecyclerView RecycleV_listpacient_bar;
+    e_tabla_comprobar_adapter e_Tabla_comprobar_adapter;
     FirebaseFirestore base_datos;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_especialista_pacientes);
-
+        setContentView(R.layout.activity_especialista_comprobar);
 
         //Lista de pacientes
-        RecycleV_listpacient = findViewById(R.id.list_pacientes);
-        RecycleV_listpacient.setLayoutManager(new LinearLayoutManager(this));
+        RecycleV_listpacient_bar = findViewById(R.id.list_pacientes_bar);
+        RecycleV_listpacient_bar.setLayoutManager(new LinearLayoutManager(this));
         base_datos= FirebaseFirestore.getInstance();
 
         Query query =base_datos.collection("reg_paciente");
 
-        FirestoreRecyclerOptions<e_tabla_pacientes> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<e_tabla_pacientes>()
+        FirestoreRecyclerOptions<e_tabla_pacientes> fireStoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<e_tabla_pacientes>()
                 .setQuery(query, e_tabla_pacientes.class).build();
 
-        list_pac_adapter = new e_tabla_p_adapter(firestoreRecyclerOptions, this);
-        list_pac_adapter.notifyDataSetChanged();
-        RecycleV_listpacient.setAdapter(list_pac_adapter);
+        e_Tabla_comprobar_adapter = new e_tabla_comprobar_adapter(fireStoreRecyclerOptions);
+        e_Tabla_comprobar_adapter.notifyDataSetChanged();
+        RecycleV_listpacient_bar.setAdapter(e_Tabla_comprobar_adapter);
 
 
-        //NavigationBar
+
+
+
+        //Nav_bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.buttom_navi);
-        bottomNavigationView.setSelectedItemId(R.id.pacientes_es);
+        bottomNavigationView.setSelectedItemId(R.id.comprobar_es);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
@@ -55,15 +60,15 @@ public class especialista_pacientes extends AppCompatActivity {
                     return true;
 
                 case R.id.pacientes_es:
+                    Intent intent2 = new Intent(getApplicationContext(), especialista_pacientes.class);
+                    intent2.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivityForResult(intent2, 0);
+                    overridePendingTransition(0,0);
+                    finish();
 
                     return true;
 
                 case R.id.comprobar_es:
-                    Intent intent3 = new Intent(getApplicationContext(), especialista_comprobar.class);
-                    intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                    startActivityForResult(intent3, 0);
-                    overridePendingTransition(0,0);
-                    finish();
                     return true;
             }
             return false;
@@ -73,12 +78,11 @@ public class especialista_pacientes extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
-        list_pac_adapter.startListening();
+        e_Tabla_comprobar_adapter.startListening();
     }
     @Override
     protected void onStop(){
         super.onStop();
-        list_pac_adapter.stopListening();
+        e_Tabla_comprobar_adapter.stopListening();
     }
-
 }

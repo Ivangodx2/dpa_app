@@ -25,6 +25,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.sql.SQLOutput;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -226,6 +228,7 @@ public class diagnostico_paciente extends AppCompatActivity {
         renderer.setBarGroupWidth(BarRenderer.BarGroupWidthMode.FIXED_GAP, 100);
 
         Pbar_ansiedad();
+        GuardarDatosPA();
 
 
 
@@ -269,6 +272,16 @@ public class diagnostico_paciente extends AppCompatActivity {
             }
         };
         timer.schedule(timerTask,0,100);
+    }
+
+
+    private void GuardarDatosPA(){
+        //Actualizar base de datos
+        String puntuacionPaciente = Integer.toString(ResPB);
+
+        Map<String,Object> map = new HashMap<>();
+        map.put("porcentaje_A",puntuacionPaciente);
+        db.collection("reg_paciente").document(IDPacietne).update(map);
     }
 
 

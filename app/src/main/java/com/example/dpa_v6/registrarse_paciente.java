@@ -96,6 +96,7 @@ public class registrarse_paciente extends AppCompatActivity {
                 map.put("puntaje_vsual","0");
                 map.put("puntaje_escuch","0");
                 map.put("puntaje_identifica","0");
+                map.put("porcentaje_A","0");
 
                 datos_paciente.collection("reg_paciente").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -114,7 +115,7 @@ public class registrarse_paciente extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), "No se guardaron los datos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "No pudo guardar los datos", Toast.LENGTH_SHORT).show();
             }
         });
     }

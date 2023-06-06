@@ -7,31 +7,32 @@
     android:background="@drawable/img_loginpacientebg"
     tools:context=".home_especialista">
 
-    <FrameLayout
-        android:id="@+id/frame_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        />
-    <TextView
-        android:id="@+id/txtHometit"
-        android:layout_width="241dp"
-        android:layout_height="66dp"
-        android:text="home"
-        android:ellipsize="end"
-        android:gravity="center_horizontal"
-        android:singleLine="true"
-        />
 
     <LinearLayout
         android:id="@+id/linearColumnhometit"
-        android:layout_width="338dp"
-        android:layout_height="315dp"
+        android:layout_width="376dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_gravity="bottom|center"
-        android:layout_marginEnd="73dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="21dp"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtHometit"
+            android:layout_width="241dp"
+            android:layout_height="66dp"
+            android:ellipsize="end"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:text="HOME"
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:singleLine="true" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSintomas"
@@ -42,7 +43,7 @@
             android:layout_marginEnd="8.01dp"
             android:background="@drawable/btnpacien"
             android:ellipsize="end"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:paddingStart="34.33dp"
             android:paddingTop="9.1dp"
             android:paddingEnd="34.33dp"
@@ -59,7 +60,7 @@
             android:layout_marginEnd="8.1dp"
             android:background="@drawable/btncompro"
             android:ellipsize="end"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:paddingStart="16dp"
             android:paddingTop="12dp"
             android:paddingEnd="16dp"

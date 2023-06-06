@@ -15,6 +15,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".especialista_comprobar"
+            android:exported="false" />
+        <activity
             android:name=".especialista_ver_paciente"
             android:exported="false" />
         <activity

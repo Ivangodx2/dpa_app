@@ -213,7 +213,7 @@ public class especialista_ver_paciente extends AppCompatActivity {
                     myplot_e.centerOnDomainOrigin(0);
                     PanZoom.attach(myplot_e);
 
-                    myplot_e.setDomainBoundaries(-0.9,0, BoundaryMode.FIXED);
+                    myplot_e.setDomainBoundaries(-0.9,1, BoundaryMode.FIXED);
                     myplot_e.setRangeBoundaries(0,40, BoundaryMode.FIXED);
 
                     MyBarRenderer renderer = (MyBarRenderer)myplot_e.getRenderer(MyBarRenderer.class);

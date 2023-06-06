@@ -17,8 +17,6 @@ import com.google.android.material.navigation.NavigationBarView;
 public class home_especialista extends AppCompatActivity {
 
 
-    BottomNavigationView NavBar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,9 +31,17 @@ public class home_especialista extends AppCompatActivity {
                     return true;
 
                 case R.id.pacientes_es:
-                    Intent intent = new Intent(getApplicationContext(), especialista_pacientes.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                    startActivityForResult(intent, 0);
+                    Intent intent2 = new Intent(getApplicationContext(), especialista_pacientes.class);
+                    intent2.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivityForResult(intent2, 0);
+                    overridePendingTransition(0,0);
+                    finish();
+                    return true;
+
+                case R.id.comprobar_es:
+                    Intent intent3 = new Intent(getApplicationContext(), especialista_comprobar.class);
+                    intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivityForResult(intent3, 0);
                     overridePendingTransition(0,0);
                     finish();
                     return true;

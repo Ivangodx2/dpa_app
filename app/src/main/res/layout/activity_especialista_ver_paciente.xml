@@ -64,7 +64,7 @@
                     style="@style/Widget.AppCompat.TextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_margin="5dp"
                     android:text="Cuestionario"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -73,7 +73,7 @@
                     android:id="@+id/Diag_Escucha_ie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_margin="5dp"
                     android:text="Escucha"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -82,7 +82,7 @@
                     android:id="@+id/Diag_Visualiza_ie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_margin="5dp"
                     android:text="Visualiza"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -91,7 +91,7 @@
                     android:id="@+id/Diag_Oprime_ie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_margin="5dp"
                     android:text="Oprime"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -100,7 +100,7 @@
                     android:id="@+id/Diag_Identifica_ie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_margin="5dp"
                     android:text="Identifica"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
