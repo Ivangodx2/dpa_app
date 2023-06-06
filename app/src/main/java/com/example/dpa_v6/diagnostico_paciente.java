@@ -94,7 +94,6 @@ public class diagnostico_paciente extends AppCompatActivity {
         Numbr_Ident= Numbr_Ident*5;
 
 
-
         Number[] values1 = {Numbr_Cuest};
         Number[] values2 = {Numbr_Escucha};
         Number[] values3 = {Numbr_Visuali};

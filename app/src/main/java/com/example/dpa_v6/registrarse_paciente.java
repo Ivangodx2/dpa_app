@@ -51,7 +51,7 @@ public class registrarse_paciente extends AppCompatActivity {
         ecorreo3= findViewById(R.id.EditText_correo_e_p);
         econtra4= findViewById(R.id.EditText_contrasena_p);
         etelef5= findViewById(R.id.editTextTelefono_p);
-        eedad6= findViewById(R.id.editTextTelefono_p);
+        eedad6= findViewById(R.id.editTextEdad_p);
         btn_dtos_paci= findViewById(R.id.button_Registro_bd_pac);
 
         btn_dtos_paci.setOnClickListener(new View.OnClickListener() {

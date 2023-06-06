@@ -7,50 +7,29 @@
     android:background="@drawable/img_loginpacientebg"
     tools:context=".especialista_pacientes">
 
-
-
-
-    <LinearLayout
-        android:layout_width="344dp"
-        android:layout_height="523dp"
-        android:orientation="vertical"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_pacientes"
+        android:layout_width="365dp"
+        android:layout_height="450dp"
+        android:layout_marginTop="108dp"
+        android:background="@drawable/style_list_usuarios"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="87dp">
-
-
-        <TextView
-            android:id="@+id/P_nombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nombre" />
-
-        <TextView
-            android:id="@+id/P_edad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Edad" />
-
-        <TextView
-            android:id="@+id/P_notelefonico"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No. telefonico" />
-    </LinearLayout>
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/buttom_navi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/style_navbar"
         android:elevation="2dp"
         app:itemIconSize="25dp"
         app:itemIconTint="@drawable/item_selector"
         app:itemRippleColor="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/button_nav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
