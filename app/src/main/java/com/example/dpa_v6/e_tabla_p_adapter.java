@@ -15,7 +15,13 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class e_tabla_p_adapter extends FirestoreRecyclerAdapter<e_tabla_pacientes,e_tabla_p_adapter.ViewHolder> {
+
+
+
 
     Activity activity;
     /**
@@ -27,7 +33,9 @@ public class e_tabla_p_adapter extends FirestoreRecyclerAdapter<e_tabla_paciente
     public e_tabla_p_adapter(@NonNull FirestoreRecyclerOptions<e_tabla_pacientes> options, Activity activity) {
         super(options);
         this.activity = activity;
+
     }
+
 
     @Override
     protected void onBindViewHolder(@NonNull e_tabla_p_adapter.ViewHolder holder, int position, @NonNull e_tabla_pacientes model) {
@@ -48,6 +56,7 @@ public class e_tabla_p_adapter extends FirestoreRecyclerAdapter<e_tabla_paciente
             }
         });
     }
+
 
     @NonNull
     @Override

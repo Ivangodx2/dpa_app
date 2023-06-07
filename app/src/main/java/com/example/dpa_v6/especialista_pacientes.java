@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -13,12 +16,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 public class especialista_pacientes extends AppCompatActivity {
 
-
+    SearchView sv_pacientes;
     RecyclerView RecycleV_listpacient;
     e_tabla_p_adapter list_pac_adapter;
+    List<e_tabla_pacientes> pacientes_list;
     FirebaseFirestore base_datos;
+    Query query;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +38,14 @@ public class especialista_pacientes extends AppCompatActivity {
         RecycleV_listpacient = findViewById(R.id.list_pacientes);
         RecycleV_listpacient.setLayoutManager(new LinearLayoutManager(this));
         base_datos= FirebaseFirestore.getInstance();
+        pacientes_list = new ArrayList<>();
+        sv_pacientes=findViewById(R.id.searchview_p);
 
-        Query query =base_datos.collection("reg_paciente");
+        //fitrado
+        filtrado_view();
+
+        //Datos
+        query =base_datos.collection("reg_paciente");
 
         FirestoreRecyclerOptions<e_tabla_pacientes> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<e_tabla_pacientes>()
                 .setQuery(query, e_tabla_pacientes.class).build();
@@ -69,6 +84,33 @@ public class especialista_pacientes extends AppCompatActivity {
             return false;
         });
     }
+
+    private void filtrado_view() {
+        sv_pacientes.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                textSeach(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                textSeach(newText);
+                return false;
+            }
+        });
+    }
+
+    private void textSeach(String text) {
+        FirestoreRecyclerOptions<e_tabla_pacientes> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<e_tabla_pacientes>()
+                .setQuery(query.orderBy("nombre").startAt(text).endAt(text+"~"), e_tabla_pacientes.class).build();
+
+        list_pac_adapter = new e_tabla_p_adapter(firestoreRecyclerOptions, this);
+        list_pac_adapter.startListening();
+        RecycleV_listpacient.setAdapter(list_pac_adapter);
+
+    }
+
 
     @Override
     protected void onStart(){

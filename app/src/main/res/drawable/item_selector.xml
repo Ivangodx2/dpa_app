@@ -5,7 +5,7 @@
         android:color="#D5D5D5"/>
     <item
         android:state_selected="false"
-        android:color="#06AFAF"/>
+        android:color="#022CFF"/>
     <item android:state_pressed="true"
         android:color="#FFFFFF"
         />

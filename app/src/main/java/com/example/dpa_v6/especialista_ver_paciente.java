@@ -3,8 +3,11 @@ package com.example.dpa_v6;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -34,6 +37,7 @@ public class especialista_ver_paciente extends AppCompatActivity {
     ProgressBar PBNansiedad_e;
     String idpaciente;
     FirebaseFirestore db;
+    Button enviar_correo;
 
     int V_cuest, V_escucha,V_visuali,V_oprime,V_ident, count_PB_e,ResPB_e;
     public String S_cuest,S_escucha,S_visuali,S_oprime,S_ident;
@@ -50,6 +54,7 @@ public class especialista_ver_paciente extends AppCompatActivity {
         DIdentifica_e = findViewById(R.id.Diag_Identifica_ie);
         myplot_e = findViewById(R.id.xyzplot_ie);
         PBNansiedad_e = findViewById(R.id.progressBar_ansiedad_ie);
+        enviar_correo = findViewById(R.id.enviar_mcp);
 
         //Recibir id
         db = FirebaseFirestore.getInstance();
@@ -102,22 +107,22 @@ public class especialista_ver_paciente extends AppCompatActivity {
 
                     if(V_cuest>=30){
                         DCuestionario_e.setText("-Resultados de Test Sintomas: Ansiedad alta");
-                        especialista_ver_paciente.MyBarFormatter barFormatter = new especialista_ver_paciente.MyBarFormatter(Color.RED, Color.LTGRAY);
+                        MyBarFormatter barFormatter = new MyBarFormatter(Color.RED, Color.LTGRAY);
                         myplot_e.addSeries(series1,barFormatter);
                         ResPB_e = ResPB_e+V_cuest;
                     } else if (V_cuest>=20) {
                         DCuestionario_e.setText("-Resultados de Test Sintomas: Ansiedad media alta");
-                        especialista_ver_paciente.MyBarFormatter barFormatter = new especialista_ver_paciente.MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
+                        MyBarFormatter barFormatter = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
                         myplot_e.addSeries(series1,barFormatter);
                         ResPB_e = ResPB_e+V_cuest;
                     } else if (V_cuest>=17) {
                         DCuestionario_e.setText("-Resultados de Test Sintomas: Ansiedad media");
-                        especialista_ver_paciente.MyBarFormatter barFormatter = new especialista_ver_paciente.MyBarFormatter(Color.YELLOW, Color.LTGRAY);
+                        MyBarFormatter barFormatter = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
                         myplot_e.addSeries(series1,barFormatter);
                         ResPB_e = ResPB_e+V_cuest;
                     } else if (V_cuest>=0) {
                         DCuestionario_e.setText("-Resultados de Test Sintomas: Ansiedad baja");
-                        especialista_ver_paciente.MyBarFormatter barFormatter = new especialista_ver_paciente.MyBarFormatter(Color.GREEN, Color.LTGRAY);
+                        MyBarFormatter barFormatter = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
                         myplot_e.addSeries(series1,barFormatter);
                         ResPB_e = ResPB_e+V_cuest;
                     }
@@ -125,85 +130,85 @@ public class especialista_ver_paciente extends AppCompatActivity {
 
                     if(V_escucha>=30){
                         DEscucha_e.setText("-Resultados de test escucha: Ansiedad alta");
-                        especialista_ver_paciente.MyBarFormatter barFormatter2 = new especialista_ver_paciente.MyBarFormatter(Color.RED, Color.LTGRAY);
+                        MyBarFormatter barFormatter2 = new MyBarFormatter(Color.RED, Color.LTGRAY);
                         myplot_e.addSeries(series2,barFormatter2);
                         ResPB_e = ResPB_e+V_escucha;
                     } else if (V_escucha>=20) {
                         DEscucha_e.setText("-Resultados de test escucha: Ansiedad media alta");
-                        especialista_ver_paciente.MyBarFormatter barFormatter2 = new especialista_ver_paciente.MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
+                        MyBarFormatter barFormatter2 = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
                         myplot_e.addSeries(series2,barFormatter2);
                         ResPB_e = ResPB_e+V_escucha;
                     } else if (V_escucha>=10) {
                         DEscucha_e.setText("-Resultados de test escucha: Ansiedad media");
-                        especialista_ver_paciente.MyBarFormatter barFormatter2 = new especialista_ver_paciente.MyBarFormatter(Color.YELLOW, Color.LTGRAY);
+                        MyBarFormatter barFormatter2 = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
                         myplot_e.addSeries(series2,barFormatter2);
                         ResPB_e = ResPB_e+V_escucha;
                     } else if (V_escucha>=0) {
                         DEscucha_e.setText("-Resultados de test escucha: Ansiedad baja");
-                        especialista_ver_paciente.MyBarFormatter barFormatter2 = new especialista_ver_paciente.MyBarFormatter(Color.GREEN, Color.LTGRAY);
+                        MyBarFormatter barFormatter2 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
                         myplot_e.addSeries(series2,barFormatter2);
                         ResPB_e = ResPB_e+V_escucha;
                     }
 
                     if(V_visuali>=27){
                         DVisualiza_e.setText("-Resultados de test visualiza: Ansiedad alta");
-                        especialista_ver_paciente.MyBarFormatter barFormatter3 = new especialista_ver_paciente.MyBarFormatter(Color.RED, Color.LTGRAY);
+                        MyBarFormatter barFormatter3 = new MyBarFormatter(Color.RED, Color.LTGRAY);
                         myplot_e.addSeries(series3,barFormatter3);
                         ResPB_e = ResPB_e+V_visuali;
                     } else if (V_visuali>=16) {
                         DVisualiza_e.setText("-Resultados de test visualiza: Ansiedad media alta");
-                        especialista_ver_paciente.MyBarFormatter barFormatter3 = new especialista_ver_paciente.MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
+                        MyBarFormatter barFormatter3 = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
                         myplot_e.addSeries(series3,barFormatter3);
                         ResPB_e = ResPB_e+V_visuali;
                     } else if (V_visuali>=8) {
                         DVisualiza_e.setText("-Resultados de test visualiza: Ansiedad media");
-                        especialista_ver_paciente.MyBarFormatter barFormatter3 = new especialista_ver_paciente.MyBarFormatter(Color.YELLOW, Color.LTGRAY);
+                        MyBarFormatter barFormatter3 = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
                         myplot_e.addSeries(series3,barFormatter3);
                         ResPB_e = ResPB_e+V_visuali;
                     } else if (V_visuali>=0) {
                         DVisualiza_e.setText("-Resultados de test visualiza: Ansiedad baja");
-                        especialista_ver_paciente.MyBarFormatter barFormatter3 = new especialista_ver_paciente.MyBarFormatter(Color.GREEN, Color.LTGRAY);
+                        MyBarFormatter barFormatter3 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
                         myplot_e.addSeries(series3,barFormatter3);
                         ResPB_e = ResPB_e+V_visuali;
                     }
 
                     if(V_oprime>10){
                         DOprime_e.setText("-Resultados de test oprime: Ansiedad baja");
-                        especialista_ver_paciente.MyBarFormatter barFormatter4 = new especialista_ver_paciente.MyBarFormatter(Color.GREEN, Color.LTGRAY);
+                        MyBarFormatter barFormatter4 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
                         myplot_e.addSeries(series4,barFormatter4);
                     } else if (V_oprime>=7) {
                         DOprime_e.setText("-Resultados de test oprime: Ansiedad media");
-                        especialista_ver_paciente.MyBarFormatter barFormatter4 = new especialista_ver_paciente.MyBarFormatter(Color.YELLOW, Color.LTGRAY);
+                        MyBarFormatter barFormatter4 = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
                         myplot_e.addSeries(series4,barFormatter4);
                     } else if (V_oprime>=5) {
                         DOprime_e.setText("-Resultados de test oprime: Ansiedad media alta");
-                        especialista_ver_paciente.MyBarFormatter barFormatter4 = new especialista_ver_paciente.MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
+                        MyBarFormatter barFormatter4 = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
                         myplot_e.addSeries(series4,barFormatter4);
                     } else if (V_oprime>=2) {
                         DOprime_e.setText("-Resultados de test oprime: Ansiedad alta");
-                        especialista_ver_paciente.MyBarFormatter barFormatter4 = new especialista_ver_paciente.MyBarFormatter(Color.RED, Color.LTGRAY);
+                        MyBarFormatter barFormatter4 = new MyBarFormatter(Color.RED, Color.LTGRAY);
                         myplot_e.addSeries(series4,barFormatter4);
                     }
 
 
                     if(V_ident>=35){
                         DIdentifica_e.setText("-Resultados de test identifica: Ansiedad alta");
-                        especialista_ver_paciente.MyBarFormatter barFormatter5 = new especialista_ver_paciente.MyBarFormatter(Color.RED, Color.LTGRAY);
+                        MyBarFormatter barFormatter5 = new MyBarFormatter(Color.RED, Color.LTGRAY);
                         myplot_e.addSeries(series5,barFormatter5);
                         ResPB_e = ResPB_e+V_ident;
                     } else if (V_ident>=30) {
                         DIdentifica_e.setText("-Resultados de test identifica: Ansiedad media alta");
-                        especialista_ver_paciente.MyBarFormatter barFormatter5 = new especialista_ver_paciente.MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
+                        MyBarFormatter barFormatter5 = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
                         myplot_e.addSeries(series5,barFormatter5);
                         ResPB_e = ResPB_e+V_ident;
                     } else if (V_ident>=20) {
                         DIdentifica_e.setText("-Resultados de test identifica: Ansiedad media");
-                        especialista_ver_paciente.MyBarFormatter barFormatter5 = new especialista_ver_paciente.MyBarFormatter(Color.YELLOW, Color.LTGRAY);
+                        MyBarFormatter barFormatter5 = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
                         myplot_e.addSeries(series5,barFormatter5);
                         ResPB_e = ResPB_e+V_ident;
                     } else if (V_ident>=0) {
                         DIdentifica_e.setText("-Resultados de test identifica: Ansiedad baja");
-                        especialista_ver_paciente.MyBarFormatter barFormatter5 = new especialista_ver_paciente.MyBarFormatter(Color.GREEN, Color.LTGRAY);
+                        MyBarFormatter barFormatter5 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
                         myplot_e.addSeries(series5,barFormatter5);
                         ResPB_e = ResPB_e+V_ident;
                     }
@@ -226,6 +231,15 @@ public class especialista_ver_paciente extends AppCompatActivity {
 
 
                 }
+            }
+        });
+
+        enviar_correo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),especialista_generar_correo.class);
+                intent.putExtra("Idpaciente",idpaciente);
+                startActivity(intent);
             }
         });
 
