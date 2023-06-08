@@ -42,12 +42,6 @@ public class Home_pacientes extends AppCompatActivity {
 
 
         //Cerrar sesion
-        CerrarS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CerrarSesion_p();
-            }
-        });
 
         //Leer nombre del usuario
         DocumentReference documentReference = db.collection("reg_paciente").document(idPaciente);
@@ -161,7 +155,7 @@ public class Home_pacientes extends AppCompatActivity {
     }
 
 
-    private void CerrarSesion_p(){
+    public void CerrarSesion_p(View view){
         mAuth.signOut();
         finish();
         Toast.makeText(this, "Se ha cerrado sesión", Toast.LENGTH_SHORT).show();
