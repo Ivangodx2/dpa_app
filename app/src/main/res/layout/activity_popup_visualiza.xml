@@ -33,12 +33,11 @@
             android:textStyle="bold" />
 
 
-        <TextView
-            android:id="@+id/textView6"
+        <View
+            android:id="@+id/view4"
             android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="@drawable/lineas_punteadas_fndo" />
-
+            android:layout_height="2dp"
+            android:background="@color/black"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,7 +61,7 @@
                 android:id="@+id/textView7"
                 android:layout_width="265dp"
                 android:layout_height="126dp"
-                android:text="Selecciona el nivel de ansiedad que te genera cada uno de las imágenes."
+                android:text="Selecciona el nivel de ansiedad que te genera cada una de las imágenes,  donde 1 es baja y 4 es alta."
                 android:textSize="20dp" />
         </LinearLayout>
 

@@ -204,7 +204,8 @@ public class sintomas_escucha extends AppCompatActivity {
     }
 
     public void enviar_dts_escucha(View view){
-        if (raP1_1.isChecked() == false && raP1_2.isChecked() == false && raP1_3.isChecked() == false && raP1_4.isChecked() == false || raP2_1.isChecked() == false && raP2_2.isChecked() == false && raP2_3.isChecked() == false && raP2_4.isChecked() == false || raP3_1.isChecked() == false && raP3_2.isChecked() == false && raP3_3.isChecked() == false && raP3_4.isChecked() == false || raP3_4.isChecked() == false && raP4_1.isChecked() == false && raP4_2.isChecked() == false && raP4_3.isChecked() == false && raP4_4.isChecked() == false || raP5_1.isChecked() == false && raP5_2.isChecked() == false && raP5_3.isChecked() == false && raP5_4.isChecked() == false){
+
+        if (raP1_1.isChecked() == false && raP1_2.isChecked() == false && raP1_3.isChecked() == false && raP1_4.isChecked() == false || raP2_1.isChecked() == false && raP2_2.isChecked() == false && raP2_3.isChecked() == false && raP2_4.isChecked() == false || raP3_1.isChecked() == false && raP3_2.isChecked() == false && raP3_3.isChecked() == false && raP3_4.isChecked() == false || raP4_1.isChecked() == false && raP4_2.isChecked() == false && raP4_3.isChecked() == false && raP4_4.isChecked() == false || raP5_1.isChecked() == false && raP5_2.isChecked() == false && raP5_3.isChecked() == false && raP5_4.isChecked() == false){
             Toast.makeText(getApplicationContext(), "Responda todas las pregutas", Toast.LENGTH_SHORT).show();
         }else {
             //Pregunta 1
@@ -274,13 +275,15 @@ public class sintomas_escucha extends AppCompatActivity {
             if (raP5_4.isChecked()){
                 resultado_escu= resultado_escu+4;
             }
+
+            GuardarDatosBD();
+            Intent regresar_home_paciente = new Intent( this, Home_pacientes.class);
+            vectormp[posicion].stop();
+            finish();
+            Toast.makeText(getApplicationContext(), "Respuestas guardadas", Toast.LENGTH_SHORT).show();
+            startActivity(regresar_home_paciente);
         }
-        GuardarDatosBD();
-        Intent regresar_home_paciente = new Intent( this, Home_pacientes.class);
-        vectormp[posicion].stop();
-        finish();
-        Toast.makeText(getApplicationContext(), "Respuestas guardadas", Toast.LENGTH_SHORT).show();
-        startActivity(regresar_home_paciente);
+
 
     }
 

@@ -17,9 +17,20 @@
         android:gravity="center">
 
         <TextView
+            android:id="@+id/textView2"
+            android:layout_width="200dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/style_titulos_paciente"
+            android:gravity="center"
+            android:text="OPRIME"
+            android:textColor="@color/black"
+            android:textSize="30dp"/>
+        <TextView
             android:id="@+id/Mipuntuacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:textColor="@color/black"
             android:gravity="center"
             android:text="Mi Puntuacion:"

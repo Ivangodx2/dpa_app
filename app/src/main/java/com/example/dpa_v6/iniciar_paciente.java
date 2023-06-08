@@ -58,7 +58,7 @@ public class iniciar_paciente extends AppCompatActivity {
                 String edtCorreo_p_p = edtCorreo_p.getText().toString();
                 String edtContra_p_p = edtContra_p.getText().toString();
 
-                if (edtCorreo_p_p.isEmpty() && edtContra_p_p.isEmpty()){
+                if (edtCorreo_p_p.isEmpty() && edtContra_p_p.isEmpty() || edtCorreo_p_p.isEmpty() || edtContra_p_p.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Ingresar datos", Toast.LENGTH_SHORT).show();
 
                 }else {
@@ -85,12 +85,12 @@ public class iniciar_paciente extends AppCompatActivity {
 
                             Intent intent= new Intent(getApplicationContext(), Home_pacientes.class);
                             startActivity(intent);
-                            Toast.makeText(getApplicationContext(), "Sesion iniciada", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "Datos incorrectos", task.getException());
-                            Toast.makeText(getApplicationContext(), "Authentication failed.",
+                            Toast.makeText(getApplicationContext(), "Datos incorrectos.",
                                     Toast.LENGTH_SHORT).show();
                             //updateUI(null);
                         }

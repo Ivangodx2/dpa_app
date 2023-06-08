@@ -11,7 +11,7 @@
         android:id="@+id/textView4"
         android:layout_width="244dp"
         android:layout_height="68dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="70dp"
         android:gravity="center"
         android:text="HOME"
         android:textColor="@color/black"
@@ -26,7 +26,8 @@
         android:id="@+id/button13"
         android:layout_width="303dp"
         android:layout_height="70dp"
-        android:layout_marginTop="48dp"
+        android:layout_margin="7dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/btnsintomas"
         android:onClick="ir_reg_cuestioneario"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +39,7 @@
         android:id="@+id/button14"
         android:layout_width="302dp"
         android:layout_height="62dp"
-        android:layout_marginTop="8dp"
+        android:layout_margin="7dp"
         android:background="@drawable/btnaudios"
         android:onClick="ir_reg_escucha"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +51,7 @@
         android:id="@+id/button15"
         android:layout_width="302dp"
         android:layout_height="64dp"
-        android:layout_marginTop="8dp"
+        android:layout_margin="7dp"
         android:background="@drawable/btnvisualiza"
         android:onClick="ir_reg_visualiza"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +63,7 @@
         android:id="@+id/button16"
         android:layout_width="302dp"
         android:layout_height="59dp"
-        android:layout_marginTop="12dp"
+        android:layout_margin="7dp"
         android:background="@drawable/btnoprime"
         android:onClick="ir_reg_presiona"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,12 +71,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button15" />
 
+
     <Button
         android:id="@+id/button_identifica"
         android:layout_width="302dp"
         android:layout_height="59dp"
-        android:layout_marginTop="12dp"
 
+        android:layout_margin="7dp"
         android:background="@drawable/btnidenti"
         android:onClick="ir_reg_identifica"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,28 +85,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button16" />
 
-
     <Button
         android:id="@+id/button_diagnostico"
         android:layout_width="302dp"
         android:layout_height="59dp"
-        android:layout_marginTop="8dp"
+        android:layout_margin="7dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/btndiagnosti"
         android:onClick="ir_reg_diagnostico"
+        app:layout_constraintBottom_toTopOf="@+id/Cerrar_S"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_identifica" />
+        app:layout_constraintTop_toBottomOf="@+id/button_identifica"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textNombrePaciente"
-        android:layout_width="180dp"
+        android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:hint="usuario"
         android:background="#DDDDDD"
-
+        android:layout_marginEnd="24dp"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:paddingLeft="10dp"
@@ -115,11 +119,11 @@
         android:id="@+id/Cerrar_S"
         android:layout_width="159dp"
         android:layout_height="46dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/btn_style_inicio"
         android:text="Cerrar sesión"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_diagnostico" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

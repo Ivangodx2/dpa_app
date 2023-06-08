@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.216">
+        app:layout_constraintVertical_bias="0.251">
 
         <ImageView
             android:id="@+id/imageLogoOne"
@@ -88,7 +88,7 @@
     <Button
         android:id="@+id/btnRegistrarse"
         android:layout_width="232dp"
-        android:layout_height="46dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/btn_style_especialist"
         android:ellipsize="end"
@@ -102,18 +102,19 @@
         android:text="Registrarse Especialista"
         android:textAllCaps="false"
         android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_Iniciar_S" />
+        app:layout_constraintTop_toBottomOf="@+id/button_Iniciar_S"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button_Iniciar_S"
         android:layout_width="232dp"
-        android:layout_height="44dp"
+        android:layout_height="51dp"
         android:layout_marginTop="60dp"
         android:background="@drawable/btn_style_especialist"
-        android:onClick="iniciarSesion_espe"
         android:paddingStart="27.47dp"
         android:paddingTop="11.9dp"
         android:paddingEnd="28.61dp"
@@ -122,12 +123,10 @@
         android:text="Iniciar"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/olvide_contra_e"
-        app:layout_constraintVertical_bias="0.075" />
+        app:layout_constraintTop_toBottomOf="@+id/olvide_contra_e" />
 
     <Button
         android:id="@+id/olvide_contra_e"

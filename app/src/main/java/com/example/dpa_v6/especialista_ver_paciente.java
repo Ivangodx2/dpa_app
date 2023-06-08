@@ -64,7 +64,7 @@ public class especialista_ver_paciente extends AppCompatActivity {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()){
                     String nombre_p= documentSnapshot.getString("nombre");
-                    Nombre_paciente.setText(nombre_p);
+                    Nombre_paciente.setText("P. "+nombre_p);
 
                     S_cuest = documentSnapshot.getString("puntaje_cuesti");
                     S_escucha = documentSnapshot.getString("puntaje_escuch");
@@ -80,15 +80,16 @@ public class especialista_ver_paciente extends AppCompatActivity {
                     V_escucha= V_escucha*2;
 
                     Integer numeroOprime_e = Integer.valueOf(S_oprime);
-                    V_oprime = 10;numeroOprime_e.intValue();
+                    V_oprime = numeroOprime_e.intValue();
 
                     Integer numeroVisuali_e = Integer.valueOf(S_visuali);
-                    V_visuali = 16;numeroVisuali_e.intValue();
+                    V_visuali = numeroVisuali_e.intValue();
                     V_visuali=V_visuali*2;
 
                     Integer numeroIdent_e = Integer.valueOf(S_ident);
-                    V_ident = 5;numeroIdent_e.intValue();
+                    V_ident = numeroIdent_e.intValue();
                     V_ident= V_ident*5;
+
 
                     Number[] values1 = {V_cuest};
                     Number[] values2 = {V_escucha};
@@ -289,6 +290,10 @@ public class especialista_ver_paciente extends AppCompatActivity {
             }
         };
         timer.schedule(timerTask,0,100);
+    }
+
+    public void salir_e(View view){
+        finish();
     }
 
 }

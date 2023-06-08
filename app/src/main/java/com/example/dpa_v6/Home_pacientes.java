@@ -55,7 +55,14 @@ public class Home_pacientes extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 Idpaciente = documentSnapshot.getString("id");
-                nombre_paciente.setText(documentSnapshot.getString("nombre"));
+                if (documentSnapshot.getString("nombre") == null){
+                    finish();
+                    Intent isespecialista= new Intent(getApplicationContext(),home_especialista.class);
+                    startActivity(isespecialista);
+
+                }else{
+                    nombre_paciente.setText("P. "+ documentSnapshot.getString("nombre"));
+                }
                 nombrePaciente_Dig = documentSnapshot.getString("nombre");
                 puntuacion_J = documentSnapshot.getString("puntuacion_J");
                 pntj_cuesti = documentSnapshot.getString("puntaje_cuesti");
@@ -156,8 +163,6 @@ public class Home_pacientes extends AppCompatActivity {
 
     private void CerrarSesion_p(){
         mAuth.signOut();
-        Intent cerrarsesion = new Intent( this, iniciar_paciente.class);
-        startActivity(cerrarsesion);
         finish();
         Toast.makeText(this, "Se ha cerrado sesión", Toast.LENGTH_SHORT).show();
     }

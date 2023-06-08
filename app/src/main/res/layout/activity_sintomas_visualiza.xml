@@ -12,24 +12,37 @@
         android:id="@+id/textView2titulo"
         android:layout_width="180dp"
         android:layout_height="43dp"
-        android:layout_marginTop="48dp"
-        android:background="@color/light_green_300"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/style_titulos_paciente"
         android:gravity="center"
         android:text="VISUALIZA"
         android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Btn_info_visualiza"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/icon_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_info" />
 
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="369dp"
         android:layout_height="490dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/cuest_style"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.609"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,15 +52,17 @@
             android:id="@+id/tituloF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="FOBIAS"
-            android:textSize="40dp"
+            android:textStyle="bold"
             android:textColor="@color/black"
-            android:gravity="center"/>
+            android:textSize="40dp" />
 
         <TextView
             android:id="@+id/sintoma_titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Acrofobia"
             android:textColor="@color/black"
             android:textSize="25dp" />
@@ -101,65 +116,63 @@
                 android:id="@+id/radioButton"
                 android:layout_width="85dp"
                 android:layout_height="wrap_content"
-                android:text="1" />
+                android:text="Nivel 1" />
 
             <RadioButton
                 android:id="@+id/radioButton2"
                 android:layout_width="85dp"
                 android:layout_height="wrap_content"
-                android:text="2" />
+                android:text="Nivel 2" />
 
             <RadioButton
                 android:id="@+id/radioButton3"
                 android:layout_width="85dp"
                 android:layout_height="wrap_content"
-                android:text="3" />
+                android:text="Nivel 3" />
 
             <RadioButton
                 android:id="@+id/radioButton4"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:text="4" />
+                android:text="Nivel 4" />
 
         </RadioGroup>
 
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/siguiente_fobia"
-        android:layout_width="164dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/btn_style_inicio"
-        android:onClick="mueve_click"
-        android:text="Siguiente"
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="375dp"
+        android:layout_height="63dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/salir_fobia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:onClick="salir_v"
-        android:text="salir"
-        android:background="@drawable/btn_style_inicio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/siguiente_fobia" />
+        <Button
+            android:id="@+id/siguiente_fobia"
+            android:layout_width="164dp"
+            android:layout_height="46dp"
+            android:background="@drawable/btn_style_inicio"
+            android:onClick="mueve_click"
+            android:text="Siguiente" />
 
-    <Button
-        android:id="@+id/Btn_info_visualiza"
-        android:layout_width="39dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/icon_info"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_info"/>
+        <View
+            android:id="@+id/view3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/salir_fobia"
+            android:layout_width="164dp"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/btn_style_inicio"
+            android:onClick="salir_v"
+            android:text="salir" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

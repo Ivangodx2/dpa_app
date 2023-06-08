@@ -43,9 +43,9 @@ public class e_tabla_p_adapter extends FirestoreRecyclerAdapter<e_tabla_paciente
         DocumentSnapshot documentSnapshot = getSnapshots().getSnapshot(holder.getAdapterPosition());
 
         final String id = documentSnapshot.getId();
-        holder.txv_nombre.setText(model.getNombre());
-        holder.txv_edad.setText(model.getEdad());
-        holder.txv_notel.setText(model.getnum_telefonico());
+        holder.txv_nombre.setText("Nombre: "+ model.getNombre());
+        holder.txv_edad.setText("Edad: "+ model.getEdad());
+        holder.txv_notel.setText("No.tele: "+model.getnum_telefonico());
 
         holder.btn_verpac.setOnClickListener(new View.OnClickListener() {
             @Override

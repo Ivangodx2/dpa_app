@@ -65,7 +65,7 @@ public class registrarse_paciente extends AppCompatActivity {
                 String contrasena_p = econtra4.getText().toString();
 
 
-                if (nombre_p.isEmpty() && apellidos_p.isEmpty() && correo_p.isEmpty() && num_telef.isEmpty() && edad_p.isEmpty()){
+                if (nombre_p.isEmpty() && apellidos_p.isEmpty() && correo_p.isEmpty() && num_telef.isEmpty() && edad_p.isEmpty() || nombre_p.isEmpty() || apellidos_p.isEmpty() || correo_p.isEmpty() || num_telef.isEmpty() || edad_p.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Ingresar datos faltantes", Toast.LENGTH_SHORT).show();
 
                 }else{
@@ -97,6 +97,7 @@ public class registrarse_paciente extends AppCompatActivity {
                 map.put("puntaje_escuch","0");
                 map.put("puntaje_identifica","0");
                 map.put("porcentaje_A","0");
+                map.put("rol","1");
 
                 datos_paciente.collection("reg_paciente").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

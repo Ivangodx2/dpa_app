@@ -32,26 +32,33 @@ public class e_tabla_comprobar_adapter  extends FirestoreRecyclerAdapter<e_tabla
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull e_tabla_pacientes model) {
 
 
-        holder.txv_nombre_e.setText(model.getNombre());
+        holder.txv_nombre_e.setText("Nombre: "+model.getNombre());
         int V_ansiedad = Integer.parseInt(model.getPorcentaje_A());
-        System.out.println(V_ansiedad);
 
 
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                int counta_PB = V_ansiedad;
-                counta_PB++;
-                holder.progressBar_e.setProgress(counta_PB);
 
-                if (counta_PB == V_ansiedad){
-                    timer.cancel();
-                }
+                holder.progressBar_e.setProgress(V_ansiedad);
+                timer.cancel();
+
 
             }
         };
         timer.schedule(timerTask,0,100);
+
+        if (V_ansiedad>=87){
+            holder.lvlanseidad.setText("Ansiedad alta");
+        }else if (V_ansiedad>=75){
+            holder.lvlanseidad.setText("Ansiedad media alta");
+        }else if (V_ansiedad>=50){
+            holder.lvlanseidad.setText("Ansiedad media");
+        }else {
+            holder.lvlanseidad.setText("Ansiedad baja");
+        }
+
     }
 
     @NonNull
@@ -64,7 +71,7 @@ public class e_tabla_comprobar_adapter  extends FirestoreRecyclerAdapter<e_tabla
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView txv_nombre_e;
+        TextView txv_nombre_e, lvlanseidad;
         ProgressBar progressBar_e;
 
 
@@ -73,6 +80,7 @@ public class e_tabla_comprobar_adapter  extends FirestoreRecyclerAdapter<e_tabla
             super(itemView);
             txv_nombre_e = itemView.findViewById(R.id.P_nombre_e);
             progressBar_e = itemView.findViewById(R.id.progressBar_ansiedad_com_e);
+            lvlanseidad = itemView.findViewById(R.id.Lvl_anseidad);
         }
 
 

@@ -12,7 +12,7 @@
         android:layout_width="180dp"
         android:layout_height="43dp"
         android:layout_marginTop="16dp"
-        android:background="@color/light_green_300"
+        android:background="@drawable/style_titulos_paciente"
         android:gravity="center"
         android:text="IDENTIFICA"
         android:textColor="@color/black"
@@ -37,9 +37,11 @@
         android:id="@+id/linearLayout6"
         android:layout_width="368dp"
         android:layout_height="531dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/cuest_style"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,63 +64,63 @@
             android:layout_marginBottom="25dp"
             android:text="De los siguientes padecimientos, ¿cuáles tienes?"
             android:textColor="#DA000000"
-            android:textSize="19dp"/>
+            android:textSize="19dp" />
 
         <CheckBox
             android:id="@+id/checkBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:text="Problemas para deglutir." />
+            android:text="Problemas para deglutir."
+            android:textSize="19dp" />
 
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:text="Sequedad Bucal." />
+            android:text="Sequedad Bucal."
+            android:textSize="19dp" />
 
         <CheckBox
             android:id="@+id/checkBox3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:text="Sensibilidad dental." />
+            android:text="Sensibilidad dental."
+            android:textSize="19dp" />
 
         <CheckBox
             android:id="@+id/checkBox4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:text="Bruxismo" />
+            android:text="Bruxismo"
+            android:textSize="19dp" />
 
         <CheckBox
             android:id="@+id/checkBox5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:text="Úlceras bucales." />
+            android:text="Úlceras bucales."
+            android:textSize="19dp" />
 
         <CheckBox
             android:id="@+id/checkBox6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:text="Problemas al dormir." />
+            android:text="Problemas al dormir."
+            android:textSize="19dp" />
 
         <CheckBox
             android:id="@+id/checkBox7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:text="Malestar estomacal." />
+            android:text="Malestar estomacal."
+            android:textSize="19dp" />
 
         <CheckBox
             android:id="@+id/checkBox8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:text="Sudoración excesiva." />
+            android:text="Sudoración excesiva."
+            android:textSize="19dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -126,12 +128,12 @@
         android:layout_width="383dp"
         android:layout_height="63dp"
         android:layout_marginLeft="35dp"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="35dp"
+        android:layout_marginBottom="5dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
         tools:ignore="MissingConstraints">
 
 

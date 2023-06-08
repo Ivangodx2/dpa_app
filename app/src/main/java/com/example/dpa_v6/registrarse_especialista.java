@@ -66,12 +66,13 @@ public class registrarse_especialista extends AppCompatActivity {
                 String contrasena_e = econtra4.getText().toString();
 
 
-                if (nombre_e.isEmpty() && apellidos_e.isEmpty() && cedula_p_e.isEmpty() && correo_e.isEmpty() && contrasena_e.isEmpty()) {
+                if (nombre_e.isEmpty() && apellidos_e.isEmpty() && cedula_p_e.isEmpty() && correo_e.isEmpty() && contrasena_e.isEmpty() || nombre_e.isEmpty() || apellidos_e.isEmpty() || cedula_p_e.isEmpty() || correo_e.isEmpty() || contrasena_e.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Ingresar datos faltantes", Toast.LENGTH_SHORT).show();
 
                 } else {
                     //guardar datos
                     registrarEspecialista(nombre_e, apellidos_e, correo_e, cedula_p_e, contrasena_e);
+                    finish();
                 }
             }
         });
@@ -86,7 +87,7 @@ public class registrarse_especialista extends AppCompatActivity {
                 String id = mAuth.getCurrentUser().getUid();
                 Map<String, Object> map = new HashMap<>();
                 map.put("id", id);
-                map.put("nombre", nombre_e);
+                map.put("nombre_e", nombre_e);
                 map.put("apellidos", apellidos_e);
                 map.put("correo_e_e", correo_e);
                 map.put("cedula_p", cedula_p_e);

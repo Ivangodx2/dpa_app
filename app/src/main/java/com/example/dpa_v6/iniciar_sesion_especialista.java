@@ -34,18 +34,37 @@ import java.util.Map;
 public class iniciar_sesion_especialista extends AppCompatActivity {
     private FirebaseAuth mAuth;
     EditText edtCorreo,edtContra;
+    Button btn_iniciar_s_e;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iniciar_sesion_especialista);
         edtCorreo=findViewById(R.id.TextEspeEmailAddress);
         edtContra=findViewById(R.id.EdittextEsepePassword);
-
+        btn_iniciar_s_e=findViewById(R.id.button_Iniciar_S);
         mAuth = FirebaseAuth.getInstance();
+
+        btn_iniciar_s_e.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String edtCorreo_e = edtCorreo.getText().toString();
+                String edtContra_e = edtContra.getText().toString();
+
+                if (edtCorreo_e.isEmpty() && edtContra_e.isEmpty() || edtCorreo_e.isEmpty() || edtContra_e.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Ingresar datos", Toast.LENGTH_SHORT).show();
+
+                }else {
+                    //Inicio de sesion
+                    iniciarSesion_espe(edtCorreo_e,edtContra_e);
+                }
+            }
+        });
+
+
 
     }
 
-    public void iniciarSesion_espe (View view){
+    public void iniciarSesion_espe (String edtCorreo_e, String edtContra_e){
 
         mAuth.signInWithEmailAndPassword(edtCorreo.getText().toString(),edtContra.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -56,12 +75,12 @@ public class iniciar_sesion_especialista extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent= new Intent(getApplicationContext(), home_especialista.class);
                             startActivity(intent);
-                            Toast.makeText(getApplicationContext(), "Sesion iniciada", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "Datos incorrectos", task.getException());
-                            Toast.makeText(getApplicationContext(), "Authentication failed.",
+                            Toast.makeText(getApplicationContext(), "Datos incorrectos.",
                                     Toast.LENGTH_SHORT).show();
                             //updateUI(null);
                         }

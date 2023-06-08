@@ -18,7 +18,7 @@ public class especialista_generar_correo extends AppCompatActivity {
     Button btn_enviar, btn_salir;
     EditText etx_titulo, etx_contenido;
     TextView tv_correo_paciente;
-    String idpaciente;
+    String idpaciente,correo_real;
     FirebaseFirestore db;
 
     @Override
@@ -40,7 +40,8 @@ public class especialista_generar_correo extends AppCompatActivity {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()) {
                     String correo_paciente = documentSnapshot.getString("correo_e_p");
-                    tv_correo_paciente.setText(correo_paciente);
+                    correo_real = correo_paciente;
+                    tv_correo_paciente.setText("Para: "+correo_real);
                 }
             }
         });
@@ -49,7 +50,7 @@ public class especialista_generar_correo extends AppCompatActivity {
         btn_enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String correo_enviar=tv_correo_paciente.getText().toString();
+                String correo_enviar=correo_real;
                 String correo_titulo=etx_titulo.getText().toString();
                 String correo_contenido=etx_contenido.getText().toString();
 
@@ -63,7 +64,14 @@ public class especialista_generar_correo extends AppCompatActivity {
                 intent.setType("message/rfc822");
 
                 startActivity(
-                        Intent.createChooser(intent,""));}
+                        Intent.createChooser(intent,""));
+                finish();
+            }
+
         });
+    }
+
+    public void salir_e(View view){
+        finish();
     }
 }

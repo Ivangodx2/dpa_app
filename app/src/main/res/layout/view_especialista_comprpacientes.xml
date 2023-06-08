@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_margin="20dp"
+    android:layout_margin="15dp"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="10dp"
     android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:layout_marginEnd="15dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -40,9 +45,18 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="1dp"
                 android:progressDrawable="@drawable/style_pbarr"
                 />
+
+            <TextView
+                android:id="@+id/Lvl_anseidad"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal"
+                android:text="TextView" />
 
             <View
                 android:layout_width="match_parent"
@@ -52,4 +66,4 @@
         </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</androidx.cardview.widget.CardView>
