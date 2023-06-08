@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +30,7 @@ public class home_especialista extends AppCompatActivity {
     private TextView nombre_especialista;
 
     FirebaseAuth mAuth;
-
+    Button btn_pacien, btn_comp;
     FirebaseFirestore db;
     private String idEspecialista;
 
@@ -41,6 +42,8 @@ public class home_especialista extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         nombre_especialista = findViewById(R.id.textNombreEspecialista);
         idEspecialista = mAuth.getCurrentUser().getUid();
+        btn_pacien=findViewById(R.id.btnPacientes);
+        btn_comp=findViewById(R.id.btnComprobar);
 
         DocumentReference documentReference = db.collection("reg_especialista").document(idEspecialista);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -101,9 +104,19 @@ public class home_especialista extends AppCompatActivity {
     }
 
     public void CerrarSesion_e(View view){
+
+        try {
         mAuth.signOut();
         finish();
+        btn_pacien.setEnabled(false);
+        btn_comp.setEnabled(false);
         Toast.makeText(this, "Se ha cerrado sesión", Toast.LENGTH_SHORT).show();
+
+
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 
