@@ -2,12 +2,14 @@ package com.example.dpa_v6;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.IntentService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +29,7 @@ public class Home_pacientes extends AppCompatActivity {
 
     String puntuacion_J,Idpaciente, pntj_cuesti, pntj_visuali, pntj_escha,pntj_ident,nombrePaciente_Dig;
 
-    Button CerrarS,btn_diagnostico, btn_cuest, btn_vis, btn_escuc, btn_opri, btn_iden;
+    Button CerrarS,btn_diagnostico,btn_cuest, btn_vis, btn_escuc, btn_opri, btn_iden;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,17 +39,30 @@ public class Home_pacientes extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         nombre_paciente = findViewById(R.id.textNombrePaciente);
         idPaciente = mAuth.getCurrentUser().getUid();
-        CerrarS = findViewById(R.id.Cerrar_S);
+        CerrarS = (Button) findViewById(R.id.Cerrar_S);
+        /*
         btn_diagnostico = findViewById(R.id.button_diagnostico);
         btn_cuest = findViewById(R.id.button13);
         btn_vis = findViewById(R.id.button14);
         btn_escuc = findViewById(R.id.button15);
         btn_opri =findViewById(R.id.button16);
-        btn_iden=findViewById(R.id.button_identifica);
+        btn_iden=findViewById(R.id.button_identifica);*/
 
 
 
         //Cerrar sesion
+        CerrarS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Home_pacientes.this, "Sesion cerrada", Toast.LENGTH_SHORT).show();
+                mAuth.signOut();
+                startActivity(new Intent(Home_pacientes.this,iniciar_paciente.class));
+                finish();
+            }
+        });
+
+
+
 
         //Leer nombre del usuario
         DocumentReference documentReference = db.collection("reg_paciente").document(idPaciente);
@@ -161,27 +176,6 @@ public class Home_pacientes extends AppCompatActivity {
     }
 
 
-    public void CerrarSesion_p(View view){
-
-
-        try {
-        btn_cuest.setEnabled(false);
-        btn_vis.setEnabled(false);
-        btn_escuc.setEnabled(false);
-        btn_opri.setEnabled(false);
-        btn_iden.setEnabled(false);
-        btn_diagnostico.setEnabled(false);
-        Toast.makeText(this, "Cerrando sesión...", Toast.LENGTH_SHORT).show();
-        finish();
-        mAuth.signOut();
-
-        Thread.sleep(2000);
-    } catch (InterruptedException e) {
-        e.printStackTrace();
-    }
-
-
-    }
 
 
 

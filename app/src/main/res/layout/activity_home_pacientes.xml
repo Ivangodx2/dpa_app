@@ -22,83 +22,342 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button13"
-        android:layout_width="303dp"
-        android:layout_height="70dp"
-        android:layout_margin="7dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/btnsintomas"
-        android:onClick="ir_reg_cuestioneario"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <Button
-        android:id="@+id/button14"
-        android:layout_width="302dp"
-        android:layout_height="62dp"
-        android:layout_margin="7dp"
-        android:background="@drawable/btnaudios"
+    <RelativeLayout
+        android:id="@+id/Button_new_Sintomas"
+        android:layout_width="150dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/btn_style_home_paciente"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:onClick="ir_reg_cuestioneario"
+        tools:ignore="OnClick">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/btn_style_home_paciente"
+            app:tint="#31000000" />
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btn_style_home_paciente">
+
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="26dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:text="Sintomas"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:layout_width="61dp"
+                android:layout_height="57dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="44dp"
+                android:background="@drawable/cuestionario_icn" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Button_new_escucha"
+        android:layout_width="150dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginStart="44dp"
+        android:background="@drawable/btn_style_home_paciente"
         android:onClick="ir_reg_escucha"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button13" />
+        app:layout_constraintStart_toEndOf="@+id/Button_new_Sintomas"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
-    <Button
-        android:id="@+id/button15"
-        android:layout_width="302dp"
-        android:layout_height="64dp"
-        android:layout_margin="7dp"
-        android:background="@drawable/btnvisualiza"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/btn_style_home_paciente"
+            app:tint="#31000000" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btn_style_home_paciente">
+
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="26dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:text="Escucha"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:layout_width="61dp"
+                android:layout_height="57dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="44dp"
+                android:background="@drawable/oido_icn" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Button_new_Visualiza"
+        android:layout_width="150dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_style_home_paciente"
         android:onClick="ir_reg_visualiza"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button14" />
+        app:layout_constraintTop_toBottomOf="@+id/Button_new_Sintomas"
+        tools:ignore="OnClick">
 
-    <Button
-        android:id="@+id/button16"
-        android:layout_width="302dp"
-        android:layout_height="59dp"
-        android:layout_margin="7dp"
-        android:background="@drawable/btnoprime"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/btn_style_home_paciente"
+            app:tint="#31000000" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btn_style_home_paciente">
+
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="26dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:text="Visualiza"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:layout_width="61dp"
+                android:layout_height="57dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/vision_icn" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Button_new_Oprime"
+        android:layout_width="150dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginStart="44dp"
+        android:background="@drawable/btn_style_home_paciente"
         android:onClick="ir_reg_presiona"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button15" />
+
+        app:layout_constraintStart_toEndOf="@+id/Button_new_Visualiza"
+        app:layout_constraintTop_toBottomOf="@+id/Button_new_escucha">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/btn_style_home_paciente"
+            app:tint="#31000000" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btn_style_home_paciente">
 
 
-    <Button
-        android:id="@+id/button_identifica"
-        android:layout_width="302dp"
-        android:layout_height="59dp"
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="26dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:text="Oprime"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textSize="16dp" />
 
-        android:layout_margin="7dp"
-        android:background="@drawable/btnidenti"
+            <ImageView
+                android:layout_width="61dp"
+                android:layout_height="57dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="44dp"
+                android:background="@drawable/oprime_icn" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Button_new_Identifica"
+        android:layout_width="150dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_style_home_paciente"
         android:onClick="ir_reg_identifica"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button16" />
+        app:layout_constraintTop_toBottomOf="@+id/Button_new_Visualiza"
+        tools:ignore="OnClick">
 
-    <Button
-        android:id="@+id/button_diagnostico"
-        android:layout_width="302dp"
-        android:layout_height="59dp"
-        android:layout_margin="7dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/btndiagnosti"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/btn_style_home_paciente"
+            app:tint="#31000000" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btn_style_home_paciente">
+
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="26dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:text="Identifica"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:layout_width="61dp"
+                android:layout_height="57dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/sintomas_icn" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Button_new_Diagnostico"
+        android:layout_width="150dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginStart="44dp"
+        android:background="@drawable/btn_style_home_paciente"
         android:onClick="ir_reg_diagnostico"
-        app:layout_constraintBottom_toTopOf="@+id/Cerrar_S"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_identifica"
-        app:layout_constraintVertical_bias="0.0" />
+
+        app:layout_constraintStart_toEndOf="@+id/Button_new_Identifica"
+        app:layout_constraintTop_toBottomOf="@+id/Button_new_Oprime">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/btn_style_home_paciente"
+            app:tint="#31000000" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btn_style_home_paciente">
+
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:text="Diagnóstico"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:layout_width="61dp"
+                android:layout_height="57dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="44dp"
+                android:background="@drawable/resultado_icn" />
+        </RelativeLayout>
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/textNombrePaciente"
@@ -117,14 +376,14 @@
 
     <Button
         android:id="@+id/Cerrar_S"
-        android:layout_width="159dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="10dp"
+        android:layout_width="300dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="72dp"
         android:background="@drawable/btn_style_inicio"
-        android:onClick="CerrarSesion_p"
         android:text="Cerrar sesión"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

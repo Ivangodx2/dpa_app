@@ -30,7 +30,7 @@ public class home_especialista extends AppCompatActivity {
     private TextView nombre_especialista;
 
     FirebaseAuth mAuth;
-    Button btn_pacien, btn_comp;
+    Button btn_pacien, btn_comp, cerrarSE;
     FirebaseFirestore db;
     private String idEspecialista;
 
@@ -42,8 +42,18 @@ public class home_especialista extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         nombre_especialista = findViewById(R.id.textNombreEspecialista);
         idEspecialista = mAuth.getCurrentUser().getUid();
-        btn_pacien=findViewById(R.id.btnPacientes);
-        btn_comp=findViewById(R.id.btnComprobar);
+        cerrarSE = (Button) findViewById(R.id.Btn_CerrarSE);
+
+
+        cerrarSE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(home_especialista.this, "Sesion cerrada", Toast.LENGTH_SHORT).show();
+                mAuth.signOut();
+                startActivity(new Intent(home_especialista.this,iniciar_sesion_especialista.class));
+                finish();
+            }
+        });
 
         DocumentReference documentReference = db.collection("reg_especialista").document(idEspecialista);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -101,22 +111,6 @@ public class home_especialista extends AppCompatActivity {
         Intent comprobar_e = new Intent( this, especialista_comprobar.class);
         startActivity(comprobar_e);
 
-    }
-
-    public void CerrarSesion_e(View view){
-
-        try {
-        mAuth.signOut();
-        finish();
-        btn_pacien.setEnabled(false);
-        btn_comp.setEnabled(false);
-        Toast.makeText(this, "Se ha cerrado sesión", Toast.LENGTH_SHORT).show();
-
-
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
 
