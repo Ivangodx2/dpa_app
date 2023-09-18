@@ -5,13 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.RelativeLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -173,10 +169,11 @@ public class sintomas_visualiza extends AppCompatActivity {
                     opc2f.setVisibility(View.GONE);
                     opc3f.setVisibility(View.GONE);
                     opc4f.setVisibility(View.GONE);
+
         }
     }
 
-    public void salir_v(View view){
+    public void salir_p(View view){
         finish();
     }
 

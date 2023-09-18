@@ -277,11 +277,10 @@ public class sintomas_escucha extends AppCompatActivity {
             }
 
             GuardarDatosBD();
-            Intent regresar_home_paciente = new Intent( this, Home_pacientes.class);
             vectormp[posicion].stop();
             finish();
             Toast.makeText(getApplicationContext(), "Respuestas guardadas", Toast.LENGTH_SHORT).show();
-            startActivity(regresar_home_paciente);
+            
         }
 
 
@@ -289,9 +288,7 @@ public class sintomas_escucha extends AppCompatActivity {
 
 
     public void salir_p(View view){
-        Intent salir_a_home_paciente = new Intent( this, Home_pacientes.class);
         vectormp[posicion].stop();
-        startActivity(salir_a_home_paciente);
         finish();
     }
 

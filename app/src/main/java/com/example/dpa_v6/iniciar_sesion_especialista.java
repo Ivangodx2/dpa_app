@@ -70,19 +70,25 @@ public class iniciar_sesion_especialista extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent= new Intent(getApplicationContext(), home_especialista.class);
-                            startActivity(intent);
-                            Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();
-                            //updateUI(user);
+
+                        FirebaseUser user = mAuth.getCurrentUser();
+
+                        if (!user.isEmailVerified()) {
+                            Toast.makeText(getApplicationContext(), "Correo no verificado", Toast.LENGTH_SHORT).show();
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "Datos incorrectos", task.getException());
-                            Toast.makeText(getApplicationContext(), "Datos incorrectos.",
-                                    Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Intent intent = new Intent(getApplicationContext(), home_especialista.class);
+                                startActivity(intent);
+                                Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();
+                                //updateUI(user);
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.w(TAG, "Datos incorrectos", task.getException());
+                                Toast.makeText(getApplicationContext(), "Datos incorrectos.",
+                                        Toast.LENGTH_SHORT).show();
+                                //updateUI(null);
+                            }
                         }
                     }
                 });

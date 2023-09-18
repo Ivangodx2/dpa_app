@@ -168,7 +168,6 @@ public class sintomas_oprime_juego extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                startActivity(new Intent(sintomas_oprime_juego.this,Home_pacientes.class));
 
             }
         });

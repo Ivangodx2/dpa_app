@@ -239,8 +239,8 @@ public class sintomas_cuestionario_paciente extends AppCompatActivity {
             }
 
             GuardarDatosBD();
-            Toast.makeText(getApplicationContext(), "Respuestas guardadas", Toast.LENGTH_SHORT).show();
             finish();
+            Toast.makeText(getApplicationContext(), "Respuestas guardadas", Toast.LENGTH_SHORT).show();
             }
 
 
@@ -248,7 +248,7 @@ public class sintomas_cuestionario_paciente extends AppCompatActivity {
         }
 
 
-        public void Exite(View view){
+        public void salir_p(View view){
         finish();
         }
 

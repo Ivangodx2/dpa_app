@@ -2,14 +2,11 @@ package com.example.dpa_v6;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.IntentService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,10 +23,9 @@ public class Home_pacientes extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseFirestore db;
     private String idPaciente;
-
     String puntuacion_J,Idpaciente, pntj_cuesti, pntj_visuali, pntj_escha,pntj_ident,nombrePaciente_Dig;
 
-    Button CerrarS,btn_diagnostico,btn_cuest, btn_vis, btn_escuc, btn_opri, btn_iden;
+    Button Cerrar_sesion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,24 +35,17 @@ public class Home_pacientes extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         nombre_paciente = findViewById(R.id.textNombrePaciente);
         idPaciente = mAuth.getCurrentUser().getUid();
-        CerrarS = (Button) findViewById(R.id.Cerrar_S);
-        /*
-        btn_diagnostico = findViewById(R.id.button_diagnostico);
-        btn_cuest = findViewById(R.id.button13);
-        btn_vis = findViewById(R.id.button14);
-        btn_escuc = findViewById(R.id.button15);
-        btn_opri =findViewById(R.id.button16);
-        btn_iden=findViewById(R.id.button_identifica);*/
+        Cerrar_sesion = (Button) findViewById(R.id.Cerrar_S);
+
 
 
 
         //Cerrar sesion
-        CerrarS.setOnClickListener(new View.OnClickListener() {
+        Cerrar_sesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Home_pacientes.this, "Sesion cerrada", Toast.LENGTH_SHORT).show();
                 mAuth.signOut();
-                startActivity(new Intent(Home_pacientes.this,iniciar_paciente.class));
                 finish();
             }
         });
@@ -128,6 +117,7 @@ public class Home_pacientes extends AppCompatActivity {
     }
 
     public void ir_reg_presiona(View view){
+        Consulta_Dtos();
         Intent presiona_s = new Intent( this, sintomas_oprime.class);
         String idpaciente = Idpaciente;
         String nombreP = nombre_paciente.getText().toString();
@@ -155,6 +145,7 @@ public class Home_pacientes extends AppCompatActivity {
     }
 
     public void ir_reg_diagnostico(View view){
+        Consulta_Dtos();
         Intent diagnostico_s = new Intent(this, diagnostico_paciente.class);
         String idpaciente = Idpaciente;
         String nombrePaciente = nombrePaciente_Dig;
@@ -172,7 +163,25 @@ public class Home_pacientes extends AppCompatActivity {
         diagnostico_s.putExtra("puntaje_escuch",pntj_escucha_R);
         diagnostico_s.putExtra("puntuacion_J",puntuacionJ_R);
         diagnostico_s.putExtra("puntaje_identifica",pntj_identifi_R);
+
         startActivity(diagnostico_s);
+    }
+
+    public void Consulta_Dtos(){
+        DocumentReference documentReference = db.collection("reg_paciente").document(idPaciente);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                Idpaciente = documentSnapshot.getString("id");
+
+                nombrePaciente_Dig = documentSnapshot.getString("nombre");
+                puntuacion_J = documentSnapshot.getString("puntuacion_J");
+                pntj_cuesti = documentSnapshot.getString("puntaje_cuesti");
+                pntj_visuali = documentSnapshot.getString("puntaje_vsual");
+                pntj_escha = documentSnapshot.getString("puntaje_escuch");
+                pntj_ident = documentSnapshot.getString("puntaje_identifica");
+            }
+        });
     }
 
 

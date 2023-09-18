@@ -170,7 +170,7 @@
             android:layout_height="wrap_content"
 
             android:background="@drawable/btn_style_inicio"
-            android:onClick="salir_v"
+            android:onClick="salir_p"
             android:text="salir" />
 
     </LinearLayout>

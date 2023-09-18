@@ -102,8 +102,11 @@ public class registrarse_paciente extends AppCompatActivity {
                 datos_paciente.collection("reg_paciente").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        startActivity(new Intent(registrarse_paciente.this, iniciar_paciente.class));
-                        Toast.makeText(getApplicationContext(), "REGISTO HECHO", Toast.LENGTH_SHORT).show();
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        finish();
+                        Toast.makeText(getApplicationContext(), "Registro hecho, verifica tu correo", Toast.LENGTH_SHORT).show();
+                        user.sendEmailVerification();
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

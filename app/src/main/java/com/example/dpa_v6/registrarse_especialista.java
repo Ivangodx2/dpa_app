@@ -96,8 +96,10 @@ public class registrarse_especialista extends AppCompatActivity {
                 datos_especialista.collection("reg_especialista").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        startActivity(new Intent(registrarse_especialista.this, iniciar_sesion_especialista.class));
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        finish();
                         Toast.makeText(getApplicationContext(), "REGISTO HECHO", Toast.LENGTH_SHORT).show();
+                        user.sendEmailVerification();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

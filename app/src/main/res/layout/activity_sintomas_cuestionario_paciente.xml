@@ -596,7 +596,7 @@
             android:layout_width="152dp"
             android:layout_height="50dp"
             android:background="@drawable/btn_style_inicio"
-            android:onClick="Exite"
+            android:onClick="salir_p"
             android:text="Salir" />
 
     </LinearLayout>

@@ -80,16 +80,12 @@ public class sintomas_identifica extends AppCompatActivity {
 
 
         GuardarDatosBD();
-        Intent regresar_home_paciente = new Intent( this, Home_pacientes.class);
         finish();
         Toast.makeText(getApplicationContext(), "Respuestas guardadas", Toast.LENGTH_SHORT).show();
-        startActivity(regresar_home_paciente);
 
     }
 
     public void salir_p(View view){
-        Intent salir_a_home_paciente = new Intent( this, Home_pacientes.class);
-        startActivity(salir_a_home_paciente);
         finish();
     }
 

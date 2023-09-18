@@ -286,8 +286,6 @@ public class diagnostico_paciente extends AppCompatActivity {
 
 
     public void salir_p(View view){
-        Intent salir_a_home_paciente = new Intent( this, Home_pacientes.class);
-        startActivity(salir_a_home_paciente);
         finish();
     }
 

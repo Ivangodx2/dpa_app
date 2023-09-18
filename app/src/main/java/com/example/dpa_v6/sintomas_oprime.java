@@ -73,7 +73,7 @@ public class sintomas_oprime extends AppCompatActivity {
             }
         });
 
-
+        //Informacion
         info_oprime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,10 +82,8 @@ public class sintomas_oprime extends AppCompatActivity {
         });
 
     }
-
+    //Salir
     public void salir_p(View view){
-        Intent salir_a_home_paciente = new Intent( this, Home_pacientes.class);
-        startActivity(salir_a_home_paciente);
         finish();
     }
 
