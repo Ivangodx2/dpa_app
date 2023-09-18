@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/costal_bg"
-    tools:context=".sintomas_oprime_juego">
+    tools:context=".sintomas_oprime_juego_paciente">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"

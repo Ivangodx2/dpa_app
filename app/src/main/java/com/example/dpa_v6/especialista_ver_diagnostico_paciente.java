@@ -1,6 +1,5 @@
 package com.example.dpa_v6;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -20,17 +19,14 @@ import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYPlot;
 import com.androidplot.xy.XYSeries;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class especialista_ver_paciente extends AppCompatActivity {
+public class especialista_ver_diagnostico_paciente extends AppCompatActivity {
 
     TextView Nombre_paciente, DCuestionario_e,DEscucha_e,DVisualiza_e,DOprime_e,DIdentifica_e;
     private XYPlot myplot_e;
@@ -257,16 +253,16 @@ public class especialista_ver_paciente extends AppCompatActivity {
 
         @Override
         public Class<? extends SeriesRenderer> getRendererClass(){
-            return especialista_ver_paciente.MyBarRenderer.class;
+            return especialista_ver_diagnostico_paciente.MyBarRenderer.class;
         }
 
         @Override
         public SeriesRenderer doGetRendererInstance(XYPlot plot){
-            return new especialista_ver_paciente.MyBarRenderer(plot);
+            return new especialista_ver_diagnostico_paciente.MyBarRenderer(plot);
         }
     }
 
-    class MyBarRenderer extends BarRenderer<especialista_ver_paciente.MyBarFormatter>{
+    class MyBarRenderer extends BarRenderer<especialista_ver_diagnostico_paciente.MyBarFormatter>{
         public MyBarRenderer(XYPlot plot){
             super(plot);
         }
@@ -280,12 +276,11 @@ public class especialista_ver_paciente extends AppCompatActivity {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                count_PB_e++;
                 PBNansiedad_e.setProgress(count_PB_e);
-
                 if (count_PB_e == ResPB_e){
                     timer.cancel();
                 }
+                count_PB_e++;
 
             }
         };

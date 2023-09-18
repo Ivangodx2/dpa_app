@@ -1,23 +1,16 @@
 package com.example.dpa_v6;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarItemView;
-import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -30,7 +23,7 @@ public class home_especialista extends AppCompatActivity {
     private TextView nombre_especialista;
 
     FirebaseAuth mAuth;
-    Button btn_pacien, btn_comp, cerrarSE;
+    Button cerrar_sesion;
     FirebaseFirestore db;
     private String idEspecialista;
 
@@ -42,15 +35,14 @@ public class home_especialista extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         nombre_especialista = findViewById(R.id.textNombreEspecialista);
         idEspecialista = mAuth.getCurrentUser().getUid();
-        cerrarSE = (Button) findViewById(R.id.Btn_CerrarSE);
+        cerrar_sesion = (Button) findViewById(R.id.Btn_CerrarSE);
 
 
-        cerrarSE.setOnClickListener(new View.OnClickListener() {
+        cerrar_sesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(home_especialista.this, "Sesion cerrada", Toast.LENGTH_SHORT).show();
                 mAuth.signOut();
-                startActivity(new Intent(home_especialista.this,iniciar_sesion_especialista.class));
                 finish();
             }
         });
@@ -62,7 +54,7 @@ public class home_especialista extends AppCompatActivity {
                 idEspecialista = documentSnapshot.getString("id");
                 if (documentSnapshot.getString("nombre_e") == null){
                     finish();
-                    Intent ispaciente= new Intent(getApplicationContext(),Home_pacientes.class);
+                    Intent ispaciente= new Intent(getApplicationContext(), home_pacientes.class);
                     startActivity(ispaciente);
 
                 }else{
@@ -105,11 +97,13 @@ public class home_especialista extends AppCompatActivity {
     public void ir_esp_pacientes(View view){
         Intent pacientes_e = new Intent( this, especialista_pacientes.class);
         startActivity(pacientes_e);
+        finish();
     }
 
     public void ir_esp_comprobar(View view){
         Intent comprobar_e = new Intent( this, especialista_comprobar.class);
         startActivity(comprobar_e);
+        finish();
 
     }
 

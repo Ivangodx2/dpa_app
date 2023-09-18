@@ -1,6 +1,5 @@
 package com.example.dpa_v6;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,13 +11,8 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 
-public class sintomas_oprime extends AppCompatActivity {
+public class sintomas_oprime_paciente extends AppCompatActivity {
 
     FirebaseAuth auth;
     FirebaseUser user;
@@ -65,7 +59,7 @@ public class sintomas_oprime extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Iniciando juego", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(sintomas_oprime.this, sintomas_oprime_juego.class);
+                Intent intent = new Intent(sintomas_oprime_paciente.this, sintomas_oprime_juego_paciente.class);
                 intent.putExtra("puntuacion_J",puntuacionJ);
                 intent.putExtra("IDPaciente",IDPaciente);
                 startActivity(intent);
@@ -77,7 +71,7 @@ public class sintomas_oprime extends AppCompatActivity {
         info_oprime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(sintomas_oprime.this, popup_oprime.class));
+                startActivity(new Intent(sintomas_oprime_paciente.this, popup_oprime.class));
             }
         });
 

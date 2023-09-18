@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -90,7 +88,7 @@ public class sintomas_cuestionario_paciente extends AppCompatActivity {
         info_cuest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(sintomas_cuestionario_paciente.this, Popup_cuestionario.class));
+                startActivity(new Intent(sintomas_cuestionario_paciente.this, popup_cuestionario.class));
             }
         });
 

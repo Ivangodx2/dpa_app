@@ -39,14 +39,14 @@
     <RelativeLayout
         android:id="@+id/linearLayout6"
         android:layout_width="370dp"
-        android:layout_height="544dp"
+        android:layout_height="650dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="5dp"
         android:background="@drawable/cuest_style"
         android:gravity="center"
         android:orientation="vertical"
+        android:layout_marginBottom="22dp"
         app:layout_constraintBottom_toTopOf="@+id/salir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
@@ -148,15 +148,25 @@
             style="@style/APDefacto"
             android:layout_width="358dp"
             android:layout_height="306dp"
+            android:layout_above="@+id/Info_grafica"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginStart="9dp"
             android:layout_marginTop="62dp"
             android:layout_marginEnd="14dp"
-            android:layout_marginBottom="22dp"
-            ap:rangeTitle="Nivel ansiedad"
-            />
+            android:layout_marginBottom="16dp"
+            ap:rangeTitle="Nivel ansiedad" />
+
+        <TextView
+            android:id="@+id/Info_grafica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="17dp"
+            android:text="E: Escucha, I: Identifica, O: Oprime,  S: Sintomas, V: Visualiza"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
 
     </RelativeLayout>

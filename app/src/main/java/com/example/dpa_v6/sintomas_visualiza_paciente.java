@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class sintomas_visualiza extends AppCompatActivity {
+public class sintomas_visualiza_paciente extends AppCompatActivity {
 
     private ImageView img1;
     private ImageView img2;
@@ -59,7 +59,7 @@ public class sintomas_visualiza extends AppCompatActivity {
         info_visualiza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(sintomas_visualiza.this, popup_visualiza.class));
+                startActivity(new Intent(sintomas_visualiza_paciente.this, popup_visualiza.class));
             }
         });
 

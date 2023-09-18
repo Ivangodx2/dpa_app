@@ -16,7 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class sintomas_escucha extends AppCompatActivity {
+public class sintomas_escucha_paciente extends AppCompatActivity {
     Button btnplay, btnrty, info_esuch;
     MediaPlayer mp;
     String IDPacietne,result_escucha;
@@ -73,7 +73,7 @@ public class sintomas_escucha extends AppCompatActivity {
         info_esuch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(sintomas_escucha.this, popup_escucha.class));
+                startActivity(new Intent(sintomas_escucha_paciente.this, popup_escucha.class));
             }
         });
 
@@ -100,6 +100,17 @@ public class sintomas_escucha extends AppCompatActivity {
             vectormp[3] = MediaPlayer.create(this,R.raw.ans_a4);
             vectormp[4] = MediaPlayer.create(this,R.raw.ans_a5);
             posicion = 0;
+            if (posicion==0){
+                iv.setImageResource(R.drawable.icon_uno);
+            }else if(posicion == 1){
+                iv.setImageResource(R.drawable.icon_dos);
+            }else if(posicion == 2){
+                iv.setImageResource(R.drawable.icon_tres);
+            }else if(posicion == 3){
+                iv.setImageResource(R.drawable.icon_cuatro);
+            }else if(posicion == 4){
+                iv.setImageResource(R.drawable.icon_cinco);
+            }
             btnplay.setBackgroundResource(R.drawable.boton_de_play);
 
 

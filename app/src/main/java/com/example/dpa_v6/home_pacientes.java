@@ -17,7 +17,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
-public class Home_pacientes extends AppCompatActivity {
+public class home_pacientes extends AppCompatActivity {
 
     private TextView nombre_paciente;
     FirebaseAuth mAuth;
@@ -44,7 +44,7 @@ public class Home_pacientes extends AppCompatActivity {
         Cerrar_sesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Home_pacientes.this, "Sesion cerrada", Toast.LENGTH_SHORT).show();
+                Toast.makeText(home_pacientes.this, "Sesion cerrada", Toast.LENGTH_SHORT).show();
                 mAuth.signOut();
                 finish();
             }
@@ -94,7 +94,7 @@ public class Home_pacientes extends AppCompatActivity {
 
 
     public void ir_reg_visualiza(View view){
-        Intent visualiza_s = new Intent( this, sintomas_visualiza.class);
+        Intent visualiza_s = new Intent( this, sintomas_visualiza_paciente.class);
         String idpaciente = Idpaciente;
         String pntj_visul = pntj_visuali;
 
@@ -106,7 +106,7 @@ public class Home_pacientes extends AppCompatActivity {
 
 
     public void ir_reg_escucha(View view){
-        Intent escucha_s = new Intent( this, sintomas_escucha.class);
+        Intent escucha_s = new Intent( this, sintomas_escucha_paciente.class);
         String idpaciente = Idpaciente;
         String pntj_escucha = pntj_escha;
 
@@ -118,7 +118,7 @@ public class Home_pacientes extends AppCompatActivity {
 
     public void ir_reg_presiona(View view){
         Consulta_Dtos();
-        Intent presiona_s = new Intent( this, sintomas_oprime.class);
+        Intent presiona_s = new Intent( this, sintomas_oprime_paciente.class);
         String idpaciente = Idpaciente;
         String nombreP = nombre_paciente.getText().toString();
         String puntuacionJ = puntuacion_J;
@@ -133,7 +133,7 @@ public class Home_pacientes extends AppCompatActivity {
     }
 
     public void ir_reg_identifica(View view){
-        Intent identifica_s = new Intent( this, sintomas_identifica.class);
+        Intent identifica_s = new Intent( this, sintomas_identifica_paciente.class);
         String idpaciente = Idpaciente;
         String pntj_identifi = pntj_ident;
 

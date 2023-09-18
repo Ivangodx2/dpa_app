@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:ap="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/img_loginpacientebg"
-    tools:context=".especialista_ver_paciente">
+    tools:context=".especialista_ver_diagnostico_paciente">
 
 
     <TextView
@@ -123,6 +123,7 @@
             </LinearLayout>
         </ScrollView>
 
+
         <com.androidplot.xy.XYPlot
             android:id="@+id/xyzplot_ie"
             style="@style/APDefacto"
@@ -134,8 +135,18 @@
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="22dp"
-            ap:rangeTitle="Nivel ansiedad"
-            />
+            ap:rangeTitle="Nivel ansiedad" />
+
+        <TextView
+            android:id="@+id/Info_grafica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="17dp"
+            android:text="E: Escucha, I: Identifica, O: Oprime,  S: Sintomas, V: Visualiza"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
     </LinearLayout>
 
     <LinearLayout

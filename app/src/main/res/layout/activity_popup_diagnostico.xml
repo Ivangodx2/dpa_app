@@ -62,7 +62,7 @@
                     android:id="@+id/textView7"
                     android:layout_width="265dp"
                     android:layout_height="wrap_content"
-                    android:text="Estos resultados no son certeros, puede variar en cuanto a las respuestas dadas, por lo que no es un diagnóstico certero. La barra indica el nivel de ansiedad y la gráfica da como color rojo nivel alto de ansiedad y verde un nivel bajo de ansiedad.  ¡Si es necesario salga y vuelva a entrar de la pantalla!"
+                    android:text="Estos resultados no son certeros, puede variar dependiendo de las respuestas dadas, por lo que no es un diagnóstico certero. La barra indica el nivel de ansiedad y la gráfica da como color rojo nivel alto de ansiedad y verde un nivel bajo de ansiedad.  ¡Si es necesario salga y vuelva a entrar de la pantalla!"
                     android:textSize="20dp" />
             </LinearLayout>
         </ScrollView>

@@ -262,13 +262,12 @@ public class diagnostico_paciente extends AppCompatActivity {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                count_PB++;
-                PBNansiedad.setProgress(count_PB);
 
+                PBNansiedad.setProgress(count_PB);
                 if (count_PB == ResPB){
                     timer.cancel();
                 }
-
+                count_PB++;
             }
         };
         timer.schedule(timerTask,0,100);

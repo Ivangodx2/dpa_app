@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img_loginpaciente"
-    tools:context=".sintomas_identifica">
+    tools:context=".sintomas_identifica_paciente">
 
     <TextView
         android:id="@+id/textView2"

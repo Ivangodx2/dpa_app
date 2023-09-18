@@ -1,12 +1,9 @@
 package com.example.dpa_v6;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.graphics.Point;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -17,20 +14,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class sintomas_oprime_juego extends AppCompatActivity {
+public class sintomas_oprime_juego_paciente extends AppCompatActivity {
 
     String puntuacionPaciente,IDPacietne;
     TextView P_contador,P_tiempo;
@@ -57,7 +47,7 @@ public class sintomas_oprime_juego extends AppCompatActivity {
         P_contador = findViewById(R.id.P_contador);
         P_tiempo = findViewById(R.id.P_tiempo);
 
-        aviso= new Dialog(sintomas_oprime_juego.this);
+        aviso= new Dialog(sintomas_oprime_juego_paciente.this);
 
         //Recibir datos
         db = FirebaseFirestore.getInstance();
@@ -160,7 +150,7 @@ public class sintomas_oprime_juego extends AppCompatActivity {
                 GameRunning = false;
                 cuentaatras();
                 movimiento();
-                Toast.makeText(sintomas_oprime_juego.this, "Iniciando juego...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(sintomas_oprime_juego_paciente.this, "Iniciando juego...", Toast.LENGTH_SHORT).show();
             }
         });
 

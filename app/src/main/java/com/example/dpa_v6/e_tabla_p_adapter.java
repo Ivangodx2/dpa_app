@@ -15,9 +15,6 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class e_tabla_p_adapter extends FirestoreRecyclerAdapter<e_tabla_pacientes,e_tabla_p_adapter.ViewHolder> {
 
 
@@ -45,12 +42,12 @@ public class e_tabla_p_adapter extends FirestoreRecyclerAdapter<e_tabla_paciente
         final String id = documentSnapshot.getId();
         holder.txv_nombre.setText("Nombre: "+ model.getNombre());
         holder.txv_edad.setText("Edad: "+ model.getEdad());
-        holder.txv_notel.setText("No.tele: "+model.getnum_telefonico());
+        holder.txv_notel.setText("tel.: "+model.getnum_telefonico());
 
         holder.btn_verpac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity,especialista_ver_paciente.class );
+                Intent intent = new Intent(activity, especialista_ver_diagnostico_paciente.class );
                 intent.putExtra("Idpaciente",id);
                 activity.startActivity(intent);
             }

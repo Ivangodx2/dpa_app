@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 
-public class Popup_cuestionario extends AppCompatActivity {
+public class popup_cuestionario extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

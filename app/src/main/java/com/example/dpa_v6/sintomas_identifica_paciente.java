@@ -14,7 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class sintomas_identifica extends AppCompatActivity {
+public class sintomas_identifica_paciente extends AppCompatActivity {
 
     CheckBox res1, res2, res3,res4,res5,res6,res7,res8;
 
@@ -45,7 +45,7 @@ public class sintomas_identifica extends AppCompatActivity {
         info_identifica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(sintomas_identifica.this, popup_identifica.class));
+                startActivity(new Intent(sintomas_identifica_paciente.this, popup_identifica.class));
             }
         });
 
