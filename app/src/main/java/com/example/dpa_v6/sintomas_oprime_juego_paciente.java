@@ -120,6 +120,7 @@ public class sintomas_oprime_juego_paciente extends AppCompatActivity {
             public void onFinish() {
                 P_tiempo.setText("0 Seg");
                 GameRunning = true;
+
                 avisoJuegoT();
                 GuardarDatosBD();
             }
@@ -131,6 +132,7 @@ public class sintomas_oprime_juego_paciente extends AppCompatActivity {
         Button Jugar_otv,Volver_menu;
 
         aviso.setContentView(R.layout.avisojuegoterminado);
+        aviso.setCancelable(false);
         titulo = aviso.findViewById(R.id.titulo);
         titulo_dos = aviso.findViewById(R.id.titulo_dos);
         puntaje_obtenido = aviso.findViewById(R.id.puntaje_obtenido);
@@ -176,4 +178,6 @@ public class sintomas_oprime_juego_paciente extends AppCompatActivity {
 
         db.collection("reg_paciente").document(IDPacietne).update(map);
     }
+    @Override
+    public void onBackPressed() { }
 }

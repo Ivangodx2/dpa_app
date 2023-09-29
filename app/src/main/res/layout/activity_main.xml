@@ -70,4 +70,17 @@
             android:textColor="@color/black" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="90dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="10dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="Versión 1.0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

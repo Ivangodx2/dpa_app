@@ -76,7 +76,6 @@ public class diagnostico_paciente extends AppCompatActivity {
             }
         });
 
-
         Integer numeroCuest = Integer.valueOf(R_cuestionario);
         Numbr_Cuest = numeroCuest.intValue();
 
@@ -273,7 +272,6 @@ public class diagnostico_paciente extends AppCompatActivity {
         timer.schedule(timerTask,0,100);
     }
 
-
     private void GuardarDatosPA(){
         //Actualizar base de datos
         String puntuacionPaciente = Integer.toString(ResPB);
@@ -283,9 +281,9 @@ public class diagnostico_paciente extends AppCompatActivity {
         db.collection("reg_paciente").document(IDPacietne).update(map);
     }
 
-
     public void salir_p(View view){
-        finish();
+        this.finish();
     }
+
 
 }
