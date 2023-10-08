@@ -44,9 +44,9 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.609"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2titulo">
+        app:layout_constraintTop_toBottomOf="@+id/textView2titulo"
+        app:layout_constraintVertical_bias="0.56">
 
         <TextView
             android:id="@+id/tituloF"
@@ -54,9 +54,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="FOBIAS"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="40dp" />
+            android:textSize="40dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/sintoma_titulo"

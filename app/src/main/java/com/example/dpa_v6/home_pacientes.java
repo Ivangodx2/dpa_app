@@ -60,14 +60,7 @@ public class home_pacientes extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 Idpaciente = documentSnapshot.getString("id");
-                if (documentSnapshot.getString("nombre") == null){
-                    finish();
-                    Intent isespecialista= new Intent(getApplicationContext(),home_especialista.class);
-                    startActivity(isespecialista);
-
-                }else{
-                    nombre_paciente.setText("P. "+ documentSnapshot.getString("nombre"));
-                }
+                nombre_paciente.setText("P. "+ documentSnapshot.getString("nombre"));
                 nombrePaciente_Dig = documentSnapshot.getString("nombre");
                 puntuacion_J = documentSnapshot.getString("puntuacion_J");
                 pntj_cuesti = documentSnapshot.getString("puntaje_cuesti");
@@ -182,4 +175,48 @@ public class home_pacientes extends AppCompatActivity {
             }
         });
     }
+
+
+
+    public void ir_diagnostico_final(View view){
+
+        DocumentReference documentReference = db.collection("reg_paciente").document(idPaciente);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                Idpaciente = documentSnapshot.getString("id");
+                nombrePaciente_Dig = documentSnapshot.getString("nombre");
+                puntuacion_J = documentSnapshot.getString("puntuacion_J");
+                pntj_cuesti = documentSnapshot.getString("puntaje_cuesti");
+                pntj_visuali = documentSnapshot.getString("puntaje_vsual");
+                pntj_escha = documentSnapshot.getString("puntaje_escuch");
+                pntj_ident = documentSnapshot.getString("puntaje_identifica");
+
+                // Los valores se actualizaron en Consulta_Dtos(), así que los obtienes aquí
+                String idpaciente = Idpaciente;
+                String nombrePaciente = nombrePaciente_Dig;
+                String pntj_cuest_R = pntj_cuesti;
+                String pntj_visul_R = pntj_visuali;
+                String pntj_escucha_R = pntj_escha;
+                String puntuacionJ_R = puntuacion_J;
+                String pntj_identifi_R = pntj_ident;
+
+                Intent diagnostico_s = new Intent(home_pacientes.this, diagnostico_paciente_grafica.class);
+
+                diagnostico_s.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                // Se envían los datos del usuario
+                diagnostico_s.putExtra("IDPaciente", idpaciente);
+                diagnostico_s.putExtra("nombre", nombrePaciente);
+                diagnostico_s.putExtra("puntaje_cuesti", pntj_cuest_R);
+                diagnostico_s.putExtra("puntaje_vsual", pntj_visul_R);
+                diagnostico_s.putExtra("puntaje_escuch", pntj_escucha_R);
+                diagnostico_s.putExtra("puntuacion_J", puntuacionJ_R);
+                diagnostico_s.putExtra("puntaje_identifica", pntj_identifi_R);
+                startActivity(diagnostico_s);
+            }
+        });
+    }
+
+
+
 }

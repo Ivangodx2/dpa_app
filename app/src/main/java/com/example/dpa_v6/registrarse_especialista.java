@@ -92,7 +92,7 @@ public class registrarse_especialista extends AppCompatActivity {
                 map.put("correo_e_e", correo_e);
                 map.put("cedula_p", cedula_p_e);
                 map.put("contra_e", contrasena_e);
-                map.put("rol",2);
+                map.put("rol","2");
                 datos_especialista.collection("reg_especialista").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

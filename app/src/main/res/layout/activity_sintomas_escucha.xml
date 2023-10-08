@@ -146,7 +146,7 @@
                         android:layout_height="wrap_content"
                         android:text="¿Cómo te sientes al escuchar el audio No. 1?"
                         android:textColor="@color/black"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -154,28 +154,28 @@
                         android:id="@+id/rAP1_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="1"
+                        android:text="Nivel 1"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP1_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="2"
+                        android:text="Nivel 2"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP1_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="3"
+                        android:text="Nivel 3"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP1_4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="4"
+                        android:text="Nivel 4"
                         android:textSize="18dp" />
                 </RadioGroup>
 
@@ -192,7 +192,7 @@
                         android:layout_height="wrap_content"
                         android:text="¿Cómo te sientes al escuchar el audio No. 2?"
                         android:textColor="@color/black"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -200,28 +200,28 @@
                         android:id="@+id/rAP2_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="1"
+                        android:text="Nivel 1"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP2_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="2"
+                        android:text="Nivel 2"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP2_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="3"
+                        android:text="Nivel 3"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP2_4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="4"
+                        android:text="Nivel 4"
                         android:textSize="18dp" />
                 </RadioGroup>
 
@@ -237,7 +237,7 @@
                         android:layout_height="wrap_content"
                         android:text="¿Cómo te sientes al escuchar el audio No. 3?"
                         android:textColor="@color/black"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -245,28 +245,28 @@
                         android:id="@+id/rAP3_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="1"
+                        android:text="Nivel 1"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP3_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="2"
+                        android:text="Nivel 2"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP3_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="3"
+                        android:text="Nivel 3"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP3_4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="4"
+                        android:text="Nivel 4"
                         android:textSize="18dp" />
                 </RadioGroup>
 
@@ -290,28 +290,28 @@
                         android:id="@+id/rAP4_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="1"
+                        android:text="Nivel 1"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP4_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="2"
+                        android:text="Nivel 2"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP4_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="3"
+                        android:text="Nivel 3"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP4_4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="4"
+                        android:text="Nivel 4"
                         android:textSize="18dp" />
                 </RadioGroup>
 
@@ -335,28 +335,28 @@
                         android:id="@+id/rAP5_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="1"
+                        android:text="Nivel 1"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP5_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="2"
+                        android:text="Nivel 2"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP5_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="3"
+                        android:text="Nivel 3"
                         android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/rAP5_4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="4"
+                        android:text="Nivel 4"
                         android:textSize="18dp" />
                 </RadioGroup>
             </LinearLayout>

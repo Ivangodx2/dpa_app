@@ -60,6 +60,10 @@ public class sintomas_oprime_juego_paciente extends AppCompatActivity {
         Pantalla();
         cuentaatras();
 
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE;
+        decorView.setSystemUiVisibility(uiOptions);
+
 
         P_huevo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,7 +167,9 @@ public class sintomas_oprime_juego_paciente extends AppCompatActivity {
 
             }
         });
-        aviso.show();
+        if (!isFinishing()) {
+            aviso.show();
+        }
 
     }
 

@@ -62,7 +62,7 @@
                 android:id="@+id/textView7"
                 android:layout_width="265dp"
                 android:layout_height="126dp"
-                android:text="Selecciona el nivel de ansiedad que te causa al escuchar cada uno de los audios, donde 1 es bajo y 4 es alto."
+                android:text="Selecciona el nivel de ansiedad que te causa al escuchar cada uno de los audios, donde Nivel 1 es bajo y Nivel 4 es alto."
                 android:textSize="20dp" />
         </LinearLayout>
 

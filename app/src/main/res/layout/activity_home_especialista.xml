@@ -77,7 +77,7 @@
                 android:layout_marginStart="99dp"
                 android:layout_marginTop="29dp"
                 android:layout_marginEnd="99dp"
-                android:background="@drawable/pacientes_icn" />
+                android:src="@drawable/pacientes_icn" />
         </RelativeLayout>
     </RelativeLayout>
 
@@ -131,9 +131,9 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="88dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="3dp"
                 android:layout_marginEnd="88dp"
-                android:background="@drawable/carga_icn" />
+                android:src="@drawable/carga_icn" />
         </RelativeLayout>
     </RelativeLayout>
 

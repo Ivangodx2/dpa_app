@@ -52,19 +52,10 @@ public class home_especialista extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 idEspecialista = documentSnapshot.getString("id");
-                if (documentSnapshot.getString("nombre_e") == null){
-                    finish();
-                    Intent ispaciente= new Intent(getApplicationContext(), home_pacientes.class);
-                    startActivity(ispaciente);
+                nombre_especialista.setText("Dr. "+documentSnapshot.getString("nombre_e"));
 
-                }else{
-                    nombre_especialista.setText("Dr. "+documentSnapshot.getString("nombre_e"));
-                }
             }
         });
-
-
-
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.buttom_navi);
         bottomNavigationView.setSelectedItemId(R.id.home_esp);

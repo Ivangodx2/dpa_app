@@ -15,80 +15,113 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".popup_ver_diagnosticoPaciente_VE"
+            android:theme="@style/appTheme.S_Popup"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".diagnostico_paciente_grafica"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".especialista_generar_correo"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".especialista_comprobar"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".especialista_ver_diagnostico_paciente"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".especialista_pacientes"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".popup_oprime"
-            android:theme="@style/appTheme.S_Popup" />
+            android:theme="@style/appTheme.S_Popup"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".popup_identifica"
-            android:theme="@style/appTheme.S_Popup" />
+            android:theme="@style/appTheme.S_Popup"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".popup_diagnostico"
-            android:theme="@style/appTheme.S_Popup" />
+            android:theme="@style/appTheme.S_Popup"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".sintomas_identifica_paciente"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".diagnostico_paciente"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".popup_escucha"
-            android:theme="@style/appTheme.S_Popup" />
+            android:theme="@style/appTheme.S_Popup"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".popup_visualiza"
-            android:theme="@style/appTheme.S_Popup" />
+            android:theme="@style/appTheme.S_Popup"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".popup_cuestionario"
-            android:theme="@style/appTheme.S_Popup" />
+            android:theme="@style/appTheme.S_Popup"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".sintomas_escucha_paciente"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".sintomas_oprime_juego_paciente"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".sintomas_oprime_paciente"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".sintomas_visualiza_paciente"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".sintomas_cuestionario_paciente"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".home_pacientes"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".recuperar_contrasena"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".registrarse_paciente"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".iniciar_paciente"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".home_especialista"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".registrarse_especialista"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".iniciar_sesion_especialista"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".inicio_aplicacion"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ap="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:ap="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/img_loginpaciente"
     tools:context=".diagnostico_paciente">
 
@@ -24,30 +24,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/info_diagnostico"
-        android:layout_width="39dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/icon_info"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_info" />
 
-
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="370dp"
-        android:layout_height="650dp"
+        android:layout_height="590dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:background="@drawable/cuest_style"
-        android:gravity="center"
         android:orientation="vertical"
-        android:layout_marginBottom="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/salir"
+        ap:layout_constraintBottom_toTopOf="@+id/linearLayout11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,10 +46,6 @@
             android:id="@+id/textNombre_paciente"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="16dp"
             android:background="#DDDDDD"
             android:hint="usuario"
             android:paddingLeft="10dp"
@@ -70,20 +53,16 @@
             android:textSize="20sp" />
 
         <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="158dp"
-            android:layout_above="@+id/xyzplot"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/textNombre_paciente"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="13dp"
-            android:layout_marginBottom="-35dp">
+            android:layout_marginTop="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
 
@@ -91,9 +70,21 @@
                     android:id="@+id/progressBar_ansiedad"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="50dp"
                     android:layout_marginBottom="12dp"
                     android:progressDrawable="@drawable/style_pbarr" />
+
+
+                <TextView
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Resultados:"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/Diag_Cuestionario"
@@ -103,7 +94,7 @@
                     android:layout_marginStart="10dp"
                     android:text="Cuestionario"
                     android:textColor="@color/black"
-                    android:textSize="20dp" />
+                    android:textSize="25dp" />
 
                 <TextView
                     android:id="@+id/Diag_Escucha"
@@ -112,7 +103,7 @@
                     android:layout_marginStart="10dp"
                     android:text="Escucha"
                     android:textColor="@color/black"
-                    android:textSize="20dp" />
+                    android:textSize="25dp" />
 
                 <TextView
                     android:id="@+id/Diag_Visualiza"
@@ -121,7 +112,7 @@
                     android:layout_marginStart="10dp"
                     android:text="Visualiza"
                     android:textColor="@color/black"
-                    android:textSize="20dp" />
+                    android:textSize="25dp" />
 
                 <TextView
                     android:id="@+id/Diag_Oprime"
@@ -130,7 +121,7 @@
                     android:layout_marginStart="10dp"
                     android:text="Oprime"
                     android:textColor="@color/black"
-                    android:textSize="20dp" />
+                    android:textSize="25dp" />
 
                 <TextView
                     android:id="@+id/Diag_Identifica"
@@ -139,49 +130,34 @@
                     android:layout_marginStart="10dp"
                     android:text="Identifica"
                     android:textColor="@color/black"
-                    android:textSize="20dp" />
+                    android:textSize="25dp" />
             </LinearLayout>
         </ScrollView>
 
-        <com.androidplot.xy.XYPlot
-            android:id="@+id/xyzplot"
-            style="@style/APDefacto"
-            android:layout_width="358dp"
-            android:layout_height="306dp"
-            android:layout_above="@+id/Info_grafica"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="9dp"
-            android:layout_marginTop="62dp"
-            android:layout_marginEnd="14dp"
-            android:layout_marginBottom="16dp"
-            ap:rangeTitle="Nivel ansiedad" />
-
-        <TextView
-            android:id="@+id/Info_grafica"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="17dp"
-            android:text="E: Escucha, I: Identifica, O: Oprime,  S: Sintomas, V: Visualiza"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+    </LinearLayout>
 
 
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/salir"
-        android:layout_width="152dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/btn_style_inicio"
-        android:onClick="salir_p"
-        android:text="salir"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:id="@+id/linearLayout11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        ap:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+        <Button
+            android:id="@+id/salir"
+            android:layout_width="152dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/btn_style_inicio"
+            android:onClick="salir_p"
+            android:text="salir"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

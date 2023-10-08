@@ -25,10 +25,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/info_diagnosticoPaciente_VE"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/icon_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_info" />
+
     <LinearLayout
         android:id="@+id/linearLayout6"
-        android:layout_width="370dp"
-        android:layout_height="wrap_content"
+        android:layout_width="382dp"
+        android:layout_height="614dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/cuest_style"
@@ -53,11 +64,10 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="158dp"
+            android:layout_height="130dp"
             android:layout_below="@+id/textNombre_paciente"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
             android:layout_marginBottom="-35dp"
             android:padding="10dp">
 
@@ -124,17 +134,24 @@
         </ScrollView>
 
 
+        <ProgressBar
+            android:id="@+id/PB_Grafica"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
         <com.androidplot.xy.XYPlot
-            android:id="@+id/xyzplot_ie"
+            android:id="@+id/xyzplot_Vis_E"
             style="@style/APDefacto"
-            android:layout_width="331dp"
-            android:layout_height="271dp"
+            android:layout_width="342dp"
+            android:layout_height="343dp"
+            android:layout_below="@+id/textNombre_paciente_GF"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="22dp"
+            android:layout_marginTop="20dp"
             ap:rangeTitle="Nivel ansiedad" />
 
         <TextView

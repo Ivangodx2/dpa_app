@@ -99,7 +99,7 @@ public class sintomas_cuestionario_paciente extends AppCompatActivity {
 
     public void enviar(View view){
         if (rP1_1.isChecked() == false && rP1_2.isChecked() == false && rP1_3.isChecked() == false && rP1_4.isChecked() == false || rP2_1.isChecked() == false && rP2_2.isChecked() == false && rP2_3.isChecked() == false && rP2_4.isChecked() == false || rP3_1.isChecked() == false && rP3_2.isChecked() == false && rP3_3.isChecked() == false && rP3_4.isChecked() == false || rP3_4.isChecked() == false && rP4_1.isChecked() == false && rP4_2.isChecked() == false && rP4_3.isChecked() == false && rP4_4.isChecked() == false || rP5_1.isChecked() == false && rP5_2.isChecked() == false && rP5_3.isChecked() == false && rP5_4.isChecked() == false || rP6_1.isChecked() == false && rP6_2.isChecked() == false && rP6_3.isChecked() == false && rP6_4.isChecked() == false || rP7_1.isChecked() == false && rP7_2.isChecked() == false && rP7_3.isChecked() == false && rP7_4.isChecked() == false || rP8_1.isChecked() == false && rP8_2.isChecked() == false && rP8_3.isChecked() == false && rP8_4.isChecked() == false  || rP9_1.isChecked() == false && rP9_2.isChecked() == false && rP9_3.isChecked() == false && rP9_4.isChecked() == false || rP10_1.isChecked() == false && rP10_2.isChecked() == false && rP10_3.isChecked() == false && rP10_4.isChecked() == false){
-            Toast.makeText(getApplicationContext(), "Responda todas las pregutas", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Responda todas las preguntas", Toast.LENGTH_SHORT).show();
         }else {
             //Pregunta 1
             if (rP1_1.isChecked()){

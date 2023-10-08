@@ -59,16 +59,16 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Pregunta 1"
-                        android:textSize="40dp" />
+                        android:textSize="30dp" />
 
 
                     <TextView
                         android:id="@+id/pregunta_sintomas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Me siento más nervioso(a) y ansioso(a) de lo normal:"
+                        android:text="¿Se ha sentido más nervioso(a) y ansioso(a) de lo normal?:"
                         android:textColor="#DA000000"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <RadioButton
                         android:id="@+id/rBP1_1"
@@ -110,16 +110,16 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Pregunta 2"
-                        android:textSize="40dp" />
+                        android:textSize="30dp" />
 
 
                     <TextView
                         android:id="@+id/pregunta_sintomas2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Me siento asustado sin ninguna razón:"
+                        android:text="¿Se ha sentido asustado(a) sin ninguna razón?:"
                         android:textColor="#DA000000"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <RadioButton
                         android:id="@+id/rBP2_1"
@@ -162,15 +162,15 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Pregunta 3"
-                        android:textSize="40dp" />
+                        android:textSize="30dp" />
 
                     <TextView
                         android:id="@+id/pregunta_sintomas3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Se ha irritado fácilmente o ha tenído pánico:"
+                        android:text="¿Se ha irritado(a) fácilmente?:"
                         android:textColor="#DA000000"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <RadioButton
                         android:id="@+id/rBP3_1"
@@ -212,16 +212,16 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Pregunta 4"
-                        android:textSize="40dp" />
+                        android:textSize="30dp" />
 
 
                     <TextView
                         android:id="@+id/pregunta_sintomas4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Me siento destrozado y me parece que estoy por derrumbarme:"
+                        android:text="¿Se ha sentido devastado(a) y le parece que está por derrumbarse?:"
                         android:textColor="#DA000000"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <RadioButton
                         android:id="@+id/rBP4_1"
@@ -263,16 +263,16 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Pregunta 5"
-                        android:textSize="40dp" />
+                        android:textSize="30dp" />
 
 
                     <TextView
                         android:id="@+id/pregunta_sintomas5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Me parece que va todo bien y que no me pasará nada malo:"
+                        android:text="¿Le parece que todo está mal y que le pasará algo malo?:"
                         android:textColor="#DA000000"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <RadioButton
                         android:id="@+id/rBP5_1"
@@ -314,16 +314,16 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Pregunta 6"
-                        android:textSize="40dp" />
+                        android:textSize="30dp" />
 
 
                     <TextView
                         android:id="@+id/pregunta_sintomas6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Se ha sentido tembloroso:"
+                        android:text="¿Se ha sentido tembloroso(a)?:"
                         android:textColor="#DA000000"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <RadioButton
                         android:id="@+id/rBP6_1"
@@ -365,16 +365,16 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Pregunta 7"
-                        android:textSize="40dp" />
+                        android:textSize="30dp" />
 
 
                     <TextView
                         android:id="@+id/pregunta_sintomas7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Le ha dolido el cuello, la espalda o la cabeza:"
+                        android:text="¿Le ha dolido el cuello, la espalda o la cabeza?:"
                         android:textColor="#DA000000"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <RadioButton
                         android:id="@+id/rBP7_1"
@@ -416,16 +416,16 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Pregunta 8"
-                        android:textSize="40dp" />
+                        android:textSize="30dp" />
 
 
                     <TextView
                         android:id="@+id/pregunta_sintomas8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Se ha sentido débil y se cansa facilmente:"
+                        android:text="¿Se ha sentido débil y se cansa facilmente?:"
                         android:textColor="#DA000000"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <RadioButton
                         android:id="@+id/rBP8_1"
@@ -467,16 +467,16 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Pregunta 9"
-                        android:textSize="40dp" />
+                        android:textSize="30dp" />
 
 
                     <TextView
                         android:id="@+id/pregunta_sintomas9"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Se ha sentido calmado y puede mantenerse quieto:"
+                        android:text="¿Se ha sentido inquieto(a)?:"
                         android:textColor="#DA000000"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <RadioButton
                         android:id="@+id/rBP9_1"
@@ -518,16 +518,16 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Pregunta 10"
-                        android:textSize="40dp" />
+                        android:textSize="30dp" />
 
 
                     <TextView
                         android:id="@+id/pregunta_sintomas10"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Ha sentido palpitaciones, taquicardia, últimamente:"
+                        android:text="¿Ha sentido palpitaciones o taquicardia últimamente?:"
                         android:textColor="#DA000000"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <RadioButton
                         android:id="@+id/rBP10_1"

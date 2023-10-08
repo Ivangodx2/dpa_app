@@ -21,9 +21,9 @@
 
         <ImageView
             android:id="@+id/imageDPAOne"
-            android:layout_width="450dp"
-            android:layout_height="260dp"
-            android:background="@drawable/img_dpa1"
+            android:layout_width="wrap_content"
+            android:layout_height="240dp"
+            android:src="@drawable/img_dpa1"
             android:layout_gravity="center"
             android:scaleType="fitXY"
             tools:ignore="ContentDescription" />
@@ -79,7 +79,7 @@
         android:textSize="10dp"
         android:gravity="center"
         android:textColor="@color/black"
-        android:text="Versión 1.0.0"
+        android:text="Versión 1.1.2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
