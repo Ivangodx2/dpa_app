@@ -1,5 +1,7 @@
 package com.example.dpa_v6;
 
+import static com.example.dpa_v6.NetworkUtils.isNetworkAvailable;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,7 +12,11 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -237,8 +243,6 @@ public class sintomas_cuestionario_paciente extends AppCompatActivity {
             }
 
             GuardarDatosBD();
-            finish();
-            Toast.makeText(getApplicationContext(), "Respuestas guardadas", Toast.LENGTH_SHORT).show();
             }
 
 
@@ -251,14 +255,30 @@ public class sintomas_cuestionario_paciente extends AppCompatActivity {
         }
 
     private void GuardarDatosBD(){
-        //Actualizar base de datos
-        String puntuacionPaciente = Integer.toString(resultado_encu);
 
-        Map<String,Object> map = new HashMap<>();
-        map.put("puntaje_cuesti",puntuacionPaciente);
-        db.collection("reg_paciente").document(IDPacietne).update(map);
+        if (!isNetworkAvailable(getApplicationContext())) {
+            Toast.makeText(getApplicationContext(), "No se pueden guardar los datos.", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
+            // Actualizar base de datos
+            String puntuacionPaciente = Integer.toString(resultado_encu);
+            Map<String, Object> map = new HashMap<>();
+            map.put("puntaje_cuesti", puntuacionPaciente);
+
+            db.collection("reg_paciente").document(IDPacietne).update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Toast.makeText(getApplicationContext(), "Respuestas guardadas", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                    Toast.makeText(getApplicationContext(), "Error al guardar los datos", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
-
-
 
 }

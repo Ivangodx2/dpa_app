@@ -3,6 +3,9 @@ package com.example.dpa_v6;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -18,6 +21,9 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class recuperar_contrasena extends AppCompatActivity {
+
+    private Dialog avisoSinInternet;
+    private BroadcastReceiver networkReceiver;
     Button enviar_corre;
     EditText emailedit_text;
     @Override
@@ -27,6 +33,21 @@ public class recuperar_contrasena extends AppCompatActivity {
 
         enviar_corre = findViewById(R.id.button_recuperarcontra);
         emailedit_text = findViewById(R.id.EdittextCorreo_RC);
+        avisoSinInternet = new Dialog(this);
+        avisoSinInternet.setContentView(R.layout.avisosininternet);
+        avisoSinInternet.setCancelable(false);
+        networkReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                boolean isNetworkAvailable = NetworkUtils.isNetworkAvailable(context);
+                if (isNetworkAvailable) {
+                    NetworkUtils.ocultarAvisoSinConexion(avisoSinInternet);
+                } else {
+                    NetworkUtils.mostrarAvisoSinConexion(context, avisoSinInternet);
+                }
+            }
+        };
+        NetworkUtils.registerNetworkReceiver(this, networkReceiver);
         enviar_corre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,8 +75,6 @@ public class recuperar_contrasena extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(recuperar_contrasena.this, "Correo enviado", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(recuperar_contrasena.this,iniciar_sesion_especialista.class);
-                            startActivity(intent);
                             finish();
 
                         }else {
@@ -63,5 +82,11 @@ public class recuperar_contrasena extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        NetworkUtils.unregisterNetworkReceiver(this, networkReceiver);
     }
 }

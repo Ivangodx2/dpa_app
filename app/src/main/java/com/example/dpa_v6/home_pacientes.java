@@ -3,8 +3,13 @@ package com.example.dpa_v6;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,12 +24,15 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class home_pacientes extends AppCompatActivity {
 
+    private Dialog avisoSinInternet;
+    private BroadcastReceiver networkReceiver;
     private TextView nombre_paciente;
     FirebaseAuth mAuth;
     FirebaseFirestore db;
     private String idPaciente;
+    private static final int TIEMPO_CARGA = 3000;
+    ProgressDialog progressDialog_h;
     String puntuacion_J,Idpaciente, pntj_cuesti, pntj_visuali, pntj_escha,pntj_ident,nombrePaciente_Dig;
-    String nombrePaciente_Diag, puntuacion_Juego,pntj_cuestionario,pntj_visualiza,pntj_escucha,pntj_identifica;
 
     Button Cerrar_sesion;
     @Override
@@ -38,16 +46,44 @@ public class home_pacientes extends AppCompatActivity {
         idPaciente = mAuth.getCurrentUser().getUid();
         Cerrar_sesion = (Button) findViewById(R.id.Cerrar_S);
 
-
+        progressDialog_h = new ProgressDialog(this);
+        progressDialog_h.setMessage("Cerrando sesión..."); // Mensaje de carga
+        progressDialog_h.setCancelable(false); // Bloquear la interacción con la actividad
+        progressDialog_h.setIndeterminate(true); // Usar un ProgressBar indeterminado
+        //Conexión
+        avisoSinInternet = new Dialog(this);
+        avisoSinInternet.setContentView(R.layout.avisosininternet);
+        avisoSinInternet.setCancelable(false);
+        networkReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                boolean isNetworkAvailable = NetworkUtils.isNetworkAvailable(context);
+                if (isNetworkAvailable) {
+                    NetworkUtils.ocultarAvisoSinConexion(avisoSinInternet);
+                } else {
+                    NetworkUtils.mostrarAvisoSinConexion(context, avisoSinInternet);
+                }
+            }
+        };
+        NetworkUtils.registerNetworkReceiver(this, networkReceiver);
 
 
         //Cerrar sesion
         Cerrar_sesion.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                Toast.makeText(home_pacientes.this, "Sesion cerrada", Toast.LENGTH_SHORT).show();
-                mAuth.signOut();
-                finish();
+                progressDialog_h.show();
+                new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run () {
+
+                    Toast.makeText(home_pacientes.this, "Sesion cerrada", Toast.LENGTH_SHORT).show();
+                    mAuth.signOut();
+                    progressDialog_h.dismiss();
+                    finish();
+                    }
+                },TIEMPO_CARGA);
             }
         });
 
@@ -216,6 +252,12 @@ public class home_pacientes extends AppCompatActivity {
             }
         });
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        NetworkUtils.unregisterNetworkReceiver(this, networkReceiver);
+    }
+
 
 
 

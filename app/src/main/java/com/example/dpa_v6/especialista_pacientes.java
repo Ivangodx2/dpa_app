@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.SearchView;
@@ -22,6 +25,8 @@ import java.util.Locale;
 
 public class especialista_pacientes extends AppCompatActivity {
 
+    private Dialog avisoSinInternet;
+    private BroadcastReceiver networkReceiver;
     SearchView sv_pacientes;
     RecyclerView RecycleV_listpacient;
     e_tabla_p_adapter list_pac_adapter;
@@ -41,6 +46,22 @@ public class especialista_pacientes extends AppCompatActivity {
         pacientes_list = new ArrayList<>();
         sv_pacientes=findViewById(R.id.searchview_p);
 
+        //___________________Conexion
+        avisoSinInternet = new Dialog(this);
+        avisoSinInternet.setContentView(R.layout.avisosininternet);
+        avisoSinInternet.setCancelable(false);
+        networkReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                boolean isNetworkAvailable = NetworkUtils.isNetworkAvailable(context);
+                if (isNetworkAvailable) {
+                    NetworkUtils.ocultarAvisoSinConexion(avisoSinInternet);
+                } else {
+                    NetworkUtils.mostrarAvisoSinConexion(context, avisoSinInternet);
+                }
+            }
+        };
+        NetworkUtils.registerNetworkReceiver(this, networkReceiver);
         //fitrado
         filtrado_view();
 
@@ -121,6 +142,11 @@ public class especialista_pacientes extends AppCompatActivity {
     protected void onStop(){
         super.onStop();
         list_pac_adapter.stopListening();
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        NetworkUtils.unregisterNetworkReceiver(this, networkReceiver);
     }
 
 }

@@ -177,7 +177,12 @@ public class diagnostico_paciente extends AppCompatActivity {
 
 
     public void Pbar_ansiedad(){
-        ResPB = ((ResPB*100)/152);
+
+        if(ResPB==0){
+            ResPB=0;
+        }else {
+            ResPB = ((ResPB*100)/152);
+        }
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
             @Override

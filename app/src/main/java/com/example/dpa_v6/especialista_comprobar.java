@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -16,7 +19,8 @@ import com.google.firebase.firestore.Query;
 public class especialista_comprobar extends AppCompatActivity {
 
 
-
+    private Dialog avisoSinInternet;
+    private BroadcastReceiver networkReceiver;
     RecyclerView RecycleV_listpacient_bar;
     e_tabla_comprobar_adapter e_Tabla_comprobar_adapter;
     FirebaseFirestore base_datos;
@@ -26,11 +30,27 @@ public class especialista_comprobar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_especialista_comprobar);
-
         //Lista de pacientes
         RecycleV_listpacient_bar = findViewById(R.id.list_pacientes_bar);
         RecycleV_listpacient_bar.setLayoutManager(new LinearLayoutManager(this));
         base_datos= FirebaseFirestore.getInstance();
+
+        //___________________Conexion
+        avisoSinInternet = new Dialog(this);
+        avisoSinInternet.setContentView(R.layout.avisosininternet);
+        avisoSinInternet.setCancelable(false);
+        networkReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                boolean isNetworkAvailable = NetworkUtils.isNetworkAvailable(context);
+                if (isNetworkAvailable) {
+                    NetworkUtils.ocultarAvisoSinConexion(avisoSinInternet);
+                } else {
+                    NetworkUtils.mostrarAvisoSinConexion(context, avisoSinInternet);
+                }
+            }
+        };
+        NetworkUtils.registerNetworkReceiver(this, networkReceiver);
 
         Query query =base_datos.collection("reg_paciente");
 
@@ -84,5 +104,10 @@ public class especialista_comprobar extends AppCompatActivity {
     protected void onStop(){
         super.onStop();
         e_Tabla_comprobar_adapter.stopListening();
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        NetworkUtils.unregisterNetworkReceiver(this, networkReceiver);
     }
 }

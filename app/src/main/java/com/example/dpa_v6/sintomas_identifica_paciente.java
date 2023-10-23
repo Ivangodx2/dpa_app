@@ -1,5 +1,7 @@
 package com.example.dpa_v6;
 
+import static com.example.dpa_v6.NetworkUtils.isNetworkAvailable;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,7 +11,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -80,8 +86,6 @@ public class sintomas_identifica_paciente extends AppCompatActivity {
 
 
         GuardarDatosBD();
-        finish();
-        Toast.makeText(getApplicationContext(), "Respuestas guardadas", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -92,11 +96,31 @@ public class sintomas_identifica_paciente extends AppCompatActivity {
 
     private void GuardarDatosBD(){
         //Actualizar base de datos
-        String puntuacionPaciente_identif = Integer.toString(resultado_ident);
+        if (!isNetworkAvailable(getApplicationContext())) {
+            Toast.makeText(getApplicationContext(), "No se pueden guardar los datos.", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
+            String puntuacionPaciente_identif = Integer.toString(resultado_ident);
 
-        Map<String,Object> map = new HashMap<>();
-        map.put("puntaje_identifica",puntuacionPaciente_identif);
-        db.collection("reg_paciente").document(IDPacietne).update(map);
+            Map<String, Object> map = new HashMap<>();
+            map.put("puntaje_identifica", puntuacionPaciente_identif);
+            db.collection("reg_paciente").document(IDPacietne).update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            // La actualización se realizó con éxito
+                            Toast.makeText(getApplicationContext(), "Respuestas guardadas", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // La actualización falló
+                            // Aquí puedes mostrar un aviso o realizar acciones de manejo de errores
+                            Toast.makeText(getApplicationContext(), "Error al guardar los datos", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 
 }

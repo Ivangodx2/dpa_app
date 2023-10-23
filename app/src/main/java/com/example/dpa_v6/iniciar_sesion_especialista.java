@@ -5,8 +5,15 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -37,10 +44,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class iniciar_sesion_especialista extends AppCompatActivity {
+
+    private Dialog avisoSinInternet;
+    private BroadcastReceiver networkReceiver;
     FirebaseAuth mAuth;
+    ProgressDialog progressDialog;
     EditText edtCorreo,edtContra;
     Button btn_iniciar_s_e;
     String user_rol;
+    private static final int TIEMPO_CARGA = 3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +61,21 @@ public class iniciar_sesion_especialista extends AppCompatActivity {
         edtContra=findViewById(R.id.EdittextEsepePassword);
         btn_iniciar_s_e=findViewById(R.id.button_Iniciar_S);
         mAuth = FirebaseAuth.getInstance();
-
+        avisoSinInternet = new Dialog(this);
+        avisoSinInternet.setContentView(R.layout.avisosininternet);
+        avisoSinInternet.setCancelable(false);
+        networkReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                boolean isNetworkAvailable = NetworkUtils.isNetworkAvailable(context);
+                if (isNetworkAvailable) {
+                    NetworkUtils.ocultarAvisoSinConexion(avisoSinInternet);
+                } else {
+                    NetworkUtils.mostrarAvisoSinConexion(context, avisoSinInternet);
+                }
+            }
+        };
+        NetworkUtils.registerNetworkReceiver(this, networkReceiver);
         btn_iniciar_s_e.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,67 +93,80 @@ public class iniciar_sesion_especialista extends AppCompatActivity {
         });
 
 
-
     }
 
 
     public void iniciarSesion_espe(String edtCorreo_e, String edtContra_e) {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Iniciando sesión..."); // Mensaje de carga
+        progressDialog.setCancelable(false); // Bloquear la interacción con la actividad
+        progressDialog.setIndeterminate(true); // Usar un ProgressBar indeterminado
+        progressDialog.show();
+
         mAuth.signInWithEmailAndPassword(edtCorreo_e, edtContra_e)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // El inicio de sesión fue exitoso
-                            FirebaseUser user = mAuth.getCurrentUser();
 
-                            if (user != null) {
-                                String userId_e = user.getUid();
-                                System.out.println(userId_e);
-                                // Realizar una consulta a Firestore para obtener información adicional sobre el usuario
-                                FirebaseFirestore db = FirebaseFirestore.getInstance();
-                                DocumentReference user_espe = db.collection("reg_especialista").document(userId_e);
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (task.isSuccessful()) {
+                                    // El inicio de sesión fue exitoso
+                                    FirebaseUser user = mAuth.getCurrentUser();
 
-                                user_espe.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                                    @Override
-                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                        if (documentSnapshot.exists()) {
-                                            // El documento existe en Firestore
-                                            user_rol = documentSnapshot.getString("rol");
+                                    if (user != null) {
+                                        String userId_e = user.getUid();
+                                        System.out.println(userId_e);
+                                        // Realizar una consulta a Firestore para obtener información adicional sobre el usuario
+                                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                        DocumentReference user_espe = db.collection("reg_especialista").document(userId_e);
 
-                                            System.out.println(user_rol);
-                                            if (user_rol.equals("2")) {
-                                                // Usuario es un especialista
-                                                Intent intent = new Intent(getApplicationContext(), home_especialista.class);
-                                                startActivity(intent);
+                                        user_espe.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                            @Override
+                                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                                if (documentSnapshot.exists()) {
+                                                    // El documento existe en Firestore
+                                                    user_rol = documentSnapshot.getString("rol");
+
+                                                    System.out.println(user_rol);
+                                                    if (user_rol.equals("2")) {
+                                                        // Usuario es un especialista
+                                                        Intent intent = new Intent(getApplicationContext(), home_especialista.class);
+                                                        startActivity(intent);
+                                                        progressDialog.dismiss();
+                                                    }
+
+                                                    Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();
+                                                } else {
+                                                    Intent intent = new Intent(getApplicationContext(), home_pacientes.class);
+                                                    startActivity(intent);
+                                                    progressDialog.dismiss();
+                                                    Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();
+                                                }
                                             }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                // Manejar el error de consulta a Firestore
+                                                Log.e(TAG, "Error al consultar Firestore", e);
+                                            }
+                                        });
 
-                                            Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();
-                                        } else {
-                                            Intent intent = new Intent(getApplicationContext(), home_pacientes.class);
-                                            startActivity(intent);
-                                            Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();
+                                        if (!user.isEmailVerified()) {
+                                            Toast.makeText(getApplicationContext(), "Correo no verificado", Toast.LENGTH_SHORT).show();
                                         }
+                                    } else {
+                                        // El usuario es nulo, lo que generalmente no debería suceder si el inicio de sesión es exitoso
+                                        Log.e(TAG, "El usuario es nulo después del inicio de sesión exitoso");
                                     }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        // Manejar el error de consulta a Firestore
-                                        Log.e(TAG, "Error al consultar Firestore", e);
-                                    }
-                                });
-
-                                if (!user.isEmailVerified()) {
-                                    Toast.makeText(getApplicationContext(), "Correo no verificado", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    // Si el inicio de sesión falla, muestra un mensaje al usuario
+                                    Log.w(TAG, "Datos incorrectos", task.getException());
+                                    Toast.makeText(getApplicationContext(), "Datos incorrectos.", Toast.LENGTH_SHORT).show();
                                 }
-                            } else {
-                                // El usuario es nulo, lo que generalmente no debería suceder si el inicio de sesión es exitoso
-                                Log.e(TAG, "El usuario es nulo después del inicio de sesión exitoso");
                             }
-                        } else {
-                            // Si el inicio de sesión falla, muestra un mensaje al usuario
-                            Log.w(TAG, "Datos incorrectos", task.getException());
-                            Toast.makeText(getApplicationContext(), "Datos incorrectos.", Toast.LENGTH_SHORT).show();
-                        }
+                        },TIEMPO_CARGA);
                     }
                 });
     }
@@ -142,6 +181,13 @@ public class iniciar_sesion_especialista extends AppCompatActivity {
         Intent rec_contra = new Intent( this, recuperar_contrasena.class);
         startActivity(rec_contra);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        NetworkUtils.unregisterNetworkReceiver(this, networkReceiver);
+    }
+
 
 
 }

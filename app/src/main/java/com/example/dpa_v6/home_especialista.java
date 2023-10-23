@@ -3,8 +3,13 @@ package com.example.dpa_v6;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,12 +25,16 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class home_especialista extends AppCompatActivity {
 
+    private Dialog avisoSinInternet;
+    private BroadcastReceiver networkReceiver;
     private TextView nombre_especialista;
 
     FirebaseAuth mAuth;
     Button cerrar_sesion;
     FirebaseFirestore db;
     private String idEspecialista;
+    ProgressDialog progressDialog_h;
+    private static final int TIEMPO_CARGA = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +46,42 @@ public class home_especialista extends AppCompatActivity {
         idEspecialista = mAuth.getCurrentUser().getUid();
         cerrar_sesion = (Button) findViewById(R.id.Btn_CerrarSE);
 
+        progressDialog_h = new ProgressDialog(this);
+        progressDialog_h.setMessage("Cerrando sesión..."); // Mensaje de carga
+        progressDialog_h.setCancelable(false); // Bloquear la interacción con la actividad
+        progressDialog_h.setIndeterminate(true); // Usar un ProgressBar indeterminado
+
+        //___________________Conexion
+        avisoSinInternet = new Dialog(this);
+        avisoSinInternet.setContentView(R.layout.avisosininternet);
+        avisoSinInternet.setCancelable(false);
+        networkReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                boolean isNetworkAvailable = NetworkUtils.isNetworkAvailable(context);
+                if (isNetworkAvailable) {
+                    NetworkUtils.ocultarAvisoSinConexion(avisoSinInternet);
+                } else {
+                    NetworkUtils.mostrarAvisoSinConexion(context, avisoSinInternet);
+                }
+            }
+        };
+        NetworkUtils.registerNetworkReceiver(this, networkReceiver);
 
         cerrar_sesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(home_especialista.this, "Sesion cerrada", Toast.LENGTH_SHORT).show();
-                mAuth.signOut();
-                finish();
+                progressDialog_h.show();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run () {
+
+                        Toast.makeText(home_especialista.this, "Sesion cerrada", Toast.LENGTH_SHORT).show();
+                        mAuth.signOut();
+                        progressDialog_h.dismiss();
+                        finish();
+                    }
+                },TIEMPO_CARGA);
             }
         });
 
@@ -96,6 +134,11 @@ public class home_especialista extends AppCompatActivity {
         startActivity(comprobar_e);
         finish();
 
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        NetworkUtils.unregisterNetworkReceiver(this, networkReceiver);
     }
 
 

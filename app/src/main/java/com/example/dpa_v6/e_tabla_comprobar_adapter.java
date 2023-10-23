@@ -41,10 +41,15 @@ public class e_tabla_comprobar_adapter  extends FirestoreRecyclerAdapter<e_tabla
             @Override
             public void run() {
 
-                holder.progressBar_e.setProgress(V_ansiedad);
-                timer.cancel();
+                if (V_ansiedad==0){
+                    holder.progressBar_e.setProgress(1);
+                    timer.cancel();
+                }else {
 
+                    holder.progressBar_e.setProgress(V_ansiedad);
+                    timer.cancel();
 
+                }
             }
         };
         timer.schedule(timerTask,0,100);

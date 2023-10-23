@@ -2,6 +2,9 @@ package com.example.dpa_v6;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +18,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class especialista_generar_correo extends AppCompatActivity {
 
+    private Dialog avisoSinInternet;
+    private BroadcastReceiver networkReceiver;
     Button btn_enviar, btn_salir;
     EditText etx_titulo, etx_contenido;
     TextView tv_correo_paciente;
@@ -30,10 +35,24 @@ public class especialista_generar_correo extends AppCompatActivity {
         etx_titulo = findViewById(R.id.editTTitulo);
         etx_contenido = findViewById(R.id.editTContenido);
         btn_enviar = findViewById(R.id.btn_enviar_correo);
-
-
         db = FirebaseFirestore.getInstance();
         idpaciente = getIntent().getStringExtra("Idpaciente");
+        //___________________Conexion
+        avisoSinInternet = new Dialog(this);
+        avisoSinInternet.setContentView(R.layout.avisosininternet);
+        avisoSinInternet.setCancelable(false);
+        networkReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                boolean isNetworkAvailable = NetworkUtils.isNetworkAvailable(context);
+                if (isNetworkAvailable) {
+                    NetworkUtils.ocultarAvisoSinConexion(avisoSinInternet);
+                } else {
+                    NetworkUtils.mostrarAvisoSinConexion(context, avisoSinInternet);
+                }
+            }
+        };
+        NetworkUtils.registerNetworkReceiver(this, networkReceiver);
 
         db.collection("reg_paciente").document(idpaciente).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -73,5 +92,10 @@ public class especialista_generar_correo extends AppCompatActivity {
 
     public void salir_e(View view){
         finish();
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        NetworkUtils.unregisterNetworkReceiver(this, networkReceiver);
     }
 }

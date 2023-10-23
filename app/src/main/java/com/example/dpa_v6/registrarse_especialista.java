@@ -15,6 +15,10 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,8 +35,11 @@ import java.util.Map;
 
 public class registrarse_especialista extends AppCompatActivity {
 
+    private Dialog avisoSinInternet;
+    private BroadcastReceiver networkReceiver;
     private FirebaseAuth mAuth;
     private FirebaseFirestore datos_especialista;
+    ProgressDialog progressDialog;
     EditText enombre1;
     EditText eapelli2;
     EditText ecorreo3;
@@ -46,8 +53,6 @@ public class registrarse_especialista extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrarse_especialista);
         mAuth = FirebaseAuth.getInstance();
-
-
         datos_especialista = FirebaseFirestore.getInstance();
         enombre1 = findViewById(R.id.EditText_nombre);
         eapelli2 = findViewById(R.id.EditText_apellidos);
@@ -55,6 +60,24 @@ public class registrarse_especialista extends AppCompatActivity {
         econtra4 = findViewById(R.id.EditText_contrasena);
         ecedula5 = findViewById(R.id.editTextCedula);
         btn_dtos_espe = findViewById(R.id.button_Registro_bd);
+
+        avisoSinInternet = new Dialog(this);
+        avisoSinInternet.setContentView(R.layout.avisosininternet);
+        avisoSinInternet.setCancelable(false);
+
+        networkReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                boolean isNetworkAvailable = NetworkUtils.isNetworkAvailable(context);
+                if (isNetworkAvailable) {
+                    NetworkUtils.ocultarAvisoSinConexion(avisoSinInternet);
+                } else {
+                    NetworkUtils.mostrarAvisoSinConexion(context, avisoSinInternet);
+                }
+            }
+        };
+
+        NetworkUtils.registerNetworkReceiver(this, networkReceiver);
 
         btn_dtos_espe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,33 +103,46 @@ public class registrarse_especialista extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        NetworkUtils.unregisterNetworkReceiver(this, networkReceiver);
+    }
+
     private void registrarEspecialista(String nombre_e, String apellidos_e, String correo_e, String cedula_p_e, String contrasena_e) {
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Registrando usuario..."); // Mensaje de carga
+        progressDialog.setCancelable(false); // Bloquear la interacción con la actividad
+        progressDialog.setIndeterminate(true); // Usar un ProgressBar indeterminado
+        progressDialog.show();
         mAuth.createUserWithEmailAndPassword(correo_e, contrasena_e).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                String id = mAuth.getCurrentUser().getUid();
-                Map<String, Object> map = new HashMap<>();
-                map.put("id", id);
-                map.put("nombre_e", nombre_e);
-                map.put("apellidos", apellidos_e);
-                map.put("correo_e_e", correo_e);
-                map.put("cedula_p", cedula_p_e);
-                map.put("contra_e", contrasena_e);
-                map.put("rol","2");
-                datos_especialista.collection("reg_especialista").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        finish();
-                        Toast.makeText(getApplicationContext(), "REGISTO HECHO", Toast.LENGTH_SHORT).show();
-                        user.sendEmailVerification();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getApplicationContext(), "Error al guardar", Toast.LENGTH_SHORT).show();
-                    }
-                });
+
+                        String id = mAuth.getCurrentUser().getUid();
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("id", id);
+                        map.put("nombre_e", nombre_e);
+                        map.put("apellidos", apellidos_e);
+                        map.put("correo_e_e", correo_e);
+                        map.put("cedula_p", cedula_p_e);
+                        map.put("contra_e", contrasena_e);
+                        map.put("rol","2");
+                        datos_especialista.collection("reg_especialista").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                finish();
+                                Toast.makeText(getApplicationContext(), "REGISTO HECHO", Toast.LENGTH_SHORT).show();
+                                user.sendEmailVerification();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getApplicationContext(), "Error al guardar", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
             }
         }).addOnFailureListener(new OnFailureListener() {

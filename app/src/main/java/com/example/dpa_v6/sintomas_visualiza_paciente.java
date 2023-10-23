@@ -1,5 +1,7 @@
 package com.example.dpa_v6;
 
+import static com.example.dpa_v6.NetworkUtils.isNetworkAvailable;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,7 +13,11 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -163,7 +169,7 @@ public class sintomas_visualiza_paciente extends AppCompatActivity {
                     img1.setVisibility(View.GONE);
                     img2.setVisibility(View.GONE);
                     img3.setVisibility(View.GONE);
-                    txttitulo_f.setText("Datos guardados.");
+                    txttitulo_f.setText("Se terminaron las imágenes.");
                     siguiente_f.setVisibility(View.GONE);
                     opc1f.setVisibility(View.GONE);
                     opc2f.setVisibility(View.GONE);
@@ -179,12 +185,31 @@ public class sintomas_visualiza_paciente extends AppCompatActivity {
 
 
     private void GuardarDatosBD(){
-        //Actualizar base de datos
-        String puntuacionPaciente_visualiza = Integer.toString(resultado_visualiza);
+        if (!isNetworkAvailable(getApplicationContext())) {
+            Toast.makeText(getApplicationContext(), "No se pueden guardar los datos.", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
+            //Actualizar base de datos
+            String puntuacionPaciente_visualiza = Integer.toString(resultado_visualiza);
 
-        Map<String,Object> map = new HashMap<>();
-        map.put("puntaje_vsual",puntuacionPaciente_visualiza);
-        db.collection("reg_paciente").document(IDPacietne).update(map);
+            Map<String, Object> map = new HashMap<>();
+            map.put("puntaje_vsual", puntuacionPaciente_visualiza);
+            db.collection("reg_paciente").document(IDPacietne).update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            // La actualización se realizó con éxito
+                            Toast.makeText(getApplicationContext(), "Respuestas guardadas", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // La actualización falló
+                            // Aquí puedes mostrar un aviso o realizar acciones de manejo de errores
+                            Toast.makeText(getApplicationContext(), "Error al guardar los datos", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 }
 

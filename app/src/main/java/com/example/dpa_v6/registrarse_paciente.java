@@ -3,6 +3,9 @@ package com.example.dpa_v6;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +32,9 @@ import java.util.Map;
 
 public class registrarse_paciente extends AppCompatActivity {
 
+    private Dialog avisoSinInternet;
+    private BroadcastReceiver networkReceiver;
+
     private FirebaseAuth mAuth;
     private FirebaseFirestore datos_paciente;
     EditText enombre1;
@@ -54,6 +60,23 @@ public class registrarse_paciente extends AppCompatActivity {
         eedad6= findViewById(R.id.editTextEdad_p);
         btn_dtos_paci= findViewById(R.id.button_Registro_bd_pac);
 
+        //___________________Conexion
+        avisoSinInternet = new Dialog(this);
+        avisoSinInternet.setContentView(R.layout.avisosininternet);
+        avisoSinInternet.setCancelable(false);
+
+        networkReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                boolean isNetworkAvailable = NetworkUtils.isNetworkAvailable(context);
+                if (isNetworkAvailable) {
+                    NetworkUtils.ocultarAvisoSinConexion(avisoSinInternet);
+                } else {
+                    NetworkUtils.mostrarAvisoSinConexion(context, avisoSinInternet);
+                }
+            }
+        };
+        NetworkUtils.registerNetworkReceiver(this, networkReceiver);
         btn_dtos_paci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +99,12 @@ public class registrarse_paciente extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        NetworkUtils.unregisterNetworkReceiver(this, networkReceiver);
     }
 
     private void registrarPasientes(String nombre_p, String apellidos_p, String correo_p, String num_telef, String edad_p, String contrasena_p){
