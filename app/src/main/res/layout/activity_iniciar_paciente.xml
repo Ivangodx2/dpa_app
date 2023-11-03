@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img_loginpaciente"
-    tools:context=".iniciar_paciente">
+    tools:context=".iniciar_sesion_paciente">
 
 
     <Button

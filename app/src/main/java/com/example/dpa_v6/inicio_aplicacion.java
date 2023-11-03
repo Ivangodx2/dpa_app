@@ -15,7 +15,7 @@ public class inicio_aplicacion extends AppCompatActivity {
     }
 
     public void ir_inicio_pac(View view){
-        Intent inicios_s_pac = new Intent( this, iniciar_paciente.class);
+        Intent inicios_s_pac = new Intent( this, iniciar_sesion_paciente.class);
         startActivity(inicios_s_pac);
     }
     public void ir_inicio_S_espe(View view){

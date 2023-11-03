@@ -103,7 +103,7 @@
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".iniciar_paciente"
+            android:name=".iniciar_sesion_paciente"
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity

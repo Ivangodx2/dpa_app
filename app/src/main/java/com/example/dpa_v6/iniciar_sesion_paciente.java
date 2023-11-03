@@ -9,17 +9,12 @@ import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -35,7 +30,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-public class iniciar_paciente extends AppCompatActivity {
+public class iniciar_sesion_paciente extends AppCompatActivity {
 
     private Dialog avisoSinInternet;
     private BroadcastReceiver networkReceiver;
@@ -107,9 +102,7 @@ public class iniciar_paciente extends AppCompatActivity {
         progressDialog.show();
 
 
-        mAuth.signInWithEmailAndPassword(edtCorreo_p_p, edtContra_p_p)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-
+        mAuth.signInWithEmailAndPassword(edtCorreo_p_p, edtContra_p_p).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
@@ -142,29 +135,31 @@ public class iniciar_paciente extends AppCompatActivity {
                                                     }
                                                     Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();
                                                 } else {
-                                                    Intent intent = new Intent(getApplicationContext(), home_especialista.class);
-                                                    startActivity(intent);
                                                     progressDialog.dismiss();
-                                                    Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(getApplicationContext(), "El usuario no es paciente", Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
                                                 // Manejar el error de consulta a Firestore
+                                                progressDialog.dismiss();
                                                 Log.e(TAG, "Error al consultar Firestore", e);
                                             }
                                         });
 
                                         if (!user.isEmailVerified()) {
+                                            progressDialog.dismiss();
                                             Toast.makeText(getApplicationContext(), "Correo no verificado", Toast.LENGTH_SHORT).show();
                                         }
                                     } else {
                                         // El usuario es nulo, lo que generalmente no debería suceder si el inicio de sesión es exitoso
+                                        progressDialog.dismiss();
                                         Log.e(TAG, "El usuario es nulo después del inicio de sesión exitoso");
                                     }
                                 } else {
                                     // Si el inicio de sesión falla, muestra un mensaje al usuario
+                                    progressDialog.dismiss();
                                     Log.w(TAG, "Datos incorrectos", task.getException());
                                     Toast.makeText(getApplicationContext(), "Datos incorrectos.", Toast.LENGTH_SHORT).show();
                                 }
@@ -172,8 +167,7 @@ public class iniciar_paciente extends AppCompatActivity {
                         },TIEMPO_CARGA);
                     }
 
-                });
-
+        });
     }
 
     public void ir_reg_paciente(View view){

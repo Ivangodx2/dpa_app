@@ -42,7 +42,7 @@
             android:layout_marginEnd="48.07dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="Nombre:"
+            android:text="Nombre(s):"
             android:textColor="@color/black" />
 
         <EditText
@@ -152,7 +152,6 @@
             android:background="@drawable/style_edit_text"
             android:inputType="number"
             android:maxLength="8"
-            android:onClick="registrarEspecialista"
             android:textColor="@color/black" />
 
         <Button

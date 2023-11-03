@@ -1,17 +1,10 @@
 package com.example.dpa_v6;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import com.example.dpa_v6.registro_controller.Registro_especialista_controller;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
@@ -21,21 +14,18 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
-import org.json.*;
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class registrarse_especialista extends AppCompatActivity {
 
     private Dialog avisoSinInternet;
+    private Registro_especialista_controller registro_especialista_controller;
     private BroadcastReceiver networkReceiver;
     private FirebaseAuth mAuth;
     private FirebaseFirestore datos_especialista;
@@ -46,6 +36,7 @@ public class registrarse_especialista extends AppCompatActivity {
     EditText econtra4;
     EditText ecedula5;
     Button btn_dtos_espe;
+
 
 
     @Override
@@ -60,10 +51,10 @@ public class registrarse_especialista extends AppCompatActivity {
         econtra4 = findViewById(R.id.EditText_contrasena);
         ecedula5 = findViewById(R.id.editTextCedula);
         btn_dtos_espe = findViewById(R.id.button_Registro_bd);
-
         avisoSinInternet = new Dialog(this);
         avisoSinInternet.setContentView(R.layout.avisosininternet);
         avisoSinInternet.setCancelable(false);
+        registro_especialista_controller = new Registro_especialista_controller(this,this);
 
         networkReceiver = new BroadcastReceiver() {
             @Override
@@ -77,8 +68,57 @@ public class registrarse_especialista extends AppCompatActivity {
             }
         };
 
-        NetworkUtils.registerNetworkReceiver(this, networkReceiver);
+        //Cambio a mayuscula
+        enombre1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // No es necesario implementar este método
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // No es necesario implementar este método
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String textoNE = editable.toString();
+                if (!textoNE.isEmpty()) {
+                    String primeraLetraMayusculaNE = textoNE.substring(0, 1).toUpperCase();
+                    String restoDelTextoNE = textoNE.substring(1);
+                    String textoModificadoNE = primeraLetraMayusculaNE + restoDelTextoNE;
 
+                    enombre1.removeTextChangedListener(this);
+                    enombre1.setText(textoModificadoNE);
+                    enombre1.setSelection(textoModificadoNE.length()); // Coloca el cursor al final del texto modificado
+                }
+            }
+        });
+
+        eapelli2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // No es necesario implementar este método
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // No es necesario implementar este método
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String textoAE = editable.toString();
+                if (!textoAE.isEmpty()) {
+                    String primeraLetraMayusculaAE = textoAE.substring(0, 1).toUpperCase();
+                    String restoDelTextoAE = textoAE.substring(1);
+                    String textoModificadoAE = primeraLetraMayusculaAE + restoDelTextoAE;
+
+                    eapelli2.removeTextChangedListener(this);
+                    eapelli2.setText(textoModificadoAE);
+                    eapelli2.setSelection(textoModificadoAE.length()); // Coloca el cursor al final del texto modificado
+                }
+            }
+        });
+
+
+        NetworkUtils.registerNetworkReceiver(this, networkReceiver);
         btn_dtos_espe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,64 +133,55 @@ public class registrarse_especialista extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Ingresar datos faltantes", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    //guardar datos
-                    registrarEspecialista(nombre_e, apellidos_e, correo_e, cedula_p_e, contrasena_e);
-                    finish();
+                    if (validarDatos()){
+                        //guardar datos
+                        registro_especialista_controller.registrarEspecialista(nombre_e, apellidos_e, correo_e, cedula_p_e, contrasena_e);
+                    }
                 }
             }
         });
 
 
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         NetworkUtils.unregisterNetworkReceiver(this, networkReceiver);
     }
 
-    private void registrarEspecialista(String nombre_e, String apellidos_e, String correo_e, String cedula_p_e, String contrasena_e) {
+    public boolean validarDatos(){
+        boolean retorno=true;
+        String nombreValidarE = enombre1.getText().toString();
+        String apellidoValidarE = eapelli2.getText().toString();
+        String correoValidarE = ecorreo3.getText().toString();
+        String contrasenaValidarE = econtra4.getText().toString();
+        String cedulaPValidarE = ecedula5.getText().toString();
+        if (contieneCaracteresEspeciales(nombreValidarE)){
+            enombre1.setError("Nombre(s) no válido(s)");
+            retorno=false;
+        }
+        if (contieneCaracteresEspeciales(apellidoValidarE)){
+            eapelli2.setError("Apellidos no válidos");
+            retorno=false;
+        }
+        if (!isValidEmail(correoValidarE)) {
+            ecorreo3.setError("Correo electrónico no válido");}
+        if(contrasenaValidarE.length()>20){
+            econtra4.setError("Debe ser menor o igual a 20 caracteres");
+            retorno=false;
+        }
+        if (cedulaPValidarE.length()<8){
+            ecedula5.setError("Debe tener 8 números");
+            retorno=false;
+        }
 
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Registrando usuario..."); // Mensaje de carga
-        progressDialog.setCancelable(false); // Bloquear la interacción con la actividad
-        progressDialog.setIndeterminate(true); // Usar un ProgressBar indeterminado
-        progressDialog.show();
-        mAuth.createUserWithEmailAndPassword(correo_e, contrasena_e).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                        String id = mAuth.getCurrentUser().getUid();
-                        Map<String, Object> map = new HashMap<>();
-                        map.put("id", id);
-                        map.put("nombre_e", nombre_e);
-                        map.put("apellidos", apellidos_e);
-                        map.put("correo_e_e", correo_e);
-                        map.put("cedula_p", cedula_p_e);
-                        map.put("contra_e", contrasena_e);
-                        map.put("rol","2");
-                        datos_especialista.collection("reg_especialista").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                finish();
-                                Toast.makeText(getApplicationContext(), "REGISTO HECHO", Toast.LENGTH_SHORT).show();
-                                user.sendEmailVerification();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getApplicationContext(), "Error al guardar", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), "No se guardaron los datos", Toast.LENGTH_SHORT).show();
-            }
-        });
-
+        return retorno;
     }
+    private boolean contieneCaracteresEspeciales(String cadena) {
+        return !cadena.matches("^[a-zA-ZÁ-Úá-úÜüñÑ ]+$");
+    }
+    public static boolean isValidEmail(String correo) {
+        return Patterns.EMAIL_ADDRESS.matcher(correo).matches();
+    }
+
 }

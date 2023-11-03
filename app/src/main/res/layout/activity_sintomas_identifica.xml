@@ -121,6 +121,14 @@
             android:layout_height="wrap_content"
             android:text="Sudoración excesiva."
             android:textSize="19dp" />
+
+        <CheckBox
+            android:id="@+id/checkBox9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="19dp"
+            android:text="Ninguna de las anteriores" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -138,11 +146,11 @@
 
 
         <Button
-            android:id="@+id/siguiente_preg"
+            android:id="@+id/btn_enviar"
             android:layout_width="150dp"
             android:layout_height="46dp"
             android:background="@drawable/btn_style_inicio"
-            android:onClick="enviar_identifica"
+            android:onClick="GuardarDatosBD"
             android:text="Enviar" />
 
 

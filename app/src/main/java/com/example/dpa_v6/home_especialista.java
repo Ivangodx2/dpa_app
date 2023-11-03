@@ -107,7 +107,7 @@ public class home_especialista extends AppCompatActivity {
                     Intent intent2 = new Intent(getApplicationContext(), especialista_pacientes.class);
                     intent2.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivityForResult(intent2, 0);
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(1,0);
                     finish();
                     return true;
 

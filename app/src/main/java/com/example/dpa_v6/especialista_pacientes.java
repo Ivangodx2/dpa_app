@@ -149,4 +149,15 @@ public class especialista_pacientes extends AppCompatActivity {
         NetworkUtils.unregisterNetworkReceiver(this, networkReceiver);
     }
 
+    @Override
+    public void onBackPressed() {
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.buttom_navi);
+        bottomNavigationView.setSelectedItemId(R.id.home_esp);
+        Intent intent = new Intent(getApplicationContext(), home_especialista.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        overridePendingTransition(0,0);
+        finish();
+    }
+
 }

@@ -48,22 +48,15 @@ public class recuperar_contrasena extends AppCompatActivity {
             }
         };
         NetworkUtils.registerNetworkReceiver(this, networkReceiver);
-        enviar_corre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validate();
-            }
-        });
     }
 
-    public void validate(){
+    public void validate(View view){
         String email = emailedit_text.getText().toString().trim();
         if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             emailedit_text.setError("Correo invalido");
             return;
-        }
-
-        sendEmail(email);
+        }else{
+            sendEmail(email);}
     }
 
     public void sendEmail(String email){
@@ -78,7 +71,7 @@ public class recuperar_contrasena extends AppCompatActivity {
                             finish();
 
                         }else {
-                            Toast.makeText(recuperar_contrasena.this, "Correo invalido", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(recuperar_contrasena.this, "No se pudo enviar el correo", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

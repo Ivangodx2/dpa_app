@@ -79,7 +79,7 @@
         android:textSize="10dp"
         android:gravity="center"
         android:textColor="@color/black"
-        android:text="Versión 1.0.0"
+        android:text="Versión 1.2.0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

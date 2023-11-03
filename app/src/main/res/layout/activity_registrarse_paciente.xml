@@ -39,7 +39,7 @@
             android:layout_marginEnd="48.07dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="Nombre:"
+            android:text="Nombre(s):"
             android:textColor="@color/black" />
 
         <EditText
@@ -178,7 +178,7 @@
             android:background="@drawable/style_edit_text"
             android:ems="10"
             android:inputType="number"
-            android:maxLength="3"
+            android:maxLength="2"
             android:paddingLeft="65dp"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"

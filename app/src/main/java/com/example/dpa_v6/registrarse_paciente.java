@@ -2,12 +2,17 @@ package com.example.dpa_v6;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +22,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.dpa_v6.registro_controller.Registro_especialista_controller;
+import com.example.dpa_v6.registro_controller.Registro_paciente_controller;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,6 +42,7 @@ public class registrarse_paciente extends AppCompatActivity {
     private Dialog avisoSinInternet;
     private BroadcastReceiver networkReceiver;
 
+    private Registro_paciente_controller registro_paciente_controller;
     private FirebaseAuth mAuth;
     private FirebaseFirestore datos_paciente;
     EditText enombre1;
@@ -59,11 +67,59 @@ public class registrarse_paciente extends AppCompatActivity {
         etelef5= findViewById(R.id.editTextTelefono_p);
         eedad6= findViewById(R.id.editTextEdad_p);
         btn_dtos_paci= findViewById(R.id.button_Registro_bd_pac);
-
-        //___________________Conexion
+        registro_paciente_controller = new Registro_paciente_controller(this,this);
+        //___________________Conexion a internet
         avisoSinInternet = new Dialog(this);
         avisoSinInternet.setContentView(R.layout.avisosininternet);
         avisoSinInternet.setCancelable(false);
+
+        enombre1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // No es necesario implementar este método
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // No es necesario implementar este método
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String textoNP = editable.toString();
+                if (!textoNP.isEmpty()) {
+                    String primeraLetraMayusculaNP = textoNP.substring(0, 1).toUpperCase();
+                    String restoDelTextoNP = textoNP.substring(1);
+                    String textoModificadoNP = primeraLetraMayusculaNP + restoDelTextoNP;
+
+                    enombre1.removeTextChangedListener(this);
+                    enombre1.setText(textoModificadoNP);
+                    enombre1.setSelection(textoModificadoNP.length()); // Coloca el cursor al final del texto modificado
+                }
+            }
+        });
+
+        eapelli2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // No es necesario implementar este método
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // No es necesario implementar este método
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String textoAP = editable.toString();
+                if (!textoAP.isEmpty()) {
+                    String primeraLetraMayusculaAP = textoAP.substring(0, 1).toUpperCase();
+                    String restoDelTextoAP = textoAP.substring(1);
+                    String textoModificadoAP = primeraLetraMayusculaAP + restoDelTextoAP;
+
+                    eapelli2.removeTextChangedListener(this);
+                    eapelli2.setText(textoModificadoAP);
+                    eapelli2.setSelection(textoModificadoAP.length()); // Coloca el cursor al final del texto modificado
+                }
+            }
+        });
 
         networkReceiver = new BroadcastReceiver() {
             @Override
@@ -77,6 +133,8 @@ public class registrarse_paciente extends AppCompatActivity {
             }
         };
         NetworkUtils.registerNetworkReceiver(this, networkReceiver);
+
+
         btn_dtos_paci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,13 +150,13 @@ public class registrarse_paciente extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Ingresar datos faltantes", Toast.LENGTH_SHORT).show();
 
                 }else{
-                    //registro
-                    registrarPasientes(nombre_p,apellidos_p,correo_p,num_telef,edad_p,contrasena_p);
-                    finish();
+                    if(validarDatos()){
+                        //registro
+                        registro_paciente_controller.registrarPasientes(nombre_p,apellidos_p,correo_p,num_telef,edad_p,contrasena_p);
+                    }
                 }
             }
         });
-
     }
 
     @Override
@@ -107,49 +165,40 @@ public class registrarse_paciente extends AppCompatActivity {
         NetworkUtils.unregisterNetworkReceiver(this, networkReceiver);
     }
 
-    private void registrarPasientes(String nombre_p, String apellidos_p, String correo_p, String num_telef, String edad_p, String contrasena_p){
-        mAuth.createUserWithEmailAndPassword(correo_p,contrasena_p).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                String id = mAuth.getCurrentUser().getUid();
-                Map<String, Object> map = new HashMap<>();
-                map.put("id",id);
-                map.put("nombre", nombre_p);
-                map.put("apellidos", apellidos_p);
-                map.put("correo_e_p", correo_p);
-                map.put("num_telefonico", num_telef);
-                map.put("edad", edad_p);
-                map.put("contra_p",contrasena_p);
-                map.put("puntuacion_J","0");
-                map.put("puntaje_cuesti","0");
-                map.put("puntaje_vsual","0");
-                map.put("puntaje_escuch","0");
-                map.put("puntaje_identifica","0");
-                map.put("porcentaje_A","0");
-                map.put("rol","1");
+    public boolean validarDatos(){
+        boolean retorno=true;
+        String nombreValidarP = enombre1.getText().toString();
+        String apellidoValidarP = eapelli2.getText().toString();
+        String correoValidarP = ecorreo3.getText().toString();
+        String contrasenaValidarP = econtra4.getText().toString();
+        String numeroTValidarP = etelef5.getText().toString();
+        if (contieneCaracteresEspeciales(nombreValidarP)){
+            enombre1.setError("Nombre(s) no valido(s)");
+            retorno=false;
+        }
+        if (contieneCaracteresEspeciales(apellidoValidarP)){
+            eapelli2.setError("Apellidos no validos");
+            retorno=false;
+        }
+        if (!isValidEmail(correoValidarP)) {
+            ecorreo3.setError("Correo electrónico no válido");}
 
-                datos_paciente.collection("reg_paciente").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        finish();
-                        Toast.makeText(getApplicationContext(), "Registro hecho, verifica tu correo", Toast.LENGTH_SHORT).show();
-                        user.sendEmailVerification();
+        if(contrasenaValidarP.length()>20){
+            econtra4.setError("Debe ser menor o igual 20 caracteres");
+            retorno=false;
+        }
+        if (numeroTValidarP.length()<10){
+            etelef5.setError("Debe tener 10 números");
+            retorno=false;
+        }
 
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getApplicationContext(), "Error al guardar", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), "No pudo guardar los datos", Toast.LENGTH_SHORT).show();
-            }
-        });
+        return retorno;
     }
+    private boolean contieneCaracteresEspeciales(String cadena) {
+        return !cadena.matches("^[a-zA-ZÁ-Úá-úÜüñÑ ]+$");
+    }
+    public static boolean isValidEmail(String correo) {
+        return Patterns.EMAIL_ADDRESS.matcher(correo).matches();
+    }
+
 }
