@@ -32,10 +32,9 @@
             android:id="@+id/button_Paciente"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:layout_marginStart="115dp"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="150dp"
-            android:layout_marginEnd="115dp"
-
+            android:layout_marginEnd="100dp"
             android:background="@drawable/btn_style_inicio"
             android:ellipsize="end"
             android:gravity="center"
@@ -53,9 +52,9 @@
             android:id="@+id/button_Especialista"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginStart="115dp"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="115dp"
+            android:layout_marginEnd="100dp"
             android:background="@drawable/btn_style_especialist"
             android:ellipsize="end"
             android:gravity="center"
@@ -79,7 +78,7 @@
         android:textSize="10dp"
         android:gravity="center"
         android:textColor="@color/black"
-        android:text="Versión 1.2.0"
+        android:text="Versión 1.2.1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

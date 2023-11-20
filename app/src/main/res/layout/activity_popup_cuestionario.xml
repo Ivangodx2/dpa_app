@@ -64,7 +64,7 @@
                 android:id="@+id/textView7"
                 android:layout_width="265dp"
                 android:layout_height="126dp"
-                android:text="Contesta las preguntas, en base a como te sientas, espera tus resultados al final."
+                android:text="Contesta las preguntas, en base a como te sientas."
                 android:textSize="20dp" />
         </LinearLayout>
 

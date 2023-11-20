@@ -69,16 +69,20 @@ public class InicioSesion_especialista_controller {
                                                     // El documento existe en Firestore
                                                     user_rol = documentSnapshot.getString("rol");
 
-                                                    System.out.println(user_rol);
                                                     if (user_rol.equals("2")) {
-                                                        // Usuario es un especialista
-                                                        Intent intent = new Intent(context, home_especialista.class);
-                                                        context.startActivity(intent);
-                                                        progressDialog.dismiss();
-                                                    }
-
-                                                    Toast.makeText(context, "Sesión iniciada", Toast.LENGTH_SHORT).show();
-                                                } else {
+                                                        if (!user.isEmailVerified()) {
+                                                            progressDialog.dismiss();
+                                                            Toast.makeText(context, "Correo no verificado", Toast.LENGTH_SHORT).show();
+                                                        }else {
+                                                            // Usuario es un especialista
+                                                            Intent intent = new Intent(context, home_especialista.class);
+                                                            context.startActivity(intent);
+                                                            progressDialog.dismiss();
+                                                            Toast.makeText(context, "Sesión iniciada", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        }
+                                                }
+                                                else {
                                                     progressDialog.dismiss();
                                                     Toast.makeText(context, "El usuario no es especialista.", Toast.LENGTH_SHORT).show();
                                                 }
@@ -92,10 +96,6 @@ public class InicioSesion_especialista_controller {
                                             }
                                         });
 
-                                        if (!user.isEmailVerified()) {
-                                            progressDialog.dismiss();
-                                            Toast.makeText(context, "Correo no verificado", Toast.LENGTH_SHORT).show();
-                                        }
                                     } else {
                                         // El usuario es nulo, lo que generalmente no debería suceder si el inicio de sesión es exitoso
                                         progressDialog.dismiss();

@@ -45,10 +45,10 @@ public class sintomas_visualiza_paciente extends AppCompatActivity {
         img2 = (ImageView) findViewById(R.id.imageViewF2);
         img3 = (ImageView) findViewById(R.id.imageViewF3);
 
-        opc1f = (RadioButton) findViewById(R.id.radioButton);
-        opc2f = (RadioButton) findViewById(R.id.radioButton2);
-        opc3f = (RadioButton) findViewById(R.id.radioButton3);
-        opc4f = (RadioButton) findViewById(R.id.radioButton4);
+        opc1f = findViewById(R.id.radioButton);
+        opc2f = findViewById(R.id.radioButton2);
+        opc3f = findViewById(R.id.radioButton3);
+        opc4f = findViewById(R.id.radioButton4);
 
         ntitulo_f = (TextView) findViewById(R.id.tituloF);
         txttitulo_f=(TextView) findViewById(R.id.sintoma_titulo);
@@ -72,6 +72,8 @@ public class sintomas_visualiza_paciente extends AppCompatActivity {
 
     }
 
+
+
     public void mueve_click(View view) {
         if (opc1f.isChecked() == false && opc2f.isChecked() == false && opc3f.isChecked() == false && opc4f.isChecked() == false){
             Toast.makeText(getApplicationContext(), "Elija una opcion", Toast.LENGTH_SHORT).show();
@@ -94,11 +96,10 @@ public class sintomas_visualiza_paciente extends AppCompatActivity {
             //Reinicio de prguntas
             txttitulo_f.setText("Agorafobia");
 
+
             img1.setImageResource(R.drawable.agorafobia);
             img2.setImageResource(R.drawable.agorafobia1);
             img3.setImageResource(R.drawable.agorafobia2);
-
-
 
             //Se reinician las opciones
         }else if(Ntitulo_f == 2){
@@ -169,7 +170,7 @@ public class sintomas_visualiza_paciente extends AppCompatActivity {
                     img1.setVisibility(View.GONE);
                     img2.setVisibility(View.GONE);
                     img3.setVisibility(View.GONE);
-                    txttitulo_f.setText("Se terminaron las imágenes.");
+                    txttitulo_f.setText("Prueba vizualiza terminada.");
                     siguiente_f.setVisibility(View.GONE);
                     opc1f.setVisibility(View.GONE);
                     opc2f.setVisibility(View.GONE);
@@ -178,12 +179,9 @@ public class sintomas_visualiza_paciente extends AppCompatActivity {
 
         }
     }
-
     public void salir_p(View view){
         finish();
     }
-
-
     private void GuardarDatosBD(){
         if (!isNetworkAvailable(getApplicationContext())) {
             Toast.makeText(getApplicationContext(), "No se pueden guardar los datos.", Toast.LENGTH_SHORT).show();

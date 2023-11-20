@@ -161,14 +161,14 @@
             android:layout_marginStart="48.07dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="48.07dp"
-            android:background="@drawable/btnazul"
+            android:background="@drawable/btn_style_especialist"
             android:onClick="registrarEspecialista"
             android:paddingStart="27.47dp"
             android:paddingTop="11.9dp"
             android:paddingEnd="28.61dp"
             android:paddingBottom="11.9dp"
             android:singleLine="true"
-            android:text="Registrar"
+            android:text="Registrarse"
             android:textAllCaps="false"
             android:textColor="@color/black" />
 

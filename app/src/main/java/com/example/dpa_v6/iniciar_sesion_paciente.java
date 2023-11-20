@@ -109,32 +109,35 @@ public class iniciar_sesion_paciente extends AppCompatActivity {
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
-
-
                                 if (task.isSuccessful()) {
                                     // El inicio de sesión fue exitoso
                                     FirebaseUser user = mAuth.getCurrentUser();
-
                                     if (user != null) {
                                         String userId = user.getUid();
 
                                         // Realizar una consulta a Firestore para obtener información adicional sobre el usuario
                                         FirebaseFirestore db = FirebaseFirestore.getInstance();
                                         DocumentReference userRef = db.collection("reg_paciente").document(userId);
-
                                         userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                             @Override
                                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                                 if (documentSnapshot.exists()) {
                                                     // El documento existe en Firestore
                                                     user_rol = documentSnapshot.getString("rol");
+
                                                     if (user_rol.equals("1")) {
-                                                        Intent intent = new Intent(getApplicationContext(), home_pacientes.class);
-                                                        startActivity(intent);
-                                                        progressDialog.dismiss();
+                                                        if (!user.isEmailVerified()) {
+                                                                progressDialog.dismiss();
+                                                                Toast.makeText(getApplicationContext(), "Correo no verificado", Toast.LENGTH_SHORT).show();
+                                                        }else{
+                                                            Intent intent = new Intent(getApplicationContext(), home_pacientes.class);
+                                                            startActivity(intent);
+                                                            progressDialog.dismiss();
+                                                            Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();
+                                                        }
                                                     }
-                                                    Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();
-                                                } else {
+                                                }
+                                                else {
                                                     progressDialog.dismiss();
                                                     Toast.makeText(getApplicationContext(), "El usuario no es paciente", Toast.LENGTH_SHORT).show();
                                                 }
@@ -148,10 +151,6 @@ public class iniciar_sesion_paciente extends AppCompatActivity {
                                             }
                                         });
 
-                                        if (!user.isEmailVerified()) {
-                                            progressDialog.dismiss();
-                                            Toast.makeText(getApplicationContext(), "Correo no verificado", Toast.LENGTH_SHORT).show();
-                                        }
                                     } else {
                                         // El usuario es nulo, lo que generalmente no debería suceder si el inicio de sesión es exitoso
                                         progressDialog.dismiss();

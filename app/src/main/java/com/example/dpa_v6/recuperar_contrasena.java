@@ -69,7 +69,6 @@ public class recuperar_contrasena extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(recuperar_contrasena.this, "Correo enviado", Toast.LENGTH_SHORT).show();
                             finish();
-
                         }else {
                             Toast.makeText(recuperar_contrasena.this, "No se pudo enviar el correo", Toast.LENGTH_SHORT).show();
                         }

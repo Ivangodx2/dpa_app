@@ -73,18 +73,19 @@ public class especialista_generar_correo extends AppCompatActivity {
                 String correo_titulo=etx_titulo.getText().toString();
                 String correo_contenido=etx_contenido.getText().toString();
 
+                if (validarMensaje()){
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.putExtra(Intent.EXTRA_EMAIL, new String[]{correo_enviar});
 
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_EMAIL, new String[] {correo_enviar});
+                    intent.putExtra(Intent.EXTRA_SUBJECT, correo_titulo);
+                    intent.putExtra(Intent.EXTRA_TEXT, correo_contenido);
 
-                intent.putExtra(Intent.EXTRA_SUBJECT,correo_titulo);
-                intent.putExtra(Intent.EXTRA_TEXT, correo_contenido);
+                    intent.setType("message/rfc822");
 
-                intent.setType("message/rfc822");
-
-                startActivity(
-                        Intent.createChooser(intent,""));
-                finish();
+                    startActivity(
+                            Intent.createChooser(intent, ""));
+                    finish();
+                }
             }
 
         });
@@ -92,6 +93,22 @@ public class especialista_generar_correo extends AppCompatActivity {
 
     public void salir_e(View view){
         finish();
+    }
+
+    public boolean validarMensaje(){
+        boolean retorno=true;
+        String tituloValidarP = etx_titulo.getText().toString();
+        String contenidoValidarP = etx_contenido.getText().toString();
+
+        if (tituloValidarP.isEmpty()){
+            etx_titulo.setError("Llenar campo");
+            retorno=false;
+        }
+        if (contenidoValidarP.isEmpty()){
+            etx_contenido.setError("Llenar campo");
+            retorno=false;
+        }
+        return retorno;
     }
     @Override
     protected void onDestroy() {

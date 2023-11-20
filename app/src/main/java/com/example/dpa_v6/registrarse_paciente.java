@@ -183,10 +183,14 @@ public class registrarse_paciente extends AppCompatActivity {
         if (!isValidEmail(correoValidarP)) {
             ecorreo3.setError("Correo electrónico no válido");}
 
-        if(contrasenaValidarP.length()>20){
-            econtra4.setError("Debe ser menor o igual 20 caracteres");
+        if(contrasenaValidarP.length()>20 ){
+            econtra4.setError("Usa 20 caracteres o menos para tu contraseña");
+            retorno=false;
+        } else if (contrasenaValidarP.length()<=5) {
+            econtra4.setError("Usa 6 caracteres o más para tu contraseña");
             retorno=false;
         }
+
         if (numeroTValidarP.length()<10){
             etelef5.setError("Debe tener 10 números");
             retorno=false;

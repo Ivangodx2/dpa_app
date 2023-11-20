@@ -166,8 +166,12 @@ public class registrarse_especialista extends AppCompatActivity {
         }
         if (!isValidEmail(correoValidarE)) {
             ecorreo3.setError("Correo electrónico no válido");}
+        
         if(contrasenaValidarE.length()>20){
-            econtra4.setError("Debe ser menor o igual a 20 caracteres");
+            econtra4.setError("Usa 20 caracteres o menos para tu contraseña");
+            retorno=false;
+        } else if (contrasenaValidarE.length()<=5) {
+            econtra4.setError("Usa 6 caracteres o más para tu contraseña ");
             retorno=false;
         }
         if (cedulaPValidarE.length()<8){

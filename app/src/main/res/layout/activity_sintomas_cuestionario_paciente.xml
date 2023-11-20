@@ -51,7 +51,8 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/preguntas_style">
+                    android:background="@drawable/cuest_style"
+                    android:layout_marginBottom="10dp">
 
                     <TextView
                         android:id="@+id/Npregunta"
@@ -102,7 +103,8 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/preguntas_style">
+                    android:background="@drawable/cuest_style"
+                    android:layout_marginBottom="10dp">
 
                     <TextView
                         android:id="@+id/Npregunta2"
@@ -153,7 +155,8 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/preguntas_style">
+                    android:background="@drawable/cuest_style"
+                    android:layout_marginBottom="10dp">
 
 
                     <TextView
@@ -204,7 +207,8 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/preguntas_style">
+                    android:background="@drawable/cuest_style"
+                    android:layout_marginBottom="10dp">
 
                     <TextView
                         android:id="@+id/Npregunta4"
@@ -255,7 +259,8 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/preguntas_style">
+                    android:background="@drawable/cuest_style"
+                    android:layout_marginBottom="10dp">
 
                     <TextView
                         android:id="@+id/Npregunta5"
@@ -306,7 +311,8 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/preguntas_style">
+                    android:background="@drawable/cuest_style"
+                    android:layout_marginBottom="10dp">
 
                     <TextView
                         android:id="@+id/Npregunta6"
@@ -357,7 +363,8 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/preguntas_style">
+                    android:background="@drawable/cuest_style"
+                    android:layout_marginBottom="10dp">
 
                     <TextView
                         android:id="@+id/Npregunta7"
@@ -408,7 +415,8 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/preguntas_style">
+                    android:background="@drawable/cuest_style"
+                    android:layout_marginBottom="10dp">
 
                     <TextView
                         android:id="@+id/Npregunta8"
@@ -459,7 +467,8 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/preguntas_style">
+                    android:background="@drawable/cuest_style"
+                    android:layout_marginBottom="10dp">
 
                     <TextView
                         android:id="@+id/Npregunta9"
@@ -510,7 +519,8 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/preguntas_style">
+                    android:background="@drawable/cuest_style"
+                    android:layout_marginBottom="10dp">
 
                     <TextView
                         android:id="@+id/Npregunta10"
