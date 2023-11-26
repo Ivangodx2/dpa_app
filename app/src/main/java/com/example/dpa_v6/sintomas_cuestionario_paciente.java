@@ -1,13 +1,18 @@
 package com.example.dpa_v6;
 
+import static android.content.ContentValues.TAG;
 import static com.example.dpa_v6.NetworkUtils.isNetworkAvailable;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,10 +39,13 @@ public class sintomas_cuestionario_paciente extends AppCompatActivity {
     int resultado_encu= 0;
     int Npregunta_p=1;
     String result_cuestionario, IDPacietne;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sintomas_cuestionario_paciente);
+
+        Log.d(TAG, "SharedPreferences se ha creado correctamente.");
 
         rP1_1 =(RadioButton)findViewById(R.id.rBP1_1);
         rP1_2 = (RadioButton)findViewById(R.id.rBP1_2);

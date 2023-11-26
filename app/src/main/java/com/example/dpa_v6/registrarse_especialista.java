@@ -13,6 +13,8 @@ import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -54,6 +56,7 @@ public class registrarse_especialista extends AppCompatActivity {
         avisoSinInternet = new Dialog(this);
         avisoSinInternet.setContentView(R.layout.avisosininternet);
         avisoSinInternet.setCancelable(false);
+        avisoSinInternet.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         registro_especialista_controller = new Registro_especialista_controller(this,this);
 
         networkReceiver = new BroadcastReceiver() {
@@ -182,7 +185,7 @@ public class registrarse_especialista extends AppCompatActivity {
         return retorno;
     }
     private boolean contieneCaracteresEspeciales(String cadena) {
-        return !cadena.matches("^[a-zA-ZÁ-Úá-úÜüñÑ ]+$");
+        return !cadena.matches("^[a-zA-ZÁ-Úá-úÜüñÑ]+( [a-zA-ZÁ-Úá-úÜüñÑ]+)*$");
     }
     public static boolean isValidEmail(String correo) {
         return Patterns.EMAIL_ADDRESS.matcher(correo).matches();

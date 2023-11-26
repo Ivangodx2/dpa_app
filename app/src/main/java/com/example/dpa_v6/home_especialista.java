@@ -8,6 +8,8 @@ import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -55,6 +57,7 @@ public class home_especialista extends AppCompatActivity {
         avisoSinInternet = new Dialog(this);
         avisoSinInternet.setContentView(R.layout.avisosininternet);
         avisoSinInternet.setCancelable(false);
+        avisoSinInternet.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         networkReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {

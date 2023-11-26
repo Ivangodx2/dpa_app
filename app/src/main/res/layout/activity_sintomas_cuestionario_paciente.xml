@@ -622,7 +622,7 @@
         android:background="@drawable/icon_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_info" />
+         />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

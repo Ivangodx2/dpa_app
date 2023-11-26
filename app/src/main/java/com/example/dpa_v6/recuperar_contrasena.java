@@ -7,6 +7,8 @@ import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -36,6 +38,7 @@ public class recuperar_contrasena extends AppCompatActivity {
         avisoSinInternet = new Dialog(this);
         avisoSinInternet.setContentView(R.layout.avisosininternet);
         avisoSinInternet.setCancelable(false);
+        avisoSinInternet.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         networkReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {

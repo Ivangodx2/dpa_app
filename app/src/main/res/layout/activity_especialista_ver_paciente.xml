@@ -73,7 +73,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
 
@@ -86,11 +86,23 @@
                     android:progressDrawable="@drawable/style_pbarr" />
 
                 <TextView
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Resultados:"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+                <TextView
                     android:id="@+id/Diag_Cuestionario_ie"
                     style="@style/Widget.AppCompat.TextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="2dp"
+                    android:layout_marginStart="10dp"
                     android:text="Cuestionario"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -99,7 +111,8 @@
                     android:id="@+id/Diag_Escucha_ie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="2dp"
+                    android:layout_marginStart="10dp"
                     android:text="Escucha"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -108,7 +121,8 @@
                     android:id="@+id/Diag_Visualiza_ie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="2dp"
+                    android:layout_marginStart="10dp"
                     android:text="Visualiza"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -117,7 +131,8 @@
                     android:id="@+id/Diag_Oprime_ie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="2dp"
+                    android:layout_marginStart="10dp"
                     android:text="Oprime"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -126,7 +141,8 @@
                     android:id="@+id/Diag_Identifica_ie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="2dp"
+                    android:layout_marginStart="10dp"
                     android:text="Identifica"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -145,8 +161,8 @@
         <com.androidplot.xy.XYPlot
             android:id="@+id/xyzplot_Vis_E"
             style="@style/APDefacto"
-            android:layout_width="342dp"
-            android:layout_height="343dp"
+            android:layout_width="332dp"
+            android:layout_height="332dp"
             android:layout_below="@+id/textNombre_paciente_GF"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"

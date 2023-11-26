@@ -9,6 +9,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -72,7 +74,7 @@ public class registrarse_paciente extends AppCompatActivity {
         avisoSinInternet = new Dialog(this);
         avisoSinInternet.setContentView(R.layout.avisosininternet);
         avisoSinInternet.setCancelable(false);
-
+        avisoSinInternet.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         enombre1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -199,7 +201,7 @@ public class registrarse_paciente extends AppCompatActivity {
         return retorno;
     }
     private boolean contieneCaracteresEspeciales(String cadena) {
-        return !cadena.matches("^[a-zA-ZÁ-Úá-úÜüñÑ ]+$");
+        return !cadena.matches("^[a-zA-ZÁ-Úá-úÜüñÑ]+( [a-zA-ZÁ-Úá-úÜüñÑ]+)*$");
     }
     public static boolean isValidEmail(String correo) {
         return Patterns.EMAIL_ADDRESS.matcher(correo).matches();

@@ -97,78 +97,86 @@ public class diagnostico_paciente extends AppCompatActivity {
             DCuestionario.setText("-Resultados de Test Sintomas: Ansiedad media");
 
             ResPB = ResPB+Numbr_Cuest;
-        } else if (Numbr_Cuest>=0) {
+        } else if (Numbr_Cuest>=1) {
             DCuestionario.setText("-Resultados de Test Sintomas: Ansiedad baja");
 
             ResPB = ResPB+Numbr_Cuest;
+        }else if (Numbr_Cuest==0) {
+            DCuestionario.setText("-Resultados de Test Sintomas: Sin resultados");
+
         }
 
         if(Numbr_Escucha>=30){
-            DEscucha.setText("-Resultados de test escucha: Ansiedad alta");
+            DEscucha.setText("-Resultados de Test Escucha:  Ansiedad alta");
 
             ResPB = ResPB+Numbr_Escucha;
         } else if (Numbr_Escucha>=20) {
-            DEscucha.setText("-Resultados de test escucha: Ansiedad media alta");
+            DEscucha.setText("-Resultados de Test Escucha:  Ansiedad media alta");
 
             ResPB = ResPB+Numbr_Escucha;
         } else if (Numbr_Escucha>=10) {
-            DEscucha.setText("-Resultados de test escucha: Ansiedad media");
+            DEscucha.setText("-Resultados de Test Escucha:  Ansiedad media");
 
             ResPB = ResPB+Numbr_Escucha;
-        } else if (Numbr_Escucha>=0) {
-            DEscucha.setText("-Resultados de test escucha: Ansiedad baja");
+        } else if (Numbr_Escucha>=1) {
+            DEscucha.setText("-Resultados de Test Escucha:  Ansiedad baja");
 
             ResPB = ResPB+Numbr_Escucha;
+        }else if (Numbr_Escucha==0) {
+            DEscucha.setText("-Resultados de Test Escucha:  Sin resultados");
         }
 
         if(Numbr_Visuali>=27){
-            DVisualiza.setText("-Resultados de test visualiza: Ansiedad alta");
+            DVisualiza.setText("-Resultados de Test Visualiza: Ansiedad alta");
 
             ResPB = ResPB+Numbr_Visuali;
         } else if (Numbr_Visuali>=16) {
-            DVisualiza.setText("-Resultados de test visualiza: Ansiedad media alta");
+            DVisualiza.setText("-Resultados de Test Visualiza: Ansiedad media alta");
 
             ResPB = ResPB+Numbr_Visuali;
         } else if (Numbr_Visuali>=8) {
-            DVisualiza.setText("-Resultados de test visualiza: Ansiedad media");
+            DVisualiza.setText("-Resultados de Test Visualiza: Ansiedad media");
 
             ResPB = ResPB+Numbr_Visuali;
-        } else if (Numbr_Visuali>=0) {
-            DVisualiza.setText("-Resultados de test visualiza: Ansiedad baja");
-
+        } else if (Numbr_Visuali>=1) {
+            DVisualiza.setText("-Resultados de Test Visualiza: Ansiedad baja");
             ResPB = ResPB+Numbr_Visuali;
+        }else if (Numbr_Visuali==0) {
+            DVisualiza.setText("-Resultados de Test Visualiza: Sin resultados");
         }
 
         if(Numbr_Oprime>10){
-            DOprime.setText("-Resultados de test oprime: Ansiedad baja");
+            DOprime.setText("-Resultados de Test Oprime:    Ansiedad baja");
 
         } else if (Numbr_Oprime>=7) {
-            DOprime.setText("-Resultados de test oprime: Ansiedad media");
+            DOprime.setText("-Resultados de Test Oprime:    Ansiedad media");
 
         } else if (Numbr_Oprime>=5) {
-            DOprime.setText("-Resultados de test oprime: Ansiedad media alta");
+            DOprime.setText("-Resultados de Test Oprime:    Ansiedad media alta");
 
         } else if (Numbr_Oprime>=2) {
-            DOprime.setText("-Resultados de test oprime: Ansiedad alta");
-
+            DOprime.setText("-Resultados de Test Oprime:    Ansiedad alta");
+        }else if (Numbr_Oprime==0) {
+            DOprime.setText("-Resultados de Test Oprime:    Sin resultados");
         }
 
         if(Numbr_Ident>=35){
-            DIdentifica.setText("-Resultados de test identifica: Ansiedad alta");
+            DIdentifica.setText("-Resultados de Test Identifica: Ansiedad alta");
 
             ResPB = ResPB+Numbr_Ident;
         } else if (Numbr_Ident>=30) {
-            DIdentifica.setText("-Resultados de test identifica: Ansiedad media alta");
+            DIdentifica.setText("-Resultados de Test Identifica: Ansiedad media alta");
 
             ResPB = ResPB+Numbr_Ident;
         } else if (Numbr_Ident>=20) {
-            DIdentifica.setText("-Resultados de test identifica: Ansiedad media");
+            DIdentifica.setText("-Resultados de Test Identifica: Ansiedad media");
 
             ResPB = ResPB+Numbr_Ident;
-        } else if (Numbr_Ident>=0) {
-            DIdentifica.setText("-Resultados de test identifica: Ansiedad baja");
-
+        } else if (Numbr_Ident>=1) {
+            DIdentifica.setText("-Resultados de Test Identifica: Ansiedad baja");
             ResPB = ResPB+Numbr_Ident;
+        }else if (Numbr_Ident==0) {
+            DIdentifica.setText("-Resultados de Test Identifica: Sin resultados");
         }
         Pbar_ansiedad();
         GuardarDatosPA();

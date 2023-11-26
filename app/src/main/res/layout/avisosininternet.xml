@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="280dp"
-    android:layout_gravity="center"
-    android:background="#616139">
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="50dp"
+    app:cardBackgroundColor="@android:color/transparent"
+    android:layout_marginHorizontal="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/aviso_sc_style"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteY="7dp">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/titulo"
@@ -34,4 +33,4 @@
             android:layout_gravity="center"
             android:src="@drawable/no_internet_icn" />
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

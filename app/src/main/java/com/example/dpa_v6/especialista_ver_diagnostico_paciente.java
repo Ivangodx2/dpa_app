@@ -205,102 +205,102 @@ public class especialista_ver_diagnostico_paciente extends AppCompatActivity {
 
 
         if(V_escucha>=30){
-            DEscucha_e.setText("-Resultados de test escucha: Ansiedad alta");
+            DEscucha_e.setText("-Resultados de Test Escucha: Ansiedad alta");
             MyBarFormatter barFormatter2 = new MyBarFormatter(Color.RED, Color.LTGRAY);
             myplot_E.addSeries(series2,barFormatter2);
             ResPB_e = ResPB_e+V_escucha;
         } else if (V_escucha>=20) {
-            DEscucha_e.setText("-Resultados de test escucha: Ansiedad media alta");
+            DEscucha_e.setText("-Resultados de Test Escucha: Ansiedad media alta");
             MyBarFormatter barFormatter2 = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
             myplot_E.addSeries(series2,barFormatter2);
             ResPB_e = ResPB_e+V_escucha;
         } else if (V_escucha>=10) {
-            DEscucha_e.setText("-Resultados de test escucha: Ansiedad media");
+            DEscucha_e.setText("-Resultados de Test Escucha: Ansiedad media");
             MyBarFormatter barFormatter2 = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
             myplot_E.addSeries(series2,barFormatter2);
             ResPB_e = ResPB_e+V_escucha;
         } else if (V_escucha>0) {
-            DEscucha_e.setText("-Resultados de test escucha: Ansiedad baja");
+            DEscucha_e.setText("-Resultados de Test Escucha: Ansiedad baja");
             MyBarFormatter barFormatter2 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
             myplot_E.addSeries(series2,barFormatter2);
             ResPB_e = ResPB_e+V_escucha;
         }else if (V_escucha==0) {
-            DEscucha_e.setText("-Resultados de test escucha: Sin resultados");
+            DEscucha_e.setText("-Resultados de Test Escucha: Sin resultados");
             MyBarFormatter barFormatter2 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
             myplot_E.addSeries(series2,barFormatter2);}
 
         if(V_visuali>=27){
-            DVisualiza_e.setText("-Resultados de test visualiza: Ansiedad alta");
+            DVisualiza_e.setText("-Resultados de Test Visualiza: Ansiedad alta");
             MyBarFormatter barFormatter3 = new MyBarFormatter(Color.RED, Color.LTGRAY);
             myplot_E.addSeries(series3,barFormatter3);
             ResPB_e = ResPB_e+V_visuali;
         } else if (V_visuali>=16) {
-            DVisualiza_e.setText("-Resultados de test visualiza: Ansiedad media alta");
+            DVisualiza_e.setText("-Resultados de Test Visualiza: Ansiedad media alta");
             MyBarFormatter barFormatter3 = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
             myplot_E.addSeries(series3,barFormatter3);
             ResPB_e = ResPB_e+V_visuali;
         } else if (V_visuali>=8) {
-            DVisualiza_e.setText("-Resultados de test visualiza: Ansiedad media");
+            DVisualiza_e.setText("-Resultados de Test Visualiza: Ansiedad media");
             MyBarFormatter barFormatter3 = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
             myplot_E.addSeries(series3,barFormatter3);
             ResPB_e = ResPB_e+V_visuali;
         } else if (V_visuali>0) {
-            DVisualiza_e.setText("-Resultados de test visualiza: Ansiedad baja");
+            DVisualiza_e.setText("-Resultados de Test Visualiza: Ansiedad baja");
             MyBarFormatter barFormatter3 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
             myplot_E.addSeries(series3,barFormatter3);
             ResPB_e = ResPB_e+V_visuali;
         }else if (V_visuali==0) {
-            DVisualiza_e.setText("-Resultados de test visualiza: Sin resultados");
+            DVisualiza_e.setText("-Resultados de Test Visualiza: Sin resultados");
             MyBarFormatter barFormatter3 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
             myplot_E.addSeries(series3,barFormatter3);
         }
 
         if(V_oprime>10){
-            DOprime_e.setText("-Resultados de test oprime: Ansiedad baja");
+            DOprime_e.setText("-Resultados de Test Oprime: Ansiedad baja");
             MyBarFormatter barFormatter4 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
             myplot_E.addSeries(series4,barFormatter4);
         } else if (V_oprime>=7) {
-            DOprime_e.setText("-Resultados de test oprime: Ansiedad media");
+            DOprime_e.setText("-Resultados de Test Oprime: Ansiedad media");
             MyBarFormatter barFormatter4 = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
             myplot_E.addSeries(series4,barFormatter4);
         } else if (V_oprime>=5) {
-            DOprime_e.setText("-Resultados de test oprime: Ansiedad media alta");
+            DOprime_e.setText("-Resultados de Test Oprime: Ansiedad media alta");
             MyBarFormatter barFormatter4 = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
             myplot_E.addSeries(series4,barFormatter4);
         } else if (V_oprime>=1) {
-            DOprime_e.setText("-Resultados de test oprime: Ansiedad alta");
+            DOprime_e.setText("-Resultados de Test Oprime: Ansiedad alta");
             MyBarFormatter barFormatter4 = new MyBarFormatter(Color.RED, Color.LTGRAY);
             myplot_E.addSeries(series4,barFormatter4);
         }else if (V_oprime==0){
-            DOprime_e.setText("-Resultados de test oprime: Sin resultados");
+            DOprime_e.setText("-Resultados de Test Oprime: Sin resultados");
             MyBarFormatter barFormatter4 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
             myplot_E.addSeries(series4,barFormatter4);
         }
 
 
         if(V_ident>=35){
-            DIdentifica_e.setText("-Resultados de test identifica: Ansiedad alta");
+            DIdentifica_e.setText("-Resultados de Test Identifica: Ansiedad alta");
             MyBarFormatter barFormatter5 = new MyBarFormatter(Color.RED, Color.LTGRAY);
             myplot_E.addSeries(series5,barFormatter5);
             ResPB_e = ResPB_e+V_ident;
         } else if (V_ident>=30) {
-            DIdentifica_e.setText("-Resultados de test identifica: Ansiedad media alta");
+            DIdentifica_e.setText("-Resultados de Test Identifica: Ansiedad media alta");
             MyBarFormatter barFormatter5 = new MyBarFormatter(Color.rgb(255,100,0), Color.LTGRAY);
             myplot_E.addSeries(series5,barFormatter5);
             ResPB_e = ResPB_e+V_ident;
         } else if (V_ident>=20) {
-            DIdentifica_e.setText("-Resultados de test identifica: Ansiedad media");
+            DIdentifica_e.setText("-Resultados de Test Identifica: Ansiedad media");
             MyBarFormatter barFormatter5 = new MyBarFormatter(Color.YELLOW, Color.LTGRAY);
             myplot_E.addSeries(series5,barFormatter5);
             ResPB_e = ResPB_e+V_ident;
         } else if (V_ident>0) {
-            DIdentifica_e.setText("-Resultados de test identifica: Ansiedad baja");
+            DIdentifica_e.setText("-Resultados de Test Identifica: Ansiedad baja");
             MyBarFormatter barFormatter5 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
             myplot_E.addSeries(series5,barFormatter5);
             ResPB_e = ResPB_e+V_ident;
         }
         else if (V_ident==0) {
-            DIdentifica_e.setText("-Resultados de test identifica: Sin resultados");
+            DIdentifica_e.setText("-Resultados de Test Identifica: Sin resultados");
             MyBarFormatter barFormatter5 = new MyBarFormatter(Color.GREEN, Color.LTGRAY);
             myplot_E.addSeries(series5,barFormatter5);
         }
