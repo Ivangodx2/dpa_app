@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_loginbg1"
+    tools:context=".recuperar_contrasena">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="308dp"
+        android:layout_height="282dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.592"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.276">
+
+        <ImageView
+            android:id="@+id/imageLogoOne"
+            android:layout_width="161dp"
+            android:layout_height="131dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/img_logo1"
+            android:scaleType="fitXY"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/img_logo1" />
+
+        <TextView
+            android:id="@+id/txtCorreoElectron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="7.32dp"
+            android:layout_marginEnd="48.07dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Correo electrónico:"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/EdittextCorreo_RC"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/style_edit_text"
+            android:textColor="#000000" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_recuperarcontra"
+        android:layout_width="229dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/btn_style_recuperar_contrasena"
+        android:onClick="validate"
+        android:text="Enviar"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.713" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

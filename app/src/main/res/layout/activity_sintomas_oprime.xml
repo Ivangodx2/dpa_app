@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_loginpaciente"
+    tools:context=".sintomas_oprime_paciente">
+
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="200dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/style_titulos_paciente"
+            android:gravity="center"
+            android:text="OPRIME"
+            android:textColor="@color/black"
+            android:textSize="30dp"/>
+        <TextView
+            android:id="@+id/Mipuntuacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="Mi Puntuacion:"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/puntuacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="-"
+            android:textSize="25dp"/>
+
+
+        
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_logohv"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/huevo_logo2r"/>
+
+        <TextView
+            android:id="@+id/nombre_p"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="-"
+            android:textSize="25dp"/>
+
+        <TextView
+            android:id="@+id/menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="MENÚ"
+            android:textSize="25dp"/>
+
+        <Button
+            android:id="@+id/jugar_btn"
+            android:layout_width="match_parent"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_style_inicio"
+            android:text="Jugar" />
+
+        <Button
+            android:id="@+id/button_info"
+            android:layout_width="match_parent"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_height="65dp"
+            android:background="@drawable/btn_style_inicio"
+            android:layout_marginTop="10dp"
+            android:text="Instrucciones"
+            />
+
+        <Button
+            android:id="@+id/btn_salir"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/btn_style_inicio"
+            android:onClick="salir_p"
+            android:text="Salir" />
+
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>

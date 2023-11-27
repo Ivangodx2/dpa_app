@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="600dp"
+    android:layout_gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/green_A700_a3"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¡SE ACABÓ EL TIEMPO!"
+        android:textSize="40dp"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        app:lottie_imageAssetsFolder="assets"
+        app:lottie_fileName="animacion_hvs.json"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"/>
+
+    <TextView
+        android:id="@+id/titulo_dos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Puntaje obtenido"
+        android:textSize="30dp"
+        android:gravity="center"
+        />
+
+
+    <TextView
+        android:id="@+id/puntaje_obtenido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="--"
+        android:textSize="20dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/Jugar_otv"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Jugar otra vez"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_style_inicio"/>
+
+    <Button
+        android:id="@+id/Volver_menu"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Volver al menú"
+        android:background="@drawable/btn_style_inicio"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

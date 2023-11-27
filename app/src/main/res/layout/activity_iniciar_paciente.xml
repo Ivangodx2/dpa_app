@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_loginpaciente"
+    tools:context=".iniciar_sesion_paciente">
+
+
+    <Button
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="232dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_style_inicio"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:onClick="ir_reg_paciente"
+        android:paddingStart="27.47dp"
+        android:paddingTop="11.9dp"
+        android:paddingEnd="28.61dp"
+        android:paddingBottom="11.9dp"
+        android:singleLine="true"
+        android:text="Registrarse Paciente"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_Iniciar_S_p"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_Iniciar_S_p"
+        android:layout_width="232dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/btn_style_inicio"
+        android:paddingStart="27.47dp"
+        android:paddingTop="11.9dp"
+        android:paddingEnd="28.61dp"
+        android:paddingBottom="11.9dp"
+        android:singleLine="true"
+        android:text="Iniciar Sesión"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/olvide_contrasena_p" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="295dp"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.251">
+
+        <ImageView
+            android:id="@+id/imageLogoOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/img_logo1"
+            android:scaleType="fitXY"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/img_logo1" />
+
+        <TextView
+            android:id="@+id/txtCorreoElectron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="7.32dp"
+            android:layout_marginEnd="48.07dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Correo Electrónico"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/TextEspeEmailAddress_p"
+            android:layout_width="280dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/style_edit_text"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/EdittxtContrasena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="7.32dp"
+            android:layout_marginEnd="48.07dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Contraseña"
+            android:textColor="@color/black" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/EdittextContra_Pas"
+                android:layout_width="280dp"
+                android:layout_height="43dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/style_edit_text"
+                android:inputType="textPassword"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/olvide_contrasena_p"
+        android:layout_width="284dp"
+        android:layout_height="44dp"
+        android:background="@drawable/btn_style"
+        android:onClick="ir_rec_contra_p"
+        android:text="¿Olvidaste tu contraseña?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>
